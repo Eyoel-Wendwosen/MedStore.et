@@ -3,12 +3,11 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import './App.css';
-import './components/Navbars/DemoNavbar';
-import Index from './views/Index';
+import './components/Navbars/Navbar';
 import Services from './views/Services';
-import DemoNavbar from './components/Navbars/DemoNavbar';
+import DemoNavbar from './components/Navbars/Navbar';
 import SimpleFooter from './components/Footers/SimpleFooter';
-import ContactUs from './views/ContactUs';
+import ContactUs from './components/ContactUs';
 import Team from './views/Team';
 
 function App() {
@@ -16,18 +15,6 @@ function App() {
   return (
     <>
       <div className="App">
-        {/* <div className="shape shape-style-1 shape-default">
-        <span className="span-150" />
-        <span className="span-50" />
-        <span className="span-50" />
-        <span className="span-75" />
-        <span className="span-100" />
-        <span className="span-75" />
-        <span className="span-50" />
-        <span className="span-100" />
-        <span className="span-50" />
-        <span className="span-100" />
-      </div> */}
         <DemoNavbar />
         <main>
           <div className="position-relative">

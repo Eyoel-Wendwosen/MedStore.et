@@ -1,20 +1,3 @@
-/*!
-
-=========================================================
-* Argon Design System React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-design-system-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-design-system-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import { Link } from "react-router-dom";
 // JavaScript plugin that hides or shows a component based on your scroll
@@ -123,7 +106,7 @@ class DemoNavbar extends React.Component {
                       <div className="dropdown-menu-inner">
                         <Media
                           className="d-flex align-items-center"
-                          href="https://demos.creative-tim.com/argon-design-system-react/#/documentation/overview?ref=adsr-navbar"
+                          href="#"
                           target="_blank"
                         >
                           <div className="icon icon-shape bg-gradient-primary rounded-circle text-white">
@@ -141,7 +124,7 @@ class DemoNavbar extends React.Component {
                         </Media>
                         <Media
                           className="d-flex align-items-center"
-                          href="https://demos.creative-tim.com/argon-design-system-react/#/documentation/colors?ref=adsr-navbar"
+                          href="#"
                           target="_blank"
                         >
                           <div className="icon icon-shape bg-gradient-success rounded-circle text-white">
@@ -159,7 +142,7 @@ class DemoNavbar extends React.Component {
                         </Media>
                         <Media
                           className="d-flex align-items-center"
-                          href="https://demos.creative-tim.com/argon-design-system-react/#/documentation/alert?ref=adsr-navbar"
+                          href="#"
                           target="_blank"
                         >
                           <div className="icon icon-shape bg-gradient-warning rounded-circle text-white">
