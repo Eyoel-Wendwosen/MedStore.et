@@ -12960,7 +12960,7 @@ textarea[resize="horizontal"] {
   font-size: .875rem;
   letter-spacing: .05px; }
   .navbar-brand img {
-    height: 30px; }
+    height: 50px; }
 
 .navbar-dark .navbar-brand {
   color: #fff; }
@@ -13053,7 +13053,7 @@ textarea[resize="horizontal"] {
   top: 0;
   width: 100%;
   z-index: 100;
-  background-color: transparent !important;
+  background-color: transparent ;
   border: 0;
   box-shadow: none; }
   .navbar-transparent .navbar-brand {

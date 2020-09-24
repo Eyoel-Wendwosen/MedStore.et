@@ -29,7 +29,7 @@ class Services extends React.Component {
                                             <span>
                                                 <h2 className="display-3 text-white">We provide various kind of Services just for you ...</h2>
                                                 <p xl="12" className="text-white">
-                                                    Medstore.et is a place where you can buy and sell medical equipment (brand new and used),  get technical support for your defective medical equipment, get a consultation to buy and manage medical equipment lifetime. In addition, Medstore.et is your early home to get breaking notification service for medical tender through subscription.
+                                                    <span className="font-weight-bold">MedStore.et</span> is a place where you can buy and sell medical equipment (brand new and used),  get technical support for your defective medical equipment, get a consultation to buy and manage medical equipment lifetime. In addition, <span className="font-weight-bold">MedStore.et</span> is your early home to get breaking notification service for medical tender through subscription.
                                                 </p>
                                             </span>
                                         </Col>
@@ -77,7 +77,7 @@ class Services extends React.Component {
                                                             Compare &amp; Buy
                                                         </h4>
                                                         <p className="description mt-3">
-                                                            Medstore.et is a place where you can find all eFDA Registered and used medical equipment for sale both within/at stock and order.
+                                                            <span className="font-weight-bold">MedStore.et</span> is a place where you can find all eFDA Registered and used medical equipment for sale both within/at stock and order.
                                                         </p>
                                                         <div>
                                                             <Badge color="primary" pill className="mr-1">
@@ -112,7 +112,7 @@ class Services extends React.Component {
                                                             Consultancy
                                                         </h4>
                                                         <p className="description mt-3">
-                                                            MedStore.et supports and advises you while you make a medical equipment purchase, and advice on managing medical equipment on health facilities.
+                                                            <span className="font-weight-bold">MedStore.et</span> supports and advises you while you make a medical equipment purchase, and advice on managing medical equipment on health facilities.
                                                         </p>
                                                         <div>
                                                             <Badge color="info" pill className="mr-1">
@@ -147,7 +147,7 @@ class Services extends React.Component {
                                                             Tender
                                                         </h4>
                                                         <p className="description mt-3">
-                                                            At Medstore.et searching for tender is easy, you can find floating tender, biding tenders, and hot deals through our Medstore.et premium subscription.
+                                                            At <span className="font-weight-bold">MedStore.et</span> searching for tender is easy, you can find floating tender, biding tenders, and hot deals through our <span className="font-weight-bold">MedStore.et</span> premium subscription.
                                                         </p>
                                                         <div>
                                                             <Badge color="success" pill className="mr-1">
@@ -196,7 +196,7 @@ class Services extends React.Component {
                                             Technical Support
                                             </h3>
                                         <p>
-                                            MedStore.et is home to experienced biomedical engineers where you can get technical support for your entire medical facility or down to specific medical equipment. With quality maintenance service at its core MedStore.et provides reliable spare parts supply.
+                                        <span className="font-weight-bold">MedStore.et</span> is home to experienced biomedical engineers where you can get technical support for your entire medical facility or down to specific medical equipment. With quality maintenance service at its core <span className="font-weight-bold">MedStore.et</span> provides reliable spare parts supply.
                                             </p>
                                         <ul className="list-unstyled mt-5">
                                             <li className="py-2">

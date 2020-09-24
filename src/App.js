@@ -32,7 +32,7 @@ function App() {
                     <Col className="header-description" xl="10" >
                       <span>
                         <p className=" lead "> 
-                          MedStore.et is an Ethiopian Medical Equipment market place/Webstore where you find a multiple-choice for your clinical needs and any medical purposes. All the thigs you find at Medstore.et are dully authorized,  registered, and certified at eFDA for sales, and can be used for any clinical practices.
+                          <span className="font-weight-bold">MedStore.et</span> is an Ethiopian Medical Equipment market place/Webstore where you find a multiple-choice for your clinical needs and any medical purposes. All the thigs you find at <span className="font-weight-bold">MedStore.et</span> are dully authorized,  registered, and certified at eFDA for sales, and can be used for any clinical practices.
               </p>
                       </span>
                     </Col>

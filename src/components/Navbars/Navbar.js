@@ -51,6 +51,7 @@ class DemoNavbar extends React.Component {
         <header className="header-global">
           <Navbar
             className="navbar-main navbar-transparent navbar-light headroom"
+            // style = {{backgroundColor: "#172b4d !important"}}
             expand="lg"
             id="navbar-main"
           >
@@ -58,7 +59,7 @@ class DemoNavbar extends React.Component {
               <NavbarBrand className="mr-lg-5" to="/" tag={Link}>
                 <img
                   alt="..."
-                  src={require("../../assets/img/brand/argon-react-white.png")}
+                  src={require("../../assets/img/brand/Logo-White.png")}
                 />
               </NavbarBrand>
               <button className="navbar-toggler" id="navbar_global">
@@ -77,7 +78,7 @@ class DemoNavbar extends React.Component {
                       <Link to="/">
                         <img
                           alt="..."
-                          src={require("../../assets/img/brand/argon-react.png")}
+                          src={require("../../assets/img/brand/Logo.png")}
                         />
                       </Link>
                     </Col>
@@ -93,9 +94,11 @@ class DemoNavbar extends React.Component {
                   <UncontrolledDropdown nav>
                     <DropdownToggle nav>
                       <i className="ni ni-ui-04 d-lg-none mr-1" />
-                      <span className="nav-link-inner--text">Home</span>
+                      <Link className="nav-link-inner--text" to="/">
+                        <span className="text-white">Home</span>
+                      </Link>
                     </DropdownToggle>
-                    
+
                   </UncontrolledDropdown>
                   <UncontrolledDropdown nav>
                     <DropdownToggle nav>
@@ -106,55 +109,49 @@ class DemoNavbar extends React.Component {
                       <div className="dropdown-menu-inner">
                         <Media
                           className="d-flex align-items-center"
-                          href="#"
-                          target="_blank"
+                          href="/eCommerceService"
                         >
                           <div className="icon icon-shape bg-gradient-primary rounded-circle text-white">
-                            <i className="ni ni-spaceship" />
+                            <i className="ni ni-cart" />
                           </div>
                           <Media body className="ml-3">
                             <h6 className="heading text-primary mb-md-1">
-                              Getting started
+                              Compare &amp; Buy
                             </h6>
                             <p className="description d-none d-md-inline-block mb-0">
-                              Learn how to use Argon compiling Scss, change
-                              brand colors and more.
+                              A unique marketplace for Medical Equipments.
                             </p>
                           </Media>
                         </Media>
                         <Media
                           className="d-flex align-items-center"
                           href="#"
-                          target="_blank"
                         >
                           <div className="icon icon-shape bg-gradient-success rounded-circle text-white">
-                            <i className="ni ni-palette" />
+                            <i className="ni ni-hat-3" />
                           </div>
                           <Media body className="ml-3">
                             <h6 className="heading text-primary mb-md-1">
-                              Foundation
+                              Consultancy
                             </h6>
                             <p className="description d-none d-md-inline-block mb-0">
-                              Learn more about colors, typography, icons and the
-                              grid system we used for Argon.
+                              Consultancy for all your Medical Equipment needs.  
                             </p>
                           </Media>
                         </Media>
                         <Media
                           className="d-flex align-items-center"
                           href="#"
-                          target="_blank"
                         >
                           <div className="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                            <i className="ni ni-ui-04" />
+                            <i className="ni ni-books" />
                           </div>
                           <Media body className="ml-3">
                             <h5 className="heading text-warning mb-md-1">
-                              Components
+                              Tender
                             </h5>
                             <p className="description d-none d-md-inline-block mb-0">
-                              Browse our 50 beautiful handcrafted components
-                              offered in the Free version.
+                              Browse our uniquely curated tender accorss Ethiopia just for you.
                             </p>
                           </Media>
                         </Media>
