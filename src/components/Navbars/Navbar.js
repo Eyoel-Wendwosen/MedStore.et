@@ -90,7 +90,7 @@ class DemoNavbar extends React.Component {
                     </Col>
                   </Row>
                 </div>
-                <Nav className="navbar-nav-hover align-items-lg-center" navbar>
+                <Nav className="navbar-nav-hover align-items-lg-right" navbar>
                   <UncontrolledDropdown nav>
                     <DropdownToggle nav>
                       <i className="ni ni-ui-04 d-lg-none mr-1" />
@@ -161,7 +161,7 @@ class DemoNavbar extends React.Component {
                   <UncontrolledDropdown nav>
                     <DropdownToggle nav>
                       <i className="ni ni-collection d-lg-none mr-1" />
-                      <span className="nav-link-inner--text">Products</span>
+                      <span className="nav-link-inner--text">How it Works</span>
                     </DropdownToggle>
                     <DropdownMenu>
                       <DropdownItem to="/landing-page" tag={Link}>
@@ -191,72 +191,7 @@ class DemoNavbar extends React.Component {
                     </DropdownToggle>
                   </UncontrolledDropdown>
                 </Nav>
-                <Nav className="align-items-lg-center ml-lg-auto" navbar>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://www.facebook.com/"
-                      id="tooltip333589074"
-                      target="_blank"
-                    >
-                      <i className="fa fa-facebook-square" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Facebook
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip333589074">
-                      Like us on Facebook
-                    </UncontrolledTooltip>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://www.instagram.com/"
-                      id="tooltip356693867"
-                      target="_blank"
-                    >
-                      <i className="fa fa-instagram" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Instagram
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip356693867">
-                      Follow us on Instagram
-                    </UncontrolledTooltip>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://twitter.com/"
-                      id="tooltip184698705"
-                      target="_blank"
-                    >
-                      <i className="fa fa-twitter-square" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Twitter
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip184698705">
-                      Follow us on Twitter
-                    </UncontrolledTooltip>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://t.me/"
-                      id="tooltip112445449"
-                      target="_blank"
-                    >
-                      <i className="fa fa-telegram" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Github
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip112445449">
-                      Join us on Telegram
-                    </UncontrolledTooltip>
-                  </NavItem>
-                </Nav>
+                
               </UncontrolledCollapse>
             </Container>
           </Navbar>

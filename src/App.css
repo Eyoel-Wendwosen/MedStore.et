@@ -14,15 +14,7 @@
   color: #0b0166;
   
 }
-.ecommerce-service {
-  height: 100%;
-}
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
 .position-relative {
   position: relative !important; }
 
@@ -50,7 +42,6 @@
 }
 .app-header {
   background-image: url("./assets/img/theme/CT.jpg");
- /* height: 100%; */
 
   /* Center and scale the image nicely */
   background-position: center;
