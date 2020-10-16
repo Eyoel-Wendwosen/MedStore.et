@@ -29,87 +29,80 @@ class SimpleFooter extends React.Component {
 
               <Col className="text-lg-center btn-wrapper" lg="4">
                 {/* <Row className="text-lg-center btn-wrapper"> */}
-                  <Button
-                    className="btn-icon-only rounded-circle"
-                    color="twitter"
-                    href="https://twitter.com/"
-                    id="tooltip475038074"
-                    target="_blank"
-                  >
-                    <span className="btn-inner--icon">
-                      <i className="fa fa-twitter" />
-                    </span>
-                  </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip475038074">
-                    Follow us
+                <Button
+                  className="btn-icon-only rounded-circle"
+                  color="twitter"
+                  href="https://twitter.com/"
+                  id="tooltip475038074"
+                  target="_blank"
+                >
+                  <span className="btn-inner--icon">
+                    <i className="fa fa-twitter" />
+                  </span>
+                </Button>
+                <UncontrolledTooltip delay={0} target="tooltip475038074">
+                  Follow us
                 </UncontrolledTooltip>
-                  <Button
-                    className="btn-icon-only rounded-circle ml-1"
-                    color="facebook"
-                    href="https://www.facebook.com/"
-                    id="tooltip837440414"
-                    target="_blank"
-                  >
-                    <span className="btn-inner--icon">
-                      <i className="fa fa-facebook-square" />
-                    </span>
-                  </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip837440414">
-                    Like us
+                <Button
+                  className="btn-icon-only rounded-circle ml-1"
+                  color="facebook"
+                  href="https://www.facebook.com/"
+                  id="tooltip837440414"
+                  target="_blank"
+                >
+                  <span className="btn-inner--icon">
+                    <i className="fa fa-facebook-square" />
+                  </span>
+                </Button>
+                <UncontrolledTooltip delay={0} target="tooltip837440414">
+                  Like us
                 </UncontrolledTooltip>
-                  <Button
-                    className="btn-icon-only rounded-circle ml-1"
-                    color="linkedin"
-                    href="https://linkedin.com/"
-                    id="tooltip829810202"
-                    target="_blank"
-                  >
-                    <span className="btn-inner--icon">
-                      <i className="fa fa-linkedin" />
-                    </span>
-                  </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip829810202">
-                    Connect with us
+                <Button
+                  className="btn-icon-only rounded-circle ml-1"
+                  color="linkedin"
+                  href="https://linkedin.com/"
+                  id="tooltip829810202"
+                  target="_blank"
+                >
+                  <span className="btn-inner--icon">
+                    <i className="fa fa-linkedin" />
+                  </span>
+                </Button>
+                <UncontrolledTooltip delay={0} target="tooltip829810202">
+                  Connect with us
                 </UncontrolledTooltip>
-                  <Button
-                    className="btn-icon-only rounded-circle ml-1"
-                    color="telegram"
-                    href="https://t.me//"
-                    id="tooltip495507257"
-                    target="_blank"
-                  >
-                    <span className="btn-inner--icon">
-                      <i className="fa fa-telegram" />
-                    </span>
-                  </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip495507257">
-                    Join us
+                <Button
+                  className="btn-icon-only rounded-circle ml-1"
+                  color="telegram"
+                  href="https://t.me//"
+                  id="tooltip495507257"
+                  target="_blank"
+                >
+                  <span className="btn-inner--icon">
+                    <i className="fa fa-telegram" />
+                  </span>
+                </Button>
+                <UncontrolledTooltip delay={0} target="tooltip495507257">
+                  Join us
                 </UncontrolledTooltip>
               </Col>
               <Col lg="2">
-                  <h5 className="text-primary">Contact us</h5>
-                  <h6 className="mb-100 font-weight-lighter">+251-912-345678</h6>
-                  <h6 className="mb-100 font-weight-lighter"><a href="mailto: abc@def.com">abc@def.com</a></h6>
+                <h5 className="text-primary">Contact us</h5>
+                <h6 className="mb-100 font-weight-lighter">+251-912-345678</h6>
+                <h6 className="mb-100 font-weight-lighter"><a href="mailto: abc@def.com">abc@def.com</a></h6>
               </Col>
             </Row>
             <hr />
             <Row className=" align-items-center justify-content-md-between">
               <Col md="6">
                 <div className=" copyright">
-                  © {new Date().getFullYear()}{" "}
-                  <a
-                    href="/"
-                    target="_blank"
-                  >
-                    MedStore.et
-                  </a>
-                  .
+                  <a href="/" target="_blank">MedStore.et</a> © {new Date().getFullYear()}{" "}
                 </div>
               </Col>
               <Col md="6">
                 <Nav className=" nav-footer justify-content-end">
                   <NavItem
-                    // to="/"
+                  // to="/"
                   >
                     <NavLink
                       href="/"

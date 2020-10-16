@@ -62,7 +62,7 @@ class Services extends React.Component {
                                 </svg>
                             </div>
                         </section>
-                        <section className="section section-lg pt-lg-0 mt--200">
+                        <section className="section section-lg pt-lg-0 mt--150 ">
                             <Container>
                                 <Row className="justify-content-center services-card">
                                     <Col lg="12">
@@ -74,20 +74,20 @@ class Services extends React.Component {
                                                             <img src={require("assets/img/ill/Dashboard.png")} alt="Smartphone icon" />
                                                         </div>
                                                         <h4 className="text-uppercase text-center bold">
-                                                            Compare &amp; Buy
+                                                            Technical Support
                                                         </h4>
                                                         <p className="description mt-3">
-                                                            <span className="font-weight-bold">MedStore.et</span> is a place where you can find all eFDA Registered and used medical equipment for sale both within/at stock and order.
+                                                            <span className="font-weight-bold">MedStore.et</span> is home to experienced biomedical engineers where you can get technical support for your entire medical facility
                                                         </p>
                                                         <div>
                                                             <Badge color="primary" pill className="mr-1">
-                                                                Compare
+                                                                inspect
                                                             </Badge>
                                                             <Badge color="primary" pill className="mr-1">
-                                                                Order
+                                                                Repair
                                                             </Badge>
                                                             <Badge color="primary" pill className="mr-1">
-                                                                Buy
+                                                                Renovate
                                                             </Badge>
                                                         </div>
                                                         <Button

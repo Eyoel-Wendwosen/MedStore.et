@@ -4,8 +4,10 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import './index.css';
 import App from './App';
-import ECommerceService from './views/eCommerceService';
+import ECommerceService from './views/eCommerceService.view';
 import * as serviceWorker from './serviceWorker';
+import ContactUs from './components/ContactUs';
+import Product from 'views/Product.view';
 
 import "./assets/vendor/nucleo/css/nucleo.css";
 import "./assets/vendor/font-awesome/css/font-awesome.min.css";
@@ -19,8 +21,24 @@ ReactDOM.render(
         exact
         render={props => <App {...props} />} />
       <Route
-        path="/eCommerceService" 
-        exact 
+        path="/eCommerceService"
+        exact
+        render={props => <ECommerceService {...props} />} />
+      <Route
+        path="/contact-us"
+        exact
+        render={props => <ContactUs {...props} />} />
+      <Route
+        path="/product"
+        exact
+        render={props => <Product {...props} />} />
+      <Route
+        path="/eCommerceService"
+        exact
+        render={props => <ECommerceService {...props} />} />
+      <Route
+        path="/eCommerceService"
+        exact
         render={props => <ECommerceService {...props} />} />
       <Redirect to="/" />
     </Switch>

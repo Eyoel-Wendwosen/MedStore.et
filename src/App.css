@@ -19,17 +19,33 @@
   position: relative !important; }
 
 .navbar-transparent {
-    background-color: #172b4d !important;
+    position: static !important;
+    background-color: #008bb5 !important;
   }
+.navbar-brand img {
+    height: 60px; }
 
 .services-header{
   justify-content: center;
   align-items: center;
   text-align: center;
 }
+.navbar-main{
+  display: block;
+  position: static;
+}
 
 .services-card{
   margin-top :2%;
+}
+
+.footer {
+  display: block;
+  /* position: fixed; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .services{
@@ -48,7 +64,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  background-color: #282c34;
+  background-color: grey;
   min-height: 100vh;
   /* width: 100%; */
   display: flex;
