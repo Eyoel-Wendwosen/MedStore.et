@@ -51,6 +51,7 @@ class DemoNavbar extends React.Component {
         <header>
           <Navbar
             className="navbar-main navbar-transparent pr-5 pl-5"
+            // style = {{backgroundColor: "#172b4d !important"}}
             expand="lg"
             id="navbar-main"
           >
@@ -102,15 +103,15 @@ class DemoNavbar extends React.Component {
                   <DropdownToggle nav>
                     <i className="ni ni-collection d-lg-none" />
                     <Link className="nav-link-inner--text" to="/">
-                      <span className="h6 font-weight-normal nav-link-inner--text text-white">About Us</span>
+                      <span className="h6 font-weight-normal text-white">About Us</span>
                     </Link>
                   </DropdownToggle>
                 </UncontrolledDropdown>
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
                     <i className="ni ni-collection d-lg-none" />
-                    <Link to='/product'>
-                      <span className="h6 font-weight-normal nav-link-inner--text text-white">Products</span>
+                    <Link to='/product' className="nav-link-inner--text">
+                      <span className="h6 font-weight-normal  text-white">Products</span>
                     </Link>
                   </DropdownToggle>
                   <DropdownMenu>
@@ -131,7 +132,9 @@ class DemoNavbar extends React.Component {
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
                     <i className="ni ni-collection d-lg-none" />
-                    <span className="h6 font-weight-normal nav-link-inner--text text-white">Services</span>
+                    <Link to='/product' className="nav-link-inner--text">
+                      <span className="h6 font-weight-normal text-white">Services</span>
+                    </Link>
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-menu-lg">
                     <div className="dropdown-menu-inner">
