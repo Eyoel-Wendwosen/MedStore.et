@@ -8,6 +8,7 @@ import ECommerceService from './views/eCommerceService.view';
 import * as serviceWorker from './serviceWorker';
 import ContactUs from './components/ContactUs';
 import Product from 'views/Product.view';
+import ProductDetail from 'views/product.detail.view';
 
 import "./assets/vendor/nucleo/css/nucleo.css";
 import "./assets/vendor/font-awesome/css/font-awesome.min.css";
@@ -33,9 +34,9 @@ ReactDOM.render(
         exact
         render={props => <Product {...props} />} />
       <Route
-        path="/eCommerceService"
+        path="/product-detail"
         exact
-        render={props => <ECommerceService {...props} />} />
+        render={props => <ProductDetail {...props} />} />
       <Route
         path="/eCommerceService"
         exact

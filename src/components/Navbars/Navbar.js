@@ -28,6 +28,7 @@ class DemoNavbar extends React.Component {
     // initialise
     headroom.init();
   }
+  
   state = {
     collapseClasses: "",
     collapseOpen: false
@@ -114,7 +115,7 @@ class DemoNavbar extends React.Component {
                       <span className="h6 font-weight-normal  text-white">Products</span>
                     </Link>
                   </DropdownToggle>
-                  <DropdownMenu>
+                  {/* <DropdownMenu>
                     <DropdownItem to="/landing-page" tag={Link}>
                       Landing
                       </DropdownItem>
@@ -127,7 +128,7 @@ class DemoNavbar extends React.Component {
                     <DropdownItem to="/register-page" tag={Link}>
                       Register
                       </DropdownItem>
-                  </DropdownMenu>
+                  </DropdownMenu> */}
                 </UncontrolledDropdown>
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
