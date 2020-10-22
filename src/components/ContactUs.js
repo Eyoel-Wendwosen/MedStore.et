@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from "classnames";
-import Navbar from './Navbars/Navbar';
-import SimpleFotter from './Footers/SimpleFooter';
+import Navbar from './Navbars/Navbar.component';
+import SimpleFotter from './Footers/SimpleFooter.component';
 
 import { Button, Container, Row, Col, Card, CardBody, FormGroup, InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col, Card, CardBody, CardImg } from 'reactstrap';
 
-import Navbar from 'components/Navbars/Navbar';
-import SimpleFotter from 'components/Footers/SimpleFooter';
+import Navbar from 'components/Navbars/Navbar.component';
+import SimpleFotter from 'components/Footers/SimpleFooter.component';
 import ContactUs from 'components/ContactUs';
 
 class ECommerceService extends React.Component {

@@ -35,8 +35,6 @@
 }
 
 .navbar-transparent {
-  position: static !important;
-  background-color: #008bb5 !important;
 }
 
 .navbar-brand img {
@@ -50,6 +48,7 @@
 }
 
 .navbar-main {
+  background-color: #008bb5 !important;
   display: block;
   position: fixed;
   top: 0;

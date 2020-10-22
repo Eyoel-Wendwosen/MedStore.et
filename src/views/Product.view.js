@@ -19,8 +19,10 @@ import {
 } from 'reactstrap';
 import { Link } from "react-router-dom";
 
-import Navbar from 'components/Navbars/Navbar';
-import SimpleFooter from 'components/Footers/SimpleFooter';
+import Navbar from 'components/Navbars/Navbar.component';
+import SimpleFooter from 'components/Footers/SimpleFooter.component';
+import SearchBar from 'components/Searchbar/Searchbar.component';
+import SimilarProducts from 'components/Similarproducts/Similarproducts.component'
 
 class Product extends React.Component {
     constructor(props) {
@@ -211,21 +213,7 @@ class Product extends React.Component {
             <>
                 <Navbar />
                 <div className="product-content">
-                    <Container>
-                        <InputGroup className="mb-4">
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                    <i className="ni ni-zoom-split-in" />
-                                </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                                placeholder="Search"
-                                type="text"
-                                onFocus={e => this.setState({ searchFocused: true })}
-                                onBlur={e => this.setState({ searchFocused: false })}
-                            />
-                        </InputGroup>
-                    </Container>
+                    <SearchBar />
 
                     <section>
                         <Row >
@@ -273,10 +261,12 @@ class Product extends React.Component {
                                 </Row>
                             </Col>
                         </Row>
+                        <hr className="" />
+                        <h3 className="pl-4">
+                            Similar Products
+                        </h3>
                         <Row>
-                            <p>
-                                Row 2 Col 1
-                        </p>
+                            {this.renderProducts(10)}
                         </Row>
                     </section>
                 </div>

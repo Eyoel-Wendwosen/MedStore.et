@@ -68,9 +68,9 @@ class DemoNavbar extends React.Component {
             <UncontrolledCollapse
               toggler="#navbar_global"
               navbar
-              className={this.state.collapseClasses, "justify-content-end"}
-              onExiting={this.onExiting}
-              onExited={this.onExited}
+              className={ "justify-content-end"}
+              // onExiting={this.onExiting}
+              // onExited={this.onExited}
             >
               <div className="navbar-collapse-header">
                 <Row>
@@ -133,7 +133,7 @@ class DemoNavbar extends React.Component {
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
                     <i className="ni ni-collection d-lg-none" />
-                    <Link to='/product' className="nav-link-inner--text">
+                    <Link to='/' className="nav-link-inner--text">
                       <span className="h6 font-weight-normal text-white">Services</span>
                     </Link>
                   </DropdownToggle>
