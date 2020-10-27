@@ -4,22 +4,16 @@ import { Link } from "react-router-dom";
 import Headroom from "headroom.js";
 // reactstrap components
 import {
-  Button,
   UncontrolledCollapse,
   DropdownMenu,
-  DropdownItem,
   DropdownToggle,
   UncontrolledDropdown,
   Media,
   NavbarBrand,
   Navbar,
-  NavItem,
-  NavLink,
   Nav,
-  Container,
   Row,
-  Col,
-  UncontrolledTooltip
+  Col
 } from "reactstrap";
 
 class DemoNavbar extends React.Component {
@@ -28,7 +22,7 @@ class DemoNavbar extends React.Component {
     // initialise
     headroom.init();
   }
-  
+
   state = {
     collapseClasses: "",
     collapseOpen: false
@@ -68,9 +62,9 @@ class DemoNavbar extends React.Component {
             <UncontrolledCollapse
               toggler="#navbar_global"
               navbar
-              className={ "justify-content-end"}
-              // onExiting={this.onExiting}
-              // onExited={this.onExited}
+              className={"justify-content-end"}
+            // onExiting={this.onExiting}
+            // onExited={this.onExited}
             >
               <div className="navbar-collapse-header">
                 <Row>
@@ -102,15 +96,15 @@ class DemoNavbar extends React.Component {
                 </UncontrolledDropdown>
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
-                    <i className="ni ni-collection d-lg-none" />
-                    <Link className="nav-link-inner--text" to="/">
+                    <i className="ni ni-circle-08 d-lg-none" />
+                    <Link className="nav-link-inner--text" to="/about-us">
                       <span className="h6 font-weight-normal text-white">About Us</span>
                     </Link>
                   </DropdownToggle>
                 </UncontrolledDropdown>
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
-                    <i className="ni ni-collection d-lg-none" />
+                    <i className="ni ni-cart d-lg-none" />
                     <Link to='/product' className="nav-link-inner--text">
                       <span className="h6 font-weight-normal  text-white">Products</span>
                     </Link>
@@ -132,8 +126,8 @@ class DemoNavbar extends React.Component {
                 </UncontrolledDropdown>
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
-                    <i className="ni ni-collection d-lg-none" />
-                    <Link to='/' className="nav-link-inner--text">
+                    <i className="ni ni-app d-lg-none" />
+                    <Link to='/compare-proudcts' className="nav-link-inner--text">
                       <span className="h6 font-weight-normal text-white">Services</span>
                     </Link>
                   </DropdownToggle>
@@ -192,7 +186,7 @@ class DemoNavbar extends React.Component {
                 </UncontrolledDropdown>
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav href="/contact-us">
-                    <i className="ni ni-collection d-lg-none" />
+                    <i className="ni ni-email-83 d-lg-none" />
                     <Link className="nav-link-inner--text" to="/contact-us">
                       <span className="h6 font-weight-normal nav-link-inner--text text-white">Contact Us</span>
                     </Link>

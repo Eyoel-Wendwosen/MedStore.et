@@ -6,7 +6,6 @@ import './App.css';
 import Services from './views/Service.view';
 import NavBar from './components/Navbars/Navbar.component';
 import SimpleFooter from './components/Footers/SimpleFooter.component';
-import ContactUs from './components/ContactUs';
 import Team from './views/Team.view';
 
 function App() {

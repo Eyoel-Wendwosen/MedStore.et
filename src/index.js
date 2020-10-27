@@ -9,6 +9,8 @@ import * as serviceWorker from './serviceWorker';
 import ContactUs from './components/ContactUs';
 import Product from 'views/Product.view';
 import ProductDetail from 'views/product.detail.view';
+import CompareProducts from 'components/Compareproducts/CompareProducts.component';
+import AboutUs from 'views/Aboutus.view';
 
 import "./assets/vendor/nucleo/css/nucleo.css";
 import "./assets/vendor/font-awesome/css/font-awesome.min.css";
@@ -38,9 +40,13 @@ ReactDOM.render(
         exact
         render={props => <ProductDetail {...props} />} />
       <Route
-        path="/eCommerceService"
+        path="/about-us"
         exact
-        render={props => <ECommerceService {...props} />} />
+        render={props => <AboutUs {...props} />} />
+      <Route
+        path="/compare-proudcts"
+        exact
+        render={props => <CompareProducts {...props} />} />
       <Redirect to="/" />
     </Switch>
   </BrowserRouter>,

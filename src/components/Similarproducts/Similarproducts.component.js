@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Button,
-    Row,
-    Col,
-    UncontrolledCarousel
+    Container
 } from 'reactstrap';
 
 class SimilarProducts extends Component {
@@ -13,9 +10,11 @@ class SimilarProducts extends Component {
     }
     render() {
         return (
-            <h3 className="pl-4">
-                Similar Products
-            </h3>
+            <Container>
+                <h3 className="pl-4">
+                    Similar Products
+                </h3>
+            </Container>
         );
     }
 }

@@ -34,9 +34,6 @@
   text-decoration-color: #008bb5;
 }
 
-.navbar-transparent {
-}
-
 .navbar-brand img {
   height: 60px;
 }
@@ -121,6 +118,17 @@
 
 /*  Product view style modification */
 
+
+/* Search bar component style modification */
+
+.search-result{
+  z-index: 100;
+position: fixed;
+margin-right: auto;
+}
+
+
+/* Search bar component style modification */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

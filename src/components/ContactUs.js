@@ -1,9 +1,9 @@
 import React from 'react';
 import classnames from "classnames";
-import Navbar from './Navbars/Navbar.component';
-import SimpleFotter from './Footers/SimpleFooter.component';
-
 import { Button, Container, Row, Col, Card, CardBody, FormGroup, InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+
+import Navbar from './Navbars/Navbar.component';
+import SimpleFooter from './Footers/SimpleFooter.component';
 
 
 class ContactUs extends React.Component {
@@ -13,8 +13,9 @@ class ContactUs extends React.Component {
     render() {
         return (
             <>
+                <Navbar />
                 <div >
-                    <section className="section section-lg pt-lg-0 section-contact-us">
+                    <section className=" product-content section section-lg pt-lg-0 section-contact-us">
                         <Container>
                             <Row className="justify-content-center mt-6 ">
                                 <Col lg="8">
@@ -90,6 +91,7 @@ class ContactUs extends React.Component {
                         </Container>
                     </section>
                 </div>
+                <SimpleFooter />
             </>
         );
     }

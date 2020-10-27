@@ -1,5 +1,10 @@
 import React from "react";
-import { Container, Row, Col, Card, CardBody, CardImg } from 'reactstrap';
+import { 
+    Container,
+     Row,
+     Col,
+     CardImg
+     } from 'reactstrap';
 
 import Navbar from 'components/Navbars/Navbar.component';
 import SimpleFotter from 'components/Footers/SimpleFooter.component';
@@ -25,7 +30,6 @@ class ECommerceService extends React.Component {
                                 </Col>
                             </Row>
                         </Container>
-                        <ContactUs />
                     </section>
                 </main>
                 <SimpleFotter />

@@ -1,19 +1,11 @@
 import React from 'react';
 import {
-    Button,
-    Container,
     Row,
     Col,
     Card,
     CardBody,
-    Badge,
-    InputGroup,
-    InputGroupAddon,
-    InputGroupText,
-    Input,
     CardImg,
     CardTitle,
-    CardText,
     CardImgOverlay,
     UncontrolledCollapse
 } from 'reactstrap';
@@ -22,7 +14,7 @@ import { Link } from "react-router-dom";
 import Navbar from 'components/Navbars/Navbar.component';
 import SimpleFooter from 'components/Footers/SimpleFooter.component';
 import SearchBar from 'components/Searchbar/Searchbar.component';
-import SimilarProducts from 'components/Similarproducts/Similarproducts.component'
+import SimilarProducts from 'components/Similarproducts/Similarproducts.component';
 
 class Product extends React.Component {
     constructor(props) {
@@ -173,7 +165,7 @@ class Product extends React.Component {
     renderProducts(numOfProducts) {
         let products = [...Array(numOfProducts).keys()];
         let productRender = products.map(product => (
-            <Col key={product} className=" mt-4" lg="2" md='3' sm="4" >
+            <Col key={product} className="mt-4" xl="2" lg="3" md="4" sm="6">
                 <Card onFocus="" className="card-lift card-img-overlay shadow border-3">
                     <Link to="/product-detail">
                         <CardImg
@@ -217,7 +209,7 @@ class Product extends React.Component {
 
                     <section>
                         <Row >
-                            <Col className='bg-grey shadow mt-4 mr-3 pl-0 pr-0' lg="2">
+                            <Col className='bg-grey shadow mt-4 mr-3 pl-0 pr-0' sm='2' md='2' lg="2">
                                 <h3 className="display-4 text-dark p-3">
                                     Categories
                                 </h3>
@@ -251,13 +243,7 @@ class Product extends React.Component {
                             </Col>
                             <Col>
                                 <Row>
-                                    {this.renderProducts(36)}
-                                </Row>
-                                <Row className='new-products'>
-                                    {/* <span> */}
-                                    {this.renderProducts(5)}
-                                    {/* </span> */}
-
+                                    {this.renderProducts(15)}
                                 </Row>
                             </Col>
                         </Row>
