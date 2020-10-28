@@ -10,7 +10,7 @@ import ContactUs from './components/ContactUs';
 import Product from 'views/Product.view';
 import ProductDetail from 'views/ProductDetail.view';
 import CompareProducts from 'components/Compareproducts/CompareProducts.component';
-import AboutUs from 'views/AboutUs.view.js';
+import AboutUs from 'views/AboutUs.view';
 
 import "./assets/vendor/nucleo/css/nucleo.css";
 import "./assets/vendor/font-awesome/css/font-awesome.min.css";

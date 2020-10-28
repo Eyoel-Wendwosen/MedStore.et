@@ -1,21 +1,22 @@
 import React from 'react';
-import classnames from "classnames";
-import { Button, Container, Row, Col, Card, CardBody, FormGroup, InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+import { Container, Row,} from 'reactstrap';
 
 import Navbar from 'components/Navbars/Navbar.component';
 import SimpleFooter from 'components/Footers/SimpleFooter.component';
 
 
 class AboutUs extends React.Component {
-
-    state = {
-        Bullets: [
-            "You can get wide range of brand New Medical Equipment. As well as you can buy and sell used medical equipment.",
-            "You can get consultancy service on purchase of Medical Equipment. And it is place where one advised how to acquire the Medical equipment according to specific need.",
-            "You can get a technical support for medical equipment which need service, including installation, maintenance, parts & accessories. ",
-            "You can get Tender Notification service, Medical equipment tenders only."
-        ]
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            Bullets: [
+                "You can get wide range of brand New Medical Equipment. As well as you can buy and sell used medical equipment.",
+                "You can get consultancy service on purchase of Medical Equipment. And it is place where one advised how to acquire the Medical equipment according to specific need.",
+                "You can get a technical support for medical equipment which need service, including installation, maintenance, parts & accessories. ",
+                "You can get Tender Notification service, Medical equipment tenders only."
+            ]
+        };
+    }
 
     render() {
         return (
@@ -30,7 +31,7 @@ class AboutUs extends React.Component {
                             <p className=" col-9">
                                 MedStore.et is a multiservice platform in Ethiopian Medical Equipment industry. Created by two young and energetic  Biomedical Engineers who saw the gap on the medical equipment supply chain, technical support and other Medical Equipment issues which finally inspired MedStore.et.
                             </p>
-                            <hr className="my-1"/>
+                            <hr className="my-1" />
                             <h3>
                                 MedStore.et is a place where
                             </h3>
