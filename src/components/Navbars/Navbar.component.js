@@ -45,7 +45,7 @@ class DemoNavbar extends React.Component {
       <>
         <header>
           <Navbar
-            className="navbar-main navbar-transparent pr-5 pl-5"
+            className="navbar-main shadow navbar-transparent pr-5 pl-5"
             // style = {{backgroundColor: "#172b4d !important"}}
             expand="lg"
             id="navbar-main"
@@ -184,8 +184,8 @@ class DemoNavbar extends React.Component {
                     </div>
                   </DropdownMenu>
                 </UncontrolledDropdown>
-                <UncontrolledDropdown nav>
-                  <DropdownToggle nav href="/contact-us">
+                <UncontrolledDropdown >
+                  <DropdownToggle nav>
                     <i className="ni ni-email-83 d-lg-none" />
                     <Link className="nav-link-inner--text" to="/contact-us">
                       <span className="h6 font-weight-normal nav-link-inner--text text-white">Contact Us</span>

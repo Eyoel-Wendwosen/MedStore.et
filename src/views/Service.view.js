@@ -24,7 +24,7 @@ class Services extends React.Component {
 
                             <Container className="py-lg-md d-flex">
                                 <div className="col px-0">
-                                    <Row className="services-header">
+                                    <Row className="content-center">
                                         <Col lg="8">
                                             <span>
                                                 <h2 className="display-3 text-white">We provide various kind of Services just for you ...</h2>
@@ -180,7 +180,7 @@ class Services extends React.Component {
                         <section className="section bg-secondary">
                             <Container>
                                 <Row className="row-grid align-items-center">
-                                    <Col md="6" lg="6">
+                                    <Col className="pr-md-5" md="6" lg="6">
                                         <Card className="bg-default shadow border-0">
                                             <CardImg
                                                 alt="..."
@@ -191,12 +191,12 @@ class Services extends React.Component {
 
                                         </Card>
                                     </Col>
-                                    <Col lg="6" md="6">
+                                    <Col md="6">
                                         <h3 >
                                             Technical Support
                                             </h3>
                                         <p>
-                                        <span className="font-weight-bold">MedStore.et</span> is home to experienced biomedical engineers where you can get technical support for your entire medical facility or down to specific medical equipment. With quality maintenance service at its core <span className="font-weight-bold">MedStore.et</span> provides reliable spare parts supply.
+                                            <span className="font-weight-bold">MedStore.et</span> is home to experienced biomedical engineers where you can get technical support for your entire medical facility or down to specific medical equipment. With quality maintenance service at its core <span className="font-weight-bold">MedStore.et</span> provides reliable spare parts supply.
                                             </p>
                                         <ul className="list-unstyled mt-5">
                                             <li className="py-2">
@@ -266,12 +266,12 @@ class Services extends React.Component {
                                     <Col className="order-md-1" md="6">
                                         <div className="pr-md-5">
                                             <div className="icon icon-xg icon-shape-white icon-shape shadow rounded-circle mb-5">
-                                                <i className="ni ni-notification-70 icon-c"/>
+                                                <i className="ni ni-notification-70 icon-c" />
                                             </div>
                                             <h3 className="text-white">Tenders notification</h3>
                                             <p className="text-white">
                                                 MedStore.et is again a place where you can get early notification on any Medical Tender in Ethiopia through subscription.
-                    </p>
+                                            </p>
                                             <ul className="list-unstyled mt-5 te">
                                                 <li className="py-2 te">
                                                     <div className="d-flex align-items-center">
@@ -286,7 +286,7 @@ class Services extends React.Component {
                                                         <div>
                                                             <h6 className="mb-0 text-white">
                                                                 Carefully curated content
-                            </h6>
+                                                            </h6>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -327,7 +327,7 @@ class Services extends React.Component {
                                     </Col>
                                 </Row>
                             </Container>
-                            <div className="separator separator-bottom separator-skew zindex-100">
+                            <div className="separator separator-bottom zindex-100">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     preserveAspectRatio="none"
@@ -337,7 +337,7 @@ class Services extends React.Component {
                                     y="0"
                                 >
                                     <polygon
-                                        className="fill-white"
+                                        style={{ fill: '#f4f5f7' }}
                                         points="0 0 0 75 2560 75"
                                     />
                                 </svg>

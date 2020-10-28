@@ -23,17 +23,17 @@ class AboutUs extends React.Component {
                 <Navbar />
                 <Container className="product-content mb-5">
                     <Row className=''>
-                        <div className='align-content-end'>
+                        <div className='px-4'>
                             <h1 >
-                                About Us Goes here!
+                                About Us !
                             </h1>
                             <p className=" col-9">
                                 MedStore.et is a multiservice platform in Ethiopian Medical Equipment industry. Created by two young and energetic  Biomedical Engineers who saw the gap on the medical equipment supply chain, technical support and other Medical Equipment issues which finally inspired MedStore.et.
                             </p>
-                            <hr className="my-5"/>
-                            <h1>
+                            <hr className="my-1"/>
+                            <h3>
                                 MedStore.et is a place where
-                            </h1>
+                            </h3>
                             <ul>
                                 {this.state.Bullets.map(b => (
                                     <li>{b}</li>

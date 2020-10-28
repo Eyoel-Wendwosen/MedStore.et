@@ -1,10 +1,10 @@
 import React from "react";
-import { 
+import {
     Container,
-     Row,
-     Col,
-     CardImg
-     } from 'reactstrap';
+    Row,
+    Col,
+    CardImg
+} from 'reactstrap';
 
 import Navbar from 'components/Navbars/Navbar.component';
 import SimpleFotter from 'components/Footers/SimpleFooter.component';
@@ -16,7 +16,7 @@ class ECommerceService extends React.Component {
             <>
                 <Navbar className="" />
                 <main>
-                    <section className=" position-relative bg-gradient-lighter">
+                    <section className=" pb-7 position-relative bg-gradient-lighter">
                         <Container >
                             <Row className="pt-8 row-grid align-items-center">
                                 <Col lg="6">
@@ -26,12 +26,21 @@ class ECommerceService extends React.Component {
                                         alt="..." />
                                 </Col>
                                 <Col lg="6">
-                                    <h4 className="display-2">Template Here </h4>
+                                    <h4 className="display-2">Buy and Sell Medical Equipment</h4>
+                                    <p>
+                                        At MedStore.et you find eFDA Registered medical equipment for sale   in Ethiopia both in stock and as per order  also you can sell and buy used medical equipment with plenty of choices based on equipment condition.
+                                    </p>
+                                    <ul>
+                                        <li>Various Type,Brand and price ,giving you the luxury of choice.</li>
+                                        <li>Save energy and time searching for the right product as per requirement.</li>
+                                        <li>Short delivery time.</li>
+                                    </ul>
                                 </Col>
                             </Row>
                         </Container>
                     </section>
                 </main>
+                <ContactUs />
                 <SimpleFotter />
             </>
         );

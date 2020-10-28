@@ -1,3 +1,4 @@
+import { ListItem } from "@material-ui/core";
 import React from "react";
 // reactstrap components
 import {
@@ -8,7 +9,9 @@ import {
   Container,
   Row,
   Col,
-  UncontrolledTooltip
+  UncontrolledTooltip,
+  ListGroup,
+  ListGroupItem
 } from "reactstrap";
 
 class SimpleFooter extends React.Component {
@@ -17,18 +20,40 @@ class SimpleFooter extends React.Component {
       <>
         <footer className="footer">
           <Container>
-            <Row className=" row-grid align-items-center mb-5">
-              <Col lg="6">
-                <h3 className=" text-primary font-weight-light mb-2">
-                  Thank you for visiting us, come again!
-                </h3>
-                <h4 className=" mb-0 font-weight-light">
-                  Let's get in touch on any of these platforms.
-                </h4>
-              </Col>
+            <Row className=" row-grid  ">
+              <Col lg="">
+                <Nav className=" nav-footer flex-column justify-content-center">
+                  <NavItem>
+                    <NavLink
+                      href="/" className="py-1">Home  </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="/product" className="py-1">Products  </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="/" className="py-1">Services  </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="/about-us" className="py-1">AboutUs  </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="/contact-us" className="py-1">Contact Us  </NavLink>
+                  </NavItem>
+                </Nav>
+                <ListGroup className="bg-grey">
 
-              <Col className="text-lg-center btn-wrapper" lg="4">
-                {/* <Row className="text-lg-center btn-wrapper"> */}
+                </ListGroup>
+              </Col>
+              <Col className='' lg="">
+                <h5 className="text-primary">Contact us</h5>
+                <h6 className="mb-100 font-weight-lighter">+251-912-345678</h6>
+                <h6 className="mb-100 font-weight-lighter"><a href="mailto: info@medstore.et">info@medstore.et</a></h6>
+              </Col>
+              <Col className="text-lg-center" lg="">
                 <Button
                   className="btn-icon-only rounded-circle"
                   color="twitter"
@@ -86,11 +111,7 @@ class SimpleFooter extends React.Component {
                   Join us
                 </UncontrolledTooltip>
               </Col>
-              <Col lg="2">
-                <h5 className="text-primary">Contact us</h5>
-                <h6 className="mb-100 font-weight-lighter">+251-912-345678</h6>
-                <h6 className="mb-100 font-weight-lighter"><a href="mailto: abc@def.com">abc@def.com</a></h6>
-              </Col>
+              
             </Row>
             <hr />
             <Row className=" align-items-center justify-content-md-between">

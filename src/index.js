@@ -4,13 +4,13 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import './index.css';
 import App from './App';
-import ECommerceService from './views/eCommerceService.view';
+import ECommerceService from './views/E-CommerceService.view';
 import * as serviceWorker from './serviceWorker';
 import ContactUs from './components/ContactUs';
 import Product from 'views/Product.view';
-import ProductDetail from 'views/product.detail.view';
+import ProductDetail from 'views/ProductDetail.view';
 import CompareProducts from 'components/Compareproducts/CompareProducts.component';
-import AboutUs from 'views/Aboutus.view';
+import AboutUs from 'views/AboutUs.view';
 
 import "./assets/vendor/nucleo/css/nucleo.css";
 import "./assets/vendor/font-awesome/css/font-awesome.min.css";
