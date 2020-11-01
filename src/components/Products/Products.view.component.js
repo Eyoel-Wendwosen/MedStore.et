@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
     Row,
     Col,
@@ -11,12 +11,7 @@ import {
 } from 'reactstrap';
 import { Link } from "react-router-dom";
 
-import Navbar from 'components/Navbars/Navbar.component';
-import SimpleFooter from 'components/Footers/SimpleFooter.component';
-import SearchBar from 'components/Searchbar/Searchbar.component';
-import SimilarProducts from 'components/Similarproducts/Similarproducts.component';
-
-class Product extends React.Component {
+class ProductsView extends Component {
     constructor(props) {
         super(props);
         this.state = ({
@@ -140,34 +135,35 @@ class Product extends React.Component {
                     isDropDownOpen: false
                 },
                 {
-                    name: "VETERINARY MEDICINE",
+                    name: "MEDICAL CONSUMABLES",
                     numberOfProducts: 10,
                     sub_category: [],
                     isDropDownOpen: false
                 },
                 {
-                    name: "MEDICAL CONSUMABLES",
+                    name: "ACCESSORIES AND SPARE-PARTS",
                     numberOfProducts: 10,
                     sub_category: [],
                     isDropDownOpen: false
-                }
+                },
+                {
+                    name: "USED PRODUCTS",
+                    numberOfProducts: 10,
+                    sub_category: [],
+                    isDropDownOpen: false
+                },
             ],
             numOfProducts: 20,
             overlayVisible: false
         });
     }
 
-    // setOverlayVisible(product) {
-
-
-    // }
-
     renderProducts(numOfProducts) {
         let products = [...Array(numOfProducts).keys()];
         let productRender = products.map(product => (
             <Col key={product} className="mt-4" xl="2" lg="3" md="4" sm="6">
-                <Card onFocus="" className="card-lift card-img-overlay shadow border-3">
-                    <Link to="/product-detail">
+                <Card className="card-lift card-img-overlay shadow border-3">
+                    <Link to="/product/detail">
                         <CardImg
                             alt="..."
                             height="200px"
@@ -193,74 +189,59 @@ class Product extends React.Component {
         return productRender;
     }
 
-    toggle(category) {
-        this.setState((prevState) => (
-            console.log(prevState)
-        ));
-    }
 
     render() {
-
         return (
-            <>
-                <Navbar />
-                <div className="product-content">
-                    <SearchBar />
-
-                    <section>
-                        <Row >
-                            <Col className='bg-grey shadow mt-4 mr-3 pl-0 pr-0' sm='2' md='2' lg="2">
-                                <h3 className="display-4 text-dark p-3">
-                                    Categories
+            <section>
+                <Row >
+                    <Col className='bg-grey shadow mt-4 mr-3 pl-0 pr-0' sm='2' md='2' lg="2">
+                        <h3 className="display-4 text-dark p-3">
+                            Categories
                                 </h3>
-                                <ul className="list-group">
-                                    {this.state.categories.map(category => (
-                                        <li key={category.name} id={`Category_${category.name.split(" ")[0]}`} className="list-group-item">
-                                            <span>
-                                                {category.name}
-                                            </span>
-                                            {category.sub_category.length !== 0 && (
-                                                <span class="material-icons ml-lg-auto">
-                                                    expand_more
-                                                </span>
-                                            )}
-                                            {category.sub_category.length !== 0 &&
-                                                (
-                                                    <UncontrolledCollapse toggler={`#Category_${category.name.split(" ")[0]}`}>
-                                                        <ul className="list-group">
-                                                            {category.sub_category.map(sub_cat => (
-                                                                <li key={sub_cat.name} className="list-group-item">
-                                                                    <span className="text-decoration-none">{sub_cat.name}</span>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </UncontrolledCollapse>
-                                                )
-                                            }
-                                        </li>
-                                    ))}
-                                </ul>
-                            </Col>
-                            <Col>
-                                <Row>
-                                    {this.renderProducts(15)}
-                                </Row>
-                            </Col>
-                        </Row>
-                        <hr className="" />
-                        <h3 className="pl-4">
-                            Similar Products
-                        </h3>
+                        <ul className="list-group">
+                            {this.state.categories.map(category => (
+                                <li key={category.name} id={`Category_${category.name.split(" ")[0]}`} className="list-group-item">
+                                    <span>
+                                        {category.name}
+                                    </span>
+                                    {category.sub_category.length !== 0 && (
+                                        <span class="material-icons ml-lg-auto">
+                                            expand_more
+                                        </span>
+                                    )}
+                                    {category.sub_category.length !== 0 &&
+                                        (
+                                            <UncontrolledCollapse toggler={`#Category_${category.name.split(" ")[0]}`}>
+                                                <ul className="list-group">
+                                                    {category.sub_category.map(sub_cat => (
+                                                        <li  key={sub_cat.name} className="list-group-item">
+                                                            <span className="text-decoration-none">{sub_cat.name}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </UncontrolledCollapse>
+                                        )
+                                    }
+                                </li>
+                            ))}
+                        </ul>
+                    </Col>
+                    <Col>
                         <Row>
-                            {this.renderProducts(10)}
+                            {this.renderProducts(15)}
                         </Row>
-                    </section>
-                </div>
-                <SimpleFooter />
-
-            </>
+                    </Col>
+                </Row>
+                <hr className="" />
+                <h3 className="pl-4">
+                    Similar Products
+                        </h3>
+                <Row>
+                    {this.renderProducts(10)}
+                </Row>
+            </section>
         );
     }
 }
 
-export default Product;
+export default ProductsView;

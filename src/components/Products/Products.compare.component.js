@@ -9,10 +9,6 @@ import {
 } from 'reactstrap';
 import Rating from '@material-ui/lab/Rating';
 
-import NavBar from 'components/Navbars/Navbar.component';
-import SimpleFooter from 'components/Footers/SimpleFooter.component';
-
-
 class CompareProduct extends Component {
     constructor(props) {
         super(props);
@@ -315,7 +311,6 @@ class CompareProduct extends Component {
     render() {
         return (
             <>
-                <NavBar />
                 <div className="product-content mr-5 ml-5">
                     {this.state.products.length !== 0 && (
                         <Table bordered>
@@ -350,7 +345,7 @@ class CompareProduct extends Component {
                                     ))}
                                 </tr>
                                 <tr>
-                                    <th scope="row">Sold By</th>
+                                    <th scope="row">Brand</th>
                                     {this.state.products.map(c => (
                                         <td>
                                             {c.sold_by.name}
@@ -366,7 +361,7 @@ class CompareProduct extends Component {
                                     ))}
                                 </tr>
                                 <tr>
-                                    <th scope="row">Rating</th>
+                                    <th scope="row"></th>
                                     {this.state.products.map(c => (
                                         <td>
                                             <Button
@@ -381,7 +376,6 @@ class CompareProduct extends Component {
                         </Table>
                     )}
                 </div>
-                <SimpleFooter />
             </>
         );
     }

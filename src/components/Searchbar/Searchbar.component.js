@@ -48,21 +48,21 @@ class SearchBar extends Component {
         return (
             <Container>
                 <div>
-                    <InputGroup className="mb-0">
+                    <InputGroup className="mb-0 w-50 align-content-center" >
                         <InputGroupAddon addonType="prepend">
                             <InputGroupText>
                                 <i className="ni ni-zoom-split-in" />
                             </InputGroupText>
                         </InputGroupAddon>
                         <Input
-                            placeholder="Search"
+                            placeholder="Search among our wide range of products"
                             type="text"
                             value={this.state.query}
                             onChange={e => this.updateQuery(e.target.value)}
                             onFocus={e => this.setState({ searchFocused: true })}
                             onBlur={e => this.setState({ searchFocused: false })}
                         />
-                        <InputGroupButtonDropdown addonType="append" isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
+                        {/* <InputGroupButtonDropdown addonType="append" isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
                             <DropdownToggle caret>
                                 Button Dropdown
                         </DropdownToggle>
@@ -73,7 +73,7 @@ class SearchBar extends Component {
                                 <DropdownItem divider />
                                 <DropdownItem>Another Action</DropdownItem>
                             </DropdownMenu>
-                        </InputGroupButtonDropdown>
+                        </InputGroupButtonDropdown> */}
                     </InputGroup>
                     <ul className="search-result list-group mt-0 w-100">
                         {this.state.result.length !== 0 && (

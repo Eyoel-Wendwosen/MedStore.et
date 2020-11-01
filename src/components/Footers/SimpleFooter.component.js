@@ -18,30 +18,30 @@ class SimpleFooter extends React.Component {
   render() {
     return (
       <>
-        <footer className="footer">
+        <footer className="footer" style={{"background-color": "#172b4d"}}>
           <Container>
             <Row className=" row-grid  ">
               <Col lg="">
                 <Nav className=" nav-footer flex-column justify-content-center">
                   <NavItem>
                     <NavLink
-                      href="/" className="py-1">Home  </NavLink>
+                      href="/" className="py-1"><span className="text-white" >Home  </span></NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href="/product" className="py-1">Products  </NavLink>
+                      href="/product" className="py-1"><span className="text-white" >Products  </span></NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href="/" className="py-1">Services  </NavLink>
+                      href="/service" className="py-1"><span className="text-white" >Services  </span></NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href="/about-us" className="py-1">AboutUs  </NavLink>
+                      href="/about-us" className="py-1"><span className="text-white" >AboutUs  </span></NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      href="/contact-us" className="py-1">Contact Us  </NavLink>
+                      href="/contact-us" className="py-1"><span className="text-white" >Contact Us </span></NavLink>
                   </NavItem>
                 </Nav>
                 <ListGroup className="bg-grey">
@@ -49,9 +49,9 @@ class SimpleFooter extends React.Component {
                 </ListGroup>
               </Col>
               <Col className='' lg="">
-                <h5 className="text-primary">Contact us</h5>
-                <h6 className="mb-100 font-weight-lighter">+251-912-345678</h6>
-                <h6 className="mb-100 font-weight-lighter"><a href="mailto: info@medstore.et">info@medstore.et</a></h6>
+                <h5 className="text-white">Contact us</h5>
+                <h6 className="mb-100 text-white font-weight-lighter">+251-912-345678</h6>
+                <h6 className="mb-100 text-white font-weight-lighter"><a href="mailto: info@medstore.et">info@medstore.et</a></h6>
               </Col>
               <Col className="text-lg-center" lg="">
                 <Button

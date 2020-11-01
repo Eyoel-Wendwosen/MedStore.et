@@ -8,10 +8,6 @@ import {
 import Rating from '@material-ui/lab/Rating';
 
 
-import Navbar from 'components/Navbars/Navbar.component';
-import SimpleFooter from 'components/Footers/SimpleFooter.component';
-import SearchBar from 'components/Searchbar/Searchbar.component';
-
 
 class ProductDetail extends Component {
     constructor(props) {
@@ -68,9 +64,7 @@ class ProductDetail extends Component {
     render() {
         return (
             <>
-                <Navbar />
-                <div className="product-content">
-                    <SearchBar />
+                <div>
                     <section>
                         <Row className="product-detail pl-lg-9 p-4 pt-5 mt-5 mb-3 bg-grey">
                             <Col lg="4" className="mb-lg-auto">
@@ -99,7 +93,7 @@ class ProductDetail extends Component {
                                 <hr className="mt-0" />
                                 <Row className="mt-3">
                                     <Col>
-                                        <h5 className="text-gray">Sold By: </h5>
+                                        <h5 className="text-gray">Brand: </h5>
                                         <h4>
                                             {this.state.product.sold_by.name}
                                             <span class="material-icons ml-5">location_on</span>
@@ -125,8 +119,8 @@ class ProductDetail extends Component {
                         </Row>
                         <hr className="mt-0 mb-0" />
                         <Row className="product-info pl-lg-9 p-4">
-                            <Col className="product-characterstics bg-grey p-2 rounded shadow mr-5">
-                                <h4 className="">Characterstics</h4>
+                            <Col className="order-2 product-characterstics bg-grey p-2 rounded shadow mr-5">
+                                <h4 className="">Specification</h4>
                                 <hr className="mt-0" />
                                 {this.state.product.caracterstics.length !== 0 && (
                                     this.state.product.caracterstics.map(char => (
@@ -145,7 +139,7 @@ class ProductDetail extends Component {
                                     ))
                                 )}
                             </Col>
-                            <Col className="product-description bg-grey p-2 rounded shadow mr-5" >
+                            <Col className="order-1 product-description bg-grey p-2 rounded shadow mr-5" >
                                 <h4>Description</h4>
                                 <hr className="mt-0" />
                                 <p className="ml-3">
@@ -153,19 +147,12 @@ class ProductDetail extends Component {
                                 </p>
 
                             </Col>
-                            <Col className="product-catalogue bg-grey p-2 rounded shadow mr-5">
+                            <Col className="order-3 product-catalogue bg-grey p-2 rounded shadow mr-5">
                                 <h4>Catalogue</h4>
                                 <hr className="mt-0" />
 
 
                             </Col>
-                            <Col className="product-catalogue bg-grey p-2 rounded shadow mr-5">
-                                <h4>Catalogue</h4>
-                                <hr className="mt-0" />
-
-
-                            </Col>
-
                         </Row>
                         <div>
                             <h3 className="pl-4">
@@ -175,7 +162,6 @@ class ProductDetail extends Component {
                         </div>
                     </section>
                 </div>
-                <SimpleFooter />
             </>
         );
     }

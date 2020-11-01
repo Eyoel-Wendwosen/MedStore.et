@@ -21,6 +21,14 @@
   pointer-events: none;
 }
 
+.nav-hover {
+  transition: 1s border-bottom;
+}
+
+.nav-hover:hover {
+  border-bottom: white 2px solid;
+}
+
 .header-description {
   -moz-border-radius: 10px;
   /* for Firefox */
@@ -35,7 +43,7 @@
 }
 
 .navbar-brand img {
-  height: 60px;
+  height: 80px !important;
 }
 
 .content-center {
@@ -51,14 +59,17 @@
   top: 0;
   left: 0;
 }
+
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 300px) {
   .icon-l {
     font-size: 10rem;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
+
 @media only screen and (max-width: 600px) {
   .icon-l {
     font-size: 12rem;
@@ -69,6 +80,7 @@
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
+
 @media only screen and (max-width: 768px) {
   .icon-l {
     font-size: 14rem;
@@ -79,17 +91,19 @@
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
+
 @media screen and (min-width: 992px) {
-  
   .icon-l {
     font-size: 16rem;
   }
+  /* .nav-link-inner--text .text-white {
+    color: #172b4d !important;
+  } */
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  
-}
+
+@media only screen and (min-width: 1200px) {}
 
 .app-header {
   background-image: url("./assets/img/theme/CT.jpg");
@@ -151,17 +165,16 @@
 
 /*  Product view style modification */
 
-
 /* Search bar component style modification */
 
-.search-result{
+.search-result {
   z-index: 100;
-position: fixed;
-margin-right: auto;
+  position: fixed;
+  margin-right: auto;
 }
 
-
 /* Search bar component style modification */
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

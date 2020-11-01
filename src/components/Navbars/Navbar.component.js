@@ -45,8 +45,7 @@ class DemoNavbar extends React.Component {
       <>
         <header>
           <Navbar
-            className="navbar-main shadow navbar-transparent pr-5 pl-5"
-            // style = {{backgroundColor: "#172b4d !important"}}
+            className="navbar-main shadow navbar-transparent pr-5 pl-5 "
             expand="lg"
             id="navbar-main"
           >
@@ -63,8 +62,8 @@ class DemoNavbar extends React.Component {
               toggler="#navbar_global"
               navbar
               className={"justify-content-end"}
-            // onExiting={this.onExiting}
-            // onExited={this.onExited}
+              onExiting={this.onExiting}
+              onExited={this.onExited}
             >
               <div className="navbar-collapse-header">
                 <Row>
@@ -88,7 +87,7 @@ class DemoNavbar extends React.Component {
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
                     <i className="ni ni-ui-04 d-lg-none" />
-                    <Link className="nav-link-inner--text" to="/">
+                    <Link className="nav-link-inner--text nav-hover" to="/">
                       <span className="h6 font-weight-normal text-white">Home</span>
                     </Link>
                   </DropdownToggle>
@@ -97,7 +96,7 @@ class DemoNavbar extends React.Component {
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
                     <i className="ni ni-circle-08 d-lg-none" />
-                    <Link className="nav-link-inner--text" to="/about-us">
+                    <Link className="nav-link-inner--text nav-hover" to="/about-us">
                       <span className="h6 font-weight-normal text-white">About Us</span>
                     </Link>
                   </DropdownToggle>
@@ -105,7 +104,7 @@ class DemoNavbar extends React.Component {
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
                     <i className="ni ni-cart d-lg-none" />
-                    <Link to='/product' className="nav-link-inner--text">
+                    <Link to='/product' className="nav-link-inner--text nav-hover">
                       <span className="h6 font-weight-normal  text-white">Products</span>
                     </Link>
                   </DropdownToggle>
@@ -127,7 +126,7 @@ class DemoNavbar extends React.Component {
                 <UncontrolledDropdown nav>
                   <DropdownToggle nav>
                     <i className="ni ni-app d-lg-none" />
-                    <Link to='/compare-proudcts' className="nav-link-inner--text">
+                    <Link to='/service' className="nav-link-inner--text nav-hover">
                       <span className="h6 font-weight-normal text-white">Services</span>
                     </Link>
                   </DropdownToggle>
@@ -187,8 +186,8 @@ class DemoNavbar extends React.Component {
                 <UncontrolledDropdown >
                   <DropdownToggle nav>
                     <i className="ni ni-email-83 d-lg-none" />
-                    <Link className="nav-link-inner--text" to="/contact-us">
-                      <span className="h6 font-weight-normal nav-link-inner--text text-white">Contact Us</span>
+                    <Link className="nav-link-inner--text nav-hover" to="/contact-us">
+                      <span className="h6 font-weight-normal text-white">Contact Us</span>
                     </Link>
                   </DropdownToggle>
                 </UncontrolledDropdown>

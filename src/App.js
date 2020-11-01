@@ -1,37 +1,51 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import Product from 'components/Products/Product.component';
+import Service from 'components/Services/Service.component';
+import AboutUs from 'views/AboutUs.view';
+import ContactUs from './components/ContactUs';
+import NavBar from 'components/Navbars/Navbar.component';
+import Footer from 'components/Footers/SimpleFooter.component';
+import Home from 'views/Home.view';
 
 import './App.css';
-import Services from 'views/Service.view';
-import Team from 'views/Team.view';
-import Headline from 'views/Headline.view';
-import HowItWorks from 'views/HowItWorks.view';
-import NavBar from 'components/Navbars/Navbar.component';
-import SimpleFooter from 'components/Footers/SimpleFooter.component';
+
 
 function App() {
 
   return (
     <>
-      <NavBar className="" />
-      <div className="App">
-        <main>
-          <div className="position-relative">
-            <section className="app-header">
-              <Headline />
-            </section>
-            <section name="ser">
-              <Services className="services" />
-            </section>
-            <section className=" bg-grey">
-              <HowItWorks  />
-            </section>
-            <section className="mb-5 ">
-              <Team />
-            </section>
-          </div>
-        </main>
-      </div>
-      <SimpleFooter />
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route
+            path="/contact-us"
+            exact
+            component={ContactUs} />
+          <Route
+            path="/product"
+            component={Product} />
+          <Route
+            path="/service"
+            component={Service} />
+          <Route
+            path="/about-us"
+            exact
+            component={AboutUs} />
+          <Route
+            path="/"
+            exact
+            component={Home} />
+          <Redirect to="/" />
+        </Switch>
+        <Footer />
+      </Router>
+
     </>
   );
 }

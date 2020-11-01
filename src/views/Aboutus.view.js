@@ -1,9 +1,6 @@
 import React from 'react';
 import { Container, Row,} from 'reactstrap';
 
-import Navbar from 'components/Navbars/Navbar.component';
-import SimpleFooter from 'components/Footers/SimpleFooter.component';
-
 
 class AboutUs extends React.Component {
     constructor(props) {
@@ -21,7 +18,6 @@ class AboutUs extends React.Component {
     render() {
         return (
             <>
-                <Navbar />
                 <Container className="product-content mb-5">
                     <Row className=''>
                         <div className='px-4'>
@@ -51,7 +47,6 @@ class AboutUs extends React.Component {
                         </div>
                     </Row>
                 </Container>
-                <SimpleFooter />
             </>
         );
     }
