@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Product from 'components/Products/Product.component';
 import Service from 'components/Services/Service.component';
-import AboutUs from 'views/AboutUs.view';
+import AboutUs from 'views/Aboutus.view';
 import ContactUs from './components/ContactUs';
 import NavBar from 'components/Navbars/Navbar.component';
 import Footer from 'components/Footers/SimpleFooter.component';
