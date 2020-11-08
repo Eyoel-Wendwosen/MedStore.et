@@ -17,7 +17,7 @@ class Team extends React.Component {
                     
                 </Row>
                 <Row >
-                    <Col className="mt-5 mb-5" lg="4" md="4">
+                    <Col className="mt-5 mb-5" lg="6" md="6">
                         <div className="px-4">
                             <img
                                 alt="..."
@@ -59,7 +59,7 @@ class Team extends React.Component {
                             </div>
                         </div>
                     </Col>
-                    <Col className="mt-5 mb-5" lg="4" md="4">
+                    <Col className="mt-5 mb-5" lg="6" md="6">
                         <div className="px-4">
                             <img
                                 alt="..."

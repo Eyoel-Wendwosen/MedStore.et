@@ -12,17 +12,17 @@ class Home extends Component {
     }
     render() {
         return (
-            <div className="App">
+            <div className="App home-content">
                 <main>
                     <div className="position-relative">
                         <section className="app-header">
                             <Headline />
                         </section>
-                        <section name="ser">
-                            <Services className="services" />
-                        </section>
                         <section className=" bg-grey">
                             <HowItWorks />
+                        </section>
+                        <section name="ser">
+                            <Services className="services" />
                         </section>
                         <section className="mb-5 ">
                             <Team />

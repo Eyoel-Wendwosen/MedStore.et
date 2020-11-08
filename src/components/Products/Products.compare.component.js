@@ -295,7 +295,6 @@ class CompareProduct extends Component {
     }
 
     renderCharacterstics(charactersitcs) {
-        console.log((Array.from(charactersitcs)));
 
         return Array.from(charactersitcs).map(char => {
             return (<td>
@@ -309,21 +308,22 @@ class CompareProduct extends Component {
         });
     }
     render() {
+        const { products } = this.props;
         return (
             <>
-                <div className="product-content mr-5 ml-5">
-                    {this.state.products.length !== 0 && (
-                        <Table bordered>
+                <div className=" mt-5 mr-lg-5 ml-lg-5">
+                    {products.length !== 0 && (
+                        <Table responsive bordered>
                             <thead>
                                 <tr>
                                     <th className="text-lg-center align-content-center">Product</th>
-                                    {this.state.products.map(c => (
+                                    {products.map(c => (
                                         <td>
                                             <img
                                                 alt={`${c.name} Product`}
-                                                src={c.img_urls[0].src}
-                                                height="250px"
-                                                width={100} />
+                                                // src={c.img_urls[0].src}
+                                                height="120vh" />
+                                            <h6>{c.name}</h6>
                                         </td>
                                     ))}
                                 </tr>
@@ -338,7 +338,7 @@ class CompareProduct extends Component {
                                 </tr>
                                 <tr>
                                     <th scope="row">Description</th>
-                                    {this.state.products.map(c => (
+                                    {products.map(c => (
                                         <td>
                                             {c.description}
                                         </td>
@@ -354,7 +354,7 @@ class CompareProduct extends Component {
                                 </tr>
                                 <tr>
                                     <th scope="row">Rating</th>
-                                    {this.state.products.map(c => (
+                                    {products.map(c => (
                                         <td>
                                             <Rating name="read-only" value={c.rating} readOnly />
                                         </td>
@@ -362,7 +362,7 @@ class CompareProduct extends Component {
                                 </tr>
                                 <tr>
                                     <th scope="row"></th>
-                                    {this.state.products.map(c => (
+                                    {products.map(c => (
                                         <td>
                                             <Button
                                                 className="font-weight-lighter"

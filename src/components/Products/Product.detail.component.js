@@ -3,6 +3,7 @@ import {
     Button,
     Row,
     Col,
+    Input,
     UncontrolledCarousel
 } from 'reactstrap';
 import Rating from '@material-ui/lab/Rating';
@@ -20,7 +21,7 @@ class ProductDetail extends Component {
                     location: "Germany"
                 },
                 rating: 5,
-                img_urls: [
+                photo_urls: [
                     {
                         src: require("assets/img/theme/img-1-1200x1000.jpg"),
                         altText: "",
@@ -62,6 +63,8 @@ class ProductDetail extends Component {
         };
     }
     render() {
+        const { product } = this.props;
+        console.log(product);
         return (
             <>
                 <div>
@@ -69,13 +72,13 @@ class ProductDetail extends Component {
                         <Row className="product-detail pl-lg-9 p-4 pt-5 mt-5 mb-3 bg-grey">
                             <Col lg="4" className="mb-lg-auto">
                                 <div className="rounded shadow-lg overflow-hidden ">
-                                    <UncontrolledCarousel autoPlay={false} controls={true} indicators={true} items={this.state.product.img_urls} />
+                                    <UncontrolledCarousel autoPlay={false} controls={true} indicators={true} items={this.state.product.photo_urls} />
                                 </div>
                             </Col>
                             <Col className="ml-4" lg="6" >
                                 <Row>
                                     <h1 >
-                                        {this.state.product.name}
+                                        {product.name}
                                     </h1>
                                 </Row>
                                 <Row>
@@ -87,7 +90,7 @@ class ProductDetail extends Component {
                                             ))
                                         )}
                                     <Col>
-                                        <Rating name="read-only" value={this.state.product.rating} readOnly />
+                                        <Rating name="read-only" value={product.rating} readOnly />
                                     </Col>
                                 </Row>
                                 <hr className="mt-0" />
@@ -103,17 +106,34 @@ class ProductDetail extends Component {
                                 </Row>
                                 <br />
                                 <Row>
-                                    <Button
-                                        className="btn-icon btn-1 ml-1 "
-                                        color="info"
-                                        type="button"
-                                        outline
-                                    >
-                                        <span className="btn-inner--text">Request More Information</span>
-                                        <span className="btn-inner--icon mr-1">
-                                            <i className="ni ni-bag-17" />
-                                        </span>
-                                    </Button>
+                                    <Col lg="7">
+                                        <Button
+                                            className="btn-icon btn-1 ml-1 "
+                                            color="info"
+                                            type="button"
+                                            outline
+                                        >
+                                            <span className="btn-inner--text">Request Information</span>
+                                            <span className="btn-inner--icon mr-1">
+                                                <i className="ni ni-bag-17" />
+                                            </span>
+                                        </Button>
+                                        <Input style={{ display: "inline", width: "15%" }} type="select" name="select" id="exampleSelect">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                        </Input>
+                                    </Col>
+                                    <Col lg="5">
+                                        <h6>
+                                            Need Help in choosing? Contact our equipment experts.
+                                        </h6>
+                                        <p><span className="material-icons">phone</span>0912345678</p>
+                                    </Col>
                                 </Row>
                             </Col>
                         </Row>
@@ -143,7 +163,7 @@ class ProductDetail extends Component {
                                 <h4>Description</h4>
                                 <hr className="mt-0" />
                                 <p className="ml-3">
-                                    {this.state.product.description}
+                                    {product.description}
                                 </p>
 
                             </Col>

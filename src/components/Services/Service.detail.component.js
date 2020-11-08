@@ -6,13 +6,12 @@ import {
     CardImg,
     Button
 } from 'reactstrap';
-
 import { Link } from 'react-router-dom';
 
-import ContactUs from 'components/ContactUs';
 
 class ECommerceService extends React.Component {
     render() {
+        const { service } = this.props;
         return (
             <>
                 <main>
@@ -22,46 +21,27 @@ class ECommerceService extends React.Component {
                                 <Col lg="6">
                                     <CardImg
                                         className="card-img"
-                                        src={require('../../assets/img/theme/CT2.jpg')}
+                                        src={require(('../../assets/img/theme/CT2.jpg'))}
                                         alt="..." />
                                 </Col>
-                                <Col lg="6">
-                                    <CardImg
-                                        className="card-img"
-                                        src={require('../../assets/img/theme/CT2.jpg')}
-                                        alt="..." />
-                                </Col>
-                            </Row>
-                            <Row className="pt-8 row-grid align-items-center">
-                                <Col lg="6">
-                                    <h4 className="display-2">Buy New Medical Equipment</h4>
-                                    <p>
-                                        At MedStore.et you find eFDA Registered medical equipment for sale   in Ethiopia both in stock and as per order  also you can sell and buy used medical equipment with plenty of choices based on equipment condition.
-                                    </p>
-                                    <ul>
-                                        <li>Various Type,Brand and price ,giving you the luxury of choice.</li>
-                                        <li>Save energy and time searching for the right product as per requirement.</li>
-                                        <li>Short delivery time.</li>
-                                    </ul>
-                                    <Link to='/product'><Button>Explore Products </Button></Link>
-                                </Col>
-                                <Col lg="6">
-                                    <h4 className="display-2">Buy and Sell Used Medical Equipment</h4>
-                                    <p>
-                                        At MedStore.et you find eFDA Registered medical equipment for sale   in Ethiopia both in stock and as per order  also you can sell and buy used medical equipment with plenty of choices based on equipment condition.
-                                    </p>
-                                    <ul>
-                                        <li>Various Type,Brand and price ,giving you the luxury of choice.</li>
-                                        <li>Save energy and time searching for the right product as per requirement.</li>
-                                        <li>Short delivery time.</li>
-                                    </ul>
-                                    <Link to='/product'><Button>Link to used Products </Button></Link>
+                                <Col className="pl-2" lg="6">
+                                    <h4 className="display-2">{service.title}</h4>
+                                    <p>{service.description}</p>
+                                    {service.bullets && service.bullets.length !== 0 && (
+                                        <ul>
+                                            {service.bullets.map(bullet => (
+                                                <li>{bullet}</li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                    {service.title === "E-commerce" &&
+                                        <Link to='/product'><Button>Explore Products </Button></Link>
+                                    }
                                 </Col>
                             </Row>
                         </Container>
                     </section>
                 </main>
-                <ContactUs />
             </>
         );
     }

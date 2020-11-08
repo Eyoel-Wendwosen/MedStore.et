@@ -1,4 +1,3 @@
-import { ListItem } from "@material-ui/core";
 import React from "react";
 // reactstrap components
 import {
@@ -9,9 +8,7 @@ import {
   Container,
   Row,
   Col,
-  UncontrolledTooltip,
-  ListGroup,
-  ListGroupItem
+  UncontrolledTooltip
 } from "reactstrap";
 
 class SimpleFooter extends React.Component {
@@ -19,9 +16,10 @@ class SimpleFooter extends React.Component {
     return (
       <>
         <footer className="footer" style={{"background-color": "#172b4d"}}>
-          <Container>
+          <Container className="">
             <Row className=" row-grid  ">
               <Col lg="">
+                <h5 className="text-white">Quick Links</h5>
                 <Nav className=" nav-footer flex-column justify-content-center">
                   <NavItem>
                     <NavLink
@@ -43,17 +41,24 @@ class SimpleFooter extends React.Component {
                     <NavLink
                       href="/contact-us" className="py-1"><span className="text-white" >Contact Us </span></NavLink>
                   </NavItem>
+                  {/* <NavItem>
+                    <NavLink
+                      href="/contact-us" className="py-1"><span className="text-white" >LogIn </span></NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="/contact-us" className="py-1"><span className="text-white" >Signup </span></NavLink>
+                  </NavItem> */}
                 </Nav>
-                <ListGroup className="bg-grey">
-
-                </ListGroup>
               </Col>
               <Col className='' lg="">
+
                 <h5 className="text-white">Contact us</h5>
                 <h6 className="mb-100 text-white font-weight-lighter">+251-912-345678</h6>
                 <h6 className="mb-100 text-white font-weight-lighter"><a href="mailto: info@medstore.et">info@medstore.et</a></h6>
               </Col>
-              <Col className="text-lg-center" lg="">
+              <Col className="text-center" lg="">
+              <h5 className="text-white">Connect With Us</h5>
                 <Button
                   className="btn-icon-only rounded-circle"
                   color="twitter"
@@ -113,8 +118,8 @@ class SimpleFooter extends React.Component {
               </Col>
               
             </Row>
-            <hr />
-            <Row className=" align-items-center justify-content-md-between">
+            <hr className="mb-0 mt-1"/>
+            <Row>
               <Col md="6">
                 <div className=" copyright">
                   <a href="/" target="_blank">MedStore.et</a> © {new Date().getFullYear()}{" "}
@@ -127,7 +132,6 @@ class SimpleFooter extends React.Component {
                   >
                     <NavLink
                       href="/"
-                      target="_blank"
                     >
                       MedStore.et
                     </NavLink>
@@ -135,7 +139,6 @@ class SimpleFooter extends React.Component {
                   <NavItem>
                     <NavLink
                       href="/about-us"
-                      target="_blank"
                     >
                       About Us
                     </NavLink>
@@ -143,7 +146,6 @@ class SimpleFooter extends React.Component {
                   <NavItem>
                     <NavLink
                       href="https://github.com/creativetimofficial/argon-design-system-react/blob/master/LICENSE.md"
-                      target="_blank"
                     >
                       MIT License
                     </NavLink>

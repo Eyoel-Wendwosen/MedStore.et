@@ -4,11 +4,9 @@ import {
     InputGroup,
     InputGroupAddon,
     InputGroupText,
+    Row,
     Input,
-    InputGroupButtonDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
+    Button
 } from "reactstrap";
 
 class SearchBar extends Component {
@@ -41,19 +39,14 @@ class SearchBar extends Component {
     handelClick() {
         this.setState({
             result: []
-        }); 
+        });
     }
 
     render() {
         return (
             <Container>
                 <div>
-                    <InputGroup className="mb-0 w-50 align-content-center" >
-                        <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                                <i className="ni ni-zoom-split-in" />
-                            </InputGroupText>
-                        </InputGroupAddon>
+                    <InputGroup className="border-teal mb-0">
                         <Input
                             placeholder="Search among our wide range of products"
                             type="text"
@@ -62,24 +55,28 @@ class SearchBar extends Component {
                             onFocus={e => this.setState({ searchFocused: true })}
                             onBlur={e => this.setState({ searchFocused: false })}
                         />
+                        <InputGroupAddon addonType="append">
+                            <Button >Search</Button>
+                        </InputGroupAddon>
+
                         {/* <InputGroupButtonDropdown addonType="append" isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
                             <DropdownToggle caret>
-                                Button Dropdown
-                        </DropdownToggle>
+                            Button Dropdown
+                            </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem header>Header</DropdownItem>
-                                <DropdownItem disabled>Action</DropdownItem>
-                                <DropdownItem>Another Action</DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>Another Action</DropdownItem>
+                            <DropdownItem header>Header</DropdownItem>
+                            <DropdownItem disabled>Action</DropdownItem>
+                            <DropdownItem>Another Action</DropdownItem>
+                            <DropdownItem divider />
+                            <DropdownItem>Another Action</DropdownItem>
                             </DropdownMenu>
                         </InputGroupButtonDropdown> */}
                     </InputGroup>
-                    <ul className="search-result list-group mt-0 w-100">
+                    <ul className="search-result border-0 list-group mt-0">
                         {this.state.result.length !== 0 && (
                             this.state.result.map(
                                 res => (
-                                    <li onClick={this.handelClick} className="list-group-item">{res}</li>)
+                                    <li onClick={this.handelClick} className="list-group-item py-0" >{res}</li>)
                             )
                         )}
                     </ul>

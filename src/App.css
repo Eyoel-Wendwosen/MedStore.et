@@ -77,13 +77,27 @@
   .nav-link-inner--text .text-white {
     color: #172b4d !important;
   }
+  .product-content {
+    margin: 0 2rem;
+    margin-top: 200px !important;
+    position: initial;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768) {
   .icon-l {
     font-size: 14rem;
+  }
+}
+
+@media only screen and (max-width:992px) {
+  .icon-l {
+    font-size: 14rem;
+  }
+  .navbar-brand img {
+    height: 50px !important;
   }
   .nav-link-inner--text .text-white {
     color: #172b4d !important;
@@ -159,7 +173,12 @@
 
 .product-content {
   margin: 0 2rem;
-  margin-top: 125px;
+  margin-top: 150px;
+  position: initial;
+}
+.home-content {
+  margin: 0;
+  margin-top: 100px;
   position: initial;
 }
 
@@ -169,7 +188,8 @@
 
 .search-result {
   z-index: 100;
-  position: fixed;
+  width: inherit;
+  position: absolute;
   margin-right: auto;
 }
 

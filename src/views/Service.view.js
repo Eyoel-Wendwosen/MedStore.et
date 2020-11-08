@@ -8,8 +8,8 @@ class Services extends React.Component {
             <>
                 <main ref="main">
                     <div className="position-relative">
-                        <section className="section section-hero section-shaped">
-                            <div className="shape shape-style-1 shape-default">
+                        <section className="section section-hero bg-gradient-teal section-shaped">
+                            {/* <div className="shape shape-style-1 ">
                                 <span className="span-150" />
                                 <span className="span-50" />
                                 <span className="span-50" />
@@ -20,7 +20,7 @@ class Services extends React.Component {
                                 <span className="span-100" />
                                 <span className="span-50" />
                                 <span className="span-100" />
-                            </div>
+                            </div> */}
 
                             <Container className="py-lg-md d-flex">
                                 <div className="col px-0">
@@ -253,6 +253,83 @@ class Services extends React.Component {
                                 </Row>
                             </Container>
                         </section>
+                        <section className="section">
+                            <Container>
+                                <Row className="row-grid align-items-center">
+                                    <Col className=" order-2 pr-md-5" md="6" lg="6">
+                                        <Card className="bg-default shadow border-0">
+                                            <CardImg
+                                                alt="..."
+                                                className="img-fluid"
+                                                src={require("assets/img/theme/Consultancy.jpeg")}
+                                                top
+                                            />
+
+                                        </Card>
+                                    </Col>
+                                    <Col md="6">
+                                        <h3 >
+                                            Consultancy
+                                        </h3>
+                                        <p>
+                                            <span className="font-weight-bold">MedStore.et</span> supports and advises you while you make a medical equipment purchase, floating tender, bidding tenders, and advice on managing medical equipment on health facilities.
+                                            </p>
+                                        <ul className="list-unstyled mt-5">
+                                            <li className="py-2">
+                                                <div className="d-flex align-items-center">
+                                                    <div>
+                                                        <Badge
+                                                            className="badge-circle mr-3"
+                                                            color="success"
+                                                        >
+                                                            <i className="ni ni-settings-gear-65" />
+                                                        </Badge>
+                                                    </div>
+                                                    <div>
+                                                        <h6 className="mb-0">
+                                                            Carefully crafted effort
+                            </h6>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li className="py-2">
+                                                <div className="d-flex align-items-center">
+                                                    <div>
+                                                        <Badge
+                                                            className="badge-circle mr-3"
+                                                            color="success"
+                                                        >
+                                                            <i className="ni ni-html5" />
+                                                        </Badge>
+                                                    </div>
+                                                    <div>
+                                                        <h6 className="mb-0">Top industry experts</h6>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li className="py-2">
+                                                <div className="d-flex align-items-center">
+                                                    <div>
+                                                        <Badge
+                                                            className="badge-circle mr-3"
+                                                            color="success"
+                                                        >
+                                                            <i className="ni ni-satisfied" />
+                                                        </Badge>
+                                                    </div>
+                                                    <div>
+                                                        <h6 className="mb-0">
+                                                            Super friendly support team
+                            </h6>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </section>
+
                         <section className="bg-gradient-teal">
                             <Container>
                                 <Row className="pt-5 ">
