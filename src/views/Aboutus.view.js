@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row,} from 'reactstrap';
+import { Container, Row, } from 'reactstrap';
 
 
 class AboutUs extends React.Component {
@@ -16,37 +16,40 @@ class AboutUs extends React.Component {
     }
 
     render() {
+
         return (
             <>
-                <Container className="product-content mb-5">
-                    <Row className=''>
-                        <div className='px-4'>
-                            <h1 >
-                                About Us !
+                <div className="about-us">
+                    <Container className=" content product-content mb-5">
+                        <Row className=''>
+                            <div className='px-4'>
+                                <h1 >
+                                    About Us !
                             </h1>
-                            <p className=" col-9">
-                                MedStore.et is a multiservice platform in Ethiopian Medical Equipment industry. Created by two young and energetic  Biomedical Engineers who saw the gap on the medical equipment supply chain, technical support and other Medical Equipment issues which finally inspired MedStore.et.
+                                <p className=" col-9">
+                                    MedStore.et is a multiservice platform in Ethiopian Medical Equipment industry. Created by two young and energetic  Biomedical Engineers who saw the gap on the medical equipment supply chain, technical support and other Medical Equipment issues which finally inspired MedStore.et.
                             </p>
-                            <hr className="my-1" />
-                            <h3>
-                                MedStore.et is a place where
+                                <hr className="my-1" />
+                                <h3>
+                                    MedStore.et is a place where
                             </h3>
-                            <ul>
-                                {this.state.Bullets.map(b => (
-                                    <li>{b}</li>
-                                ))}
-                            </ul>
-                            <hr className="my-5" />
-                            <h1>
-                                Our Vision
+                                <ul>
+                                    {this.state.Bullets.map(b => (
+                                        <li>{b}</li>
+                                    ))}
+                                </ul>
+                                <hr className="my-5" />
+                                <h1>
+                                    Our Vision
                             </h1>
-                            <p>
-                                To become nation leading service provider in Medical Equipment Industry. Delivering the service we provide in a safeguarded and friendly environment. We take pride in our work and are doing our level best to ensure that you receive the very best product and service possible.
+                                <p>
+                                    To become nation leading service provider in Medical Equipment Industry. Delivering the service we provide in a safeguarded and friendly environment. We take pride in our work and are doing our level best to ensure that you receive the very best product and service possible.
 
                             </p>
-                        </div>
-                    </Row>
-                </Container>
+                            </div>
+                        </Row>
+                    </Container>
+                </div>
             </>
         );
     }

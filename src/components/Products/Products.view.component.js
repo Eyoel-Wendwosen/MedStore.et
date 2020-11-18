@@ -22,10 +22,11 @@ class ProductsView extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:8080/api/v1/product/category/${this.props.category._id}`)
+        axios.get(`http://localhost:8080/api/v1/product/category/${this.props.category.name}`)
             .then(res => {
                 let products = res.data.data;
                 this.setState({ products });
+                console.log(products);
             });
     }
 
@@ -33,15 +34,20 @@ class ProductsView extends Component {
         let products = this.state.products;
         let productRender = products.map(product => (
             <Col
+                style={{
+                    "display": "flex",
+                    "display": "-webkit-flex",
+                    "flex-wrap": "wrap"
+                }}
                 key={product}
-                className="mt-4" xl="2" lg="5" md="4" sm="6">
+                className="mt-4" xl="2" lg="5" md="4" sm="6" >
                 <Card
                     className="card-lift shadow border-3">
                     <CardImg
                         className="p-1"
                         alt="..."
-                        height="100vh"
-                        src={require("assets/img/theme/landing.jpg")}
+                        // height="100vh"
+                        src={"http://localhost:8080/avatars/upload_8af0e2a852d67f4ccc9637e2d7898df4.png"}
                     />
                     <CardBody
                         onClick={() => onProductSelect(product)}
@@ -49,13 +55,13 @@ class ProductsView extends Component {
                         <CardTitle
                             tag="h4"
                             className="ml-1 my-0 mt-2 bg-grey">
-                            Product {product.name}
+                            {product.name}
                         </CardTitle>
                         <p className="font-weight-lighter text-dark">
-                            Small Proudct {product.description} description goes up here.
-                             </p>
+                            {/* {product.description} */}
+                        </p>
                         <p>
-                            Brand of Product {product.name}.
+                            {product.brand}.
                         </p>
                     </CardBody>
                     <CardBody className="content-center">

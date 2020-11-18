@@ -10,21 +10,24 @@ import { Link } from 'react-router-dom';
 
 
 class ECommerceService extends React.Component {
+    componentDidMount() {
+    }
+
     render() {
         const { service } = this.props;
         return (
             <>
                 <main>
-                    <section className=" pb-7 position-relative bg-gradient-lighter">
+                    <section className="mb-3 pb-7 position-relative bg-gradient-lighter">
                         <Container >
                             <Row className="pt-8 row-grid align-items-center">
-                                <Col lg="6">
+                                {/* <Col lg="6">
                                     <CardImg
+                                        src={this.state ? this.state.img_url : ""}
                                         className="card-img"
-                                        src={require(('../../assets/img/theme/CT2.jpg'))}
                                         alt="..." />
-                                </Col>
-                                <Col className="pl-2" lg="6">
+                                </Col> */}
+                                <Container className="pl-2" lg="">
                                     <h4 className="display-2">{service.title}</h4>
                                     <p>{service.description}</p>
                                     {service.bullets && service.bullets.length !== 0 && (
@@ -37,7 +40,7 @@ class ECommerceService extends React.Component {
                                     {service.title === "E-commerce" &&
                                         <Link to='/product'><Button>Explore Products </Button></Link>
                                     }
-                                </Col>
+                                </Container>
                             </Row>
                         </Container>
                     </section>

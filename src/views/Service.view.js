@@ -70,9 +70,11 @@ class Services extends React.Component {
                                             <Col lg="4">
                                                 <Card className="card-lift--hover shadow border-0">
                                                     <CardBody className="py-5">
-                                                        <div className=" rounded-circle mb-4">
-                                                            <img src={require("assets/img/ill/Dashboard.png")} alt="Smartphone icon" />
-                                                        </div>
+                                                        <CardImg
+                                                            className="mb-4"
+                                                            src={require("assets/img/ill/Technical Suppot.png")}
+                                                            alt="Smartphone icon" />
+
                                                         <h4 className="text-uppercase text-center bold">
                                                             Technical Support
                                                         </h4>
@@ -105,9 +107,10 @@ class Services extends React.Component {
                                             <Col lg="4">
                                                 <Card className="card-lift--hover shadow border-0">
                                                     <CardBody className="py-5">
-                                                        <div className=" rounded-circle mb-4">
-                                                            <img src={require("assets/img/ill/smartphone.png")} alt="Smartphone icon" />
-                                                        </div>
+                                                        <CardImg
+                                                            className="mb-4"
+                                                            src={require("assets/img/ill/Consultancy.png")}
+                                                            alt="Smartphone icon" />
                                                         <h4 className="text-uppercase text-center bold">
                                                             Consultancy
                                                         </h4>
@@ -140,9 +143,10 @@ class Services extends React.Component {
                                             <Col lg="4">
                                                 <Card className="card-lift--hover shadow border-0">
                                                     <CardBody className="py-5">
-                                                        <div className=" rounded-circle mb-4">
-                                                            <img src={require("assets/img/ill/Compare.png")} alt="Smartphone icon" />
-                                                        </div>
+                                                        <CardImg
+                                                            className="mb-4"
+                                                            src={require("assets/img/ill/Tender.png")}
+                                                            alt="Smartphone icon" />
                                                         <h4 className="text-uppercase text-center bold">
                                                             Tender
                                                         </h4>
@@ -414,7 +418,7 @@ class Services extends React.Component {
                                     y="0"
                                 >
                                     <polygon
-                                        style={{ fill: '#f4f5f7' }}
+                                        style={{ fill: '#FFFFFF' }}
                                         points="0 0 0 75 2560 75"
                                     />
                                 </svg>

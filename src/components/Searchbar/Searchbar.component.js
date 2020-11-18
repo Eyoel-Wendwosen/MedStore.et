@@ -8,6 +8,7 @@ import {
     Input,
     Button
 } from "reactstrap";
+import axios from 'axios';
 
 class SearchBar extends Component {
     constructor(props) {
@@ -32,8 +33,18 @@ class SearchBar extends Component {
     updateQuery(term) {
         this.setState((prevState) => ({
             query: term,
-            result: prevState.result.concat([term])
         }));
+        if (this.state.query === "") {
+            this.setState({
+                result: []
+            });
+        }
+        axios.get(`http://localhost:8080/api/v1/product/search/${this.state.query}`)
+            .then(res => {
+                this.setState({
+                    result: res.data.data,
+                });
+            });
     }
 
     handelClick() {
@@ -44,7 +55,7 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <Container>
+            <Container className="search-bar px-0">
                 <div>
                     <InputGroup className="border-teal mb-0">
                         <Input
@@ -76,7 +87,7 @@ class SearchBar extends Component {
                         {this.state.result.length !== 0 && (
                             this.state.result.map(
                                 res => (
-                                    <li onClick={this.handelClick} className="list-group-item py-0" >{res}</li>)
+                                    <li onClick={this.handelClick} className="list-group-item py-0" >{res.name}</li>)
                             )
                         )}
                     </ul>

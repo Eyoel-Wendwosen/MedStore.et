@@ -298,12 +298,12 @@ class CompareProduct extends Component {
 
         return Array.from(charactersitcs).map(char => {
             return (<td>
-                <ListGroup>
-                    <ListGroupItem>
-                        <ListGroupItemHeading>{char.name}</ListGroupItemHeading>
-                        <ListGroupItemText>{char.name}</ListGroupItemText>
-                    </ListGroupItem>
-                </ListGroup>
+                <ul>
+                    <li>
+                        <span>{char.name}</span>
+                        <span>{char.name}</span>
+                    </li>
+                </ul>
             </td>);
         });
     }
@@ -346,9 +346,9 @@ class CompareProduct extends Component {
                                 </tr>
                                 <tr>
                                     <th scope="row">Brand</th>
-                                    {this.state.products.map(c => (
+                                    {products.map(c => (
                                         <td>
-                                            {c.sold_by.name}
+                                            {c.brand}
                                         </td>
                                     ))}
                                 </tr>

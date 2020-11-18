@@ -64,7 +64,7 @@
 
 @media only screen and (max-width: 300px) {
   .icon-l {
-    font-size: 10rem;
+    font-size: 8rem;
   }
 }
 
@@ -88,13 +88,13 @@
 
 @media only screen and (max-width: 768) {
   .icon-l {
-    font-size: 14rem;
+    font-size: 10rem;
   }
 }
 
 @media only screen and (max-width:992px) {
   .icon-l {
-    font-size: 14rem;
+    font-size: 10rem;
   }
   .navbar-brand img {
     height: 50px !important;
@@ -108,7 +108,7 @@
 
 @media screen and (min-width: 992px) {
   .icon-l {
-    font-size: 16rem;
+    font-size: 12rem;
   }
   /* .nav-link-inner--text .text-white {
     color: #172b4d !important;
@@ -176,6 +176,7 @@
   margin-top: 150px;
   position: initial;
 }
+
 .home-content {
   margin: 0;
   margin-top: 100px;
@@ -183,6 +184,22 @@
 }
 
 /*  Product view style modification */
+
+/* about-us style modification */
+
+.about-us {
+  background-image: url('assets/img/theme/Tilet.jpg');
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  display: flex;
+  background-size: cover;
+}
+
+.about-us .content {
+  background-color: rgba(244, 245, 247, 0.75);
+}
+
+/* about-us style modification */
 
 /* Search bar component style modification */
 
@@ -193,13 +210,13 @@
   margin-right: auto;
 }
 
-/* Search bar component style modification */
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-bar {
+  border: 2px solid #61dafb !important;
+  width: 50% !important;
 }
+
+.search-bar :focus {
+  border: 1px solid #61dafb !important;
+}
+
+/* Search bar component style modification */

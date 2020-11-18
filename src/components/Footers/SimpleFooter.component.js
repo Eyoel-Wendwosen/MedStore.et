@@ -15,11 +15,11 @@ class SimpleFooter extends React.Component {
   render() {
     return (
       <>
-        <footer className="footer" style={{"background-color": "#172b4d"}}>
+        <footer className="footer" style={{ "background-color": "#172b4d" }}>
           <Container className="">
             <Row className=" row-grid  ">
               <Col lg="">
-                <h5 className="text-white">Quick Links</h5>
+                <h5 className="text-white">MedStore.et</h5>
                 <Nav className=" nav-footer flex-column justify-content-center">
                   <NavItem>
                     <NavLink
@@ -52,13 +52,22 @@ class SimpleFooter extends React.Component {
                 </Nav>
               </Col>
               <Col className='' lg="">
-
+                <h5 className="text-white">Quick Links</h5>
+                <Nav className=" nav-footer flex-column justify-content-center">
+                  <NavItem>
+                    <NavLink
+                      href="#" className="py-1"><span className="text-white" >Used Products </span></NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="#" className="py-1"><span className="text-white" >Accessories</span></NavLink>
+                  </NavItem>
+                </Nav>
+              </Col>
+              <Col className="text-center" lg="">
                 <h5 className="text-white">Contact us</h5>
                 <h6 className="mb-100 text-white font-weight-lighter">+251-912-345678</h6>
                 <h6 className="mb-100 text-white font-weight-lighter"><a href="mailto: info@medstore.et">info@medstore.et</a></h6>
-              </Col>
-              <Col className="text-center" lg="">
-              <h5 className="text-white">Connect With Us</h5>
                 <Button
                   className="btn-icon-only rounded-circle"
                   color="twitter"
@@ -116,9 +125,9 @@ class SimpleFooter extends React.Component {
                   Join us
                 </UncontrolledTooltip>
               </Col>
-              
+
             </Row>
-            <hr className="mb-0 mt-1"/>
+            <hr className="mb-0 mt-1" />
             <Row>
               <Col md="6">
                 <div className=" copyright">
