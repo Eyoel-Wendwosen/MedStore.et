@@ -15,52 +15,52 @@ class ProductDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // product: {
-            //     name: "Blood Pressure Scanner",
-            //     sold_by: {
-            //         name: "WAGGA",
-            //         location: "Germany"
-            //     },
-            //     rating: 5,
-            //     photo_urls: [
-            //         {
-            //             src: require("assets/img/theme/img-1-1200x1000.jpg"),
-            //             altText: "",
-            //             caption: "",
-            //             header: ""
-            //         },
-            //         {
-            //             src: require("assets/img/theme/img-2-1200x1000.jpg"),
-            //             altText: "",
-            //             caption: "",
-            //             header: ""
-            //         },
-            //         {
-            //             src: require("assets/img/theme/img-1-1200x1000.jpg"),
-            //             altText: "",
-            //             caption: "",
-            //             header: ""
-            //         },
-            //         {
-            //             src: require("assets/img/theme/img-2-1200x1000.jpg"),
-            //             altText: "",
-            //             caption: "",
-            //             header: ""
-            //         }
-            //     ],
-            //     tags: ["eye", "oct", "ophtalmology"],
-            //     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            //     caracterstics: [
-            //         {
-            //             name: "battery life",
-            //             value: "5 hrs"
-            //         },
-            //         {
-            //             name: "battery life",
-            //             value: "5 hrs"
-            //         }
-            //     ]
-            // }
+            product: {
+                name: "Blood Pressure Scanner",
+                sold_by: {
+                    name: "WAGGA",
+                    location: "Germany"
+                },
+                rating: 5,
+                photo_urls: [
+                    {
+                        src: require("assets/img/theme/img-1-1200x1000.jpg"),
+                        altText: "",
+                        caption: "",
+                        header: ""
+                    },
+                    {
+                        src: require("assets/img/theme/img-2-1200x1000.jpg"),
+                        altText: "",
+                        caption: "",
+                        header: ""
+                    },
+                    {
+                        src: require("assets/img/theme/img-1-1200x1000.jpg"),
+                        altText: "",
+                        caption: "",
+                        header: ""
+                    },
+                    {
+                        src: require("assets/img/theme/img-2-1200x1000.jpg"),
+                        altText: "",
+                        caption: "",
+                        header: ""
+                    }
+                ],
+                tags: ["eye", "oct", "ophtalmology"],
+                description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                caracterstics: [
+                    {
+                        name: "battery life",
+                        value: "5 hrs"
+                    },
+                    {
+                        name: "battery life",
+                        value: "5 hrs"
+                    }
+                ]
+            }
         };
     }
 
@@ -86,7 +86,7 @@ class ProductDetail extends Component {
                         <Row className="product-detail pl-lg-9 p-4 pt-5 mt-5 mb-3 bg-grey">
                             <Col lg="4" className="mb-lg-auto">
                                 <div className="rounded shadow-lg overflow-hidden ">
-                                    {/* <UncontrolledCarousel autoPlay={false} controls={true} indicators={true} items={product ? product.photo_urls : ""} /> */}
+                                    <UncontrolledCarousel autoPlay={false} controls={true} indicators={true} items={this.state.product ? this.state.product.photo_urls : ""} />
                                 </div>
                             </Col>
                             <Col className="ml-4" lg="6" >
