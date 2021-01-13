@@ -25,7 +25,6 @@ function App() {
         <Switch>
           <Route
             path="/contact-us"
-            exact
             component={ContactUs} />
           <Route
             path="/product"
@@ -35,11 +34,9 @@ function App() {
             component={Service} />
           <Route
             path="/about-us"
-            exact
             component={AboutUs} />
           <Route
             path="/"
-            exact
             component={Home} />
           <Redirect to="/" />
         </Switch>

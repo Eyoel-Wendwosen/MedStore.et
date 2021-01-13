@@ -26,7 +26,6 @@ class ProductsView extends Component {
             .then(res => {
                 let products = res.data.data;
                 this.setState({ products });
-                console.log(products);
             });
     }
 
@@ -42,15 +41,17 @@ class ProductsView extends Component {
                 key={product}
                 className="mt-4" xl="2" lg="5" md="4" sm="6" >
                 <Card
+                    onClick={() => onProductSelect(product)}
                     className="card-lift shadow border-3">
                     <CardImg
                         className="p-1"
-                        alt="..."
+                        alt="Image not found"
                         // height="100vh"
-                        src={"http://localhost:8080/avatars/upload_8af0e2a852d67f4ccc9637e2d7898df4.png"}
-                    />
+                        // src={"http://localhost:8080/avatars/temini.jpg"}
+                        src={`http://localhost:8080/${product.photo_urls[0]}`}
+                        />
                     <CardBody
-                        onClick={() => onProductSelect(product)}
+                        
                         className="py-1 px-3">
                         <CardTitle
                             tag="h4"

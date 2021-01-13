@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "serve -s build",
-    "dev": "react-scripts start",
+    "dev": "set PORT=4000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",

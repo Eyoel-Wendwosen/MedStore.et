@@ -14,62 +14,13 @@ import Rating from '@material-ui/lab/Rating';
 class ProductDetail extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            // product: {
-            //     name: "Blood Pressure Scanner",
-            //     sold_by: {
-            //         name: "WAGGA",
-            //         location: "Germany"
-            //     },
-            //     rating: 5,
-            //     photo_urls: [
-            //         {
-            //             src: require("assets/img/theme/img-1-1200x1000.jpg"),
-            //             altText: "",
-            //             caption: "",
-            //             header: ""
-            //         },
-            //         {
-            //             src: require("assets/img/theme/img-2-1200x1000.jpg"),
-            //             altText: "",
-            //             caption: "",
-            //             header: ""
-            //         },
-            //         {
-            //             src: require("assets/img/theme/img-1-1200x1000.jpg"),
-            //             altText: "",
-            //             caption: "",
-            //             header: ""
-            //         },
-            //         {
-            //             src: require("assets/img/theme/img-2-1200x1000.jpg"),
-            //             altText: "",
-            //             caption: "",
-            //             header: ""
-            //         }
-            //     ],
-            //     tags: ["eye", "oct", "ophtalmology"],
-            //     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            //     caracterstics: [
-            //         {
-            //             name: "battery life",
-            //             value: "5 hrs"
-            //         },
-            //         {
-            //             name: "battery life",
-            //             value: "5 hrs"
-            //         }
-            //     ]
-            // }
-        };
     }
 
     componentDidMount() {
-        const { product } = this.props;
-        console.log(product._id);
-        axios.get(`http://localhost:8080/product/${product._id}`)
+        const product = this.props.product;
+        axios.get(`http://localhost:8080/api/v1/product/${product._id}`)
             .then(res => {
-                res.data.data.photo_urls.map(photo => `http://localhost:8080/`.concat(photo));
+                res.data.data.photo_urls.map(photo => `http://localhost:8080/api/v1/`.concat(photo));
                 this.setState({
                     product: res.data.data
                 });
@@ -77,7 +28,8 @@ class ProductDetail extends Component {
     }
 
     render() {
-        const { product } = this.state;
+        const product = this.props.product;
+        console.log("Investigatin product in render method");
         console.log(product);
         return (
             <>
@@ -104,7 +56,7 @@ class ProductDetail extends Component {
                                             ))
                                         ) : ""}
                                     <Col>
-                                        <Rating name="read-only" value={product ? product.rating : ""} readOnly />
+                                        <Rating name="read-only" value={product ? product.rating[0] : ""} readOnly />
                                     </Col>
                                 </Row>
                                 <hr className="mt-0" />
@@ -132,7 +84,9 @@ class ProductDetail extends Component {
                                                 <i className="ni ni-bag-17" />
                                             </span>
                                         </Button>
-                                        <Input style={{ display: "inline", width: "15%" }} type="select" name="select" id="exampleSelect">
+                                        <br />
+                                        <br />
+                                        <Input style={{ display: "inline", width: "30%" }} type="select" name="select" id="exampleSelect">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -146,7 +100,7 @@ class ProductDetail extends Component {
                                         <h6>
                                             Need Help in choosing? Contact our equipment experts.
                                         </h6>
-                                        <p><span className="material-icons">phone</span>0912345678</p>
+                                        <p><span className="material-icons">phone</span>  0912345678</p>
                                     </Col>
                                 </Row>
                             </Col>
@@ -157,7 +111,7 @@ class ProductDetail extends Component {
                                 <h4 className="">Specification</h4>
                                 <hr className="mt-0" />
                                 {product ? (
-                                    product.caracterstics.map(char => (
+                                    product.characteristics.map(char => (
                                         <Row className="ml-2">
                                             <Col sm="4">
                                                 <small className="text-capitalize  font-weight-bold">
