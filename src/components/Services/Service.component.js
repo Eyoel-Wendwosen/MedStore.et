@@ -91,8 +91,8 @@ class Service extends Component {
                                                 href=""
                                                 onClick={() => { this.setState({ activeService: service }); }}
                                             >
-                                                Learn more
-                                        </Button>
+                                                {service.title != 'Tender' ? "Learn more" : "Comming Soon!"}
+                                            </Button>
                                         </Link>
                                     </CardBody>
                                 </Card>

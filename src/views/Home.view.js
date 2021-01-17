@@ -24,9 +24,6 @@ class Home extends Component {
                         <section name="ser">
                             <Services className="services" />
                         </section>
-                        <section className="mb-5 ">
-                            <Team />
-                        </section>
                     </div>
                 </main>
             </div>

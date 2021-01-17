@@ -4,25 +4,37 @@ import {
     Row,
     Col,
     Input,
+    CardImg,
+    Card,
+    Form,
+    Container,
+    CardBody,
+    InputGroup,
+    InputGroupAddon,
+    InputGroupText,
+    FormGroup,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader,
     UncontrolledCarousel
 } from 'reactstrap';
+import classnames from "classnames";
+
 import axios from 'axios';
 import Rating from '@material-ui/lab/Rating';
-
+import { LOCAL_BASE_URL, API_URL } from 'constatns';
+import SerializeForm from 'form-serialize';
 
 
 class ProductDetail extends Component {
     constructor(props) {
         super(props);
-<<<<<<< HEAD
-=======
         this.state = {
             product: {
                 name: "Blood Pressure Scanner",
-                sold_by: {
-                    name: "WAGGA",
-                    location: "Germany"
-                },
+                brand: "WAGGA",
+                country: "Germany",
                 rating: 5,
                 photo_urls: [
                     {
@@ -52,7 +64,7 @@ class ProductDetail extends Component {
                 ],
                 tags: ["eye", "oct", "ophtalmology"],
                 description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                caracterstics: [
+                characteristics: [
                     {
                         name: "battery life",
                         value: "5 hrs"
@@ -62,26 +74,41 @@ class ProductDetail extends Component {
                         value: "5 hrs"
                     }
                 ]
-            }
+            },
+            modal: false
         };
->>>>>>> 564c640ac8bd5cd79f39e5c3873113c1a5983cdb
+        this.handleRequestSubmit = this.handleRequestSubmit.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
     }
-
+    toggleModal() {
+        this.setState((prevState) => ({
+            modal: !prevState.modal
+        }));
+    }
     componentDidMount() {
         const product = this.props.product;
-        axios.get(`http://localhost:8080/api/v1/product/${product._id}`)
-            .then(res => {
-                res.data.data.photo_urls.map(photo => `http://localhost:8080/api/v1/`.concat(photo));
-                this.setState({
-                    product: res.data.data
-                });
-            });
+        // axios.get(`${LOCAL_BASE_URL}${API_URL}/product/${product._id}`)
+        //     .then(res => {
+        //         res.data.data.photo_urls.map(photo => `${LOCAL_BASE_URL}${API_URL}`.concat(photo));
+        //         this.setState({
+        //             product: res.data.data
+        //         });
+        //     });
+    }
+
+    handleRequestSubmit(e) {
+        e.preventDefault();
+        let formValues = SerializeForm(e.target, { hash: true });
+        console.log(formValues);
+        let request = {
+            quantity: formValues.quantity
+        }
+
     }
 
     render() {
         const product = this.props.product;
-        console.log("Investigatin product in render method");
-        console.log(product);
+
         return (
             <>
                 <div>
@@ -90,6 +117,13 @@ class ProductDetail extends Component {
                             <Col lg="4" className="mb-lg-auto">
                                 <div className="rounded shadow-lg overflow-hidden ">
                                     <UncontrolledCarousel autoPlay={false} controls={true} indicators={true} items={this.state.product ? this.state.product.photo_urls : ""} />
+                                    <CardImg
+                                        className="p-1"
+                                        alt="Image not found"
+                                    // height="100vh"
+                                    // src={"http://localhost:8080/avatars/temini.jpg"}
+                                    // src={`${LOCAL_BASE_URL}/${product.photo_urls[0]}`}
+                                    />
                                 </div>
                             </Col>
                             <Col className="ml-4" lg="6" >
@@ -106,10 +140,11 @@ class ProductDetail extends Component {
                                                 <span className="pl-1">{tag} </span>
                                             ))
                                         ) : ""}
-                                    <Col>
-                                        <Rating name="read-only" value={product ? product.rating[0] : ""} readOnly />
-                                    </Col>
                                 </Row>
+                                <Col>
+                                    <Rating name="read-only" value={product ? product.rating : ""} readOnly />
+                                </Col>
+
                                 <hr className="mt-0" />
                                 <Row className="mt-3">
                                     <Col>
@@ -129,6 +164,7 @@ class ProductDetail extends Component {
                                             color="info"
                                             type="button"
                                             outline
+                                            onClick={this.toggleModal}
                                         >
                                             <span className="btn-inner--text">Request Information</span>
                                             <span className="btn-inner--icon mr-1">
@@ -137,21 +173,13 @@ class ProductDetail extends Component {
                                         </Button>
                                         <br />
                                         <br />
-                                        <Input style={{ display: "inline", width: "30%" }} type="select" name="select" id="exampleSelect">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                            <option>7</option>
-                                        </Input>
                                     </Col>
                                     <Col lg="5">
                                         <h6>
                                             Need Help in choosing? Contact our equipment experts.
                                         </h6>
-                                        <p><span className="material-icons">phone</span>  0912345678</p>
+                                        <p><span className="material-icons">phone</span>  +251-919-38-1997</p>
+                                        <p><span className="material-icons">phone</span>  +251-911-89-1367</p>
                                     </Col>
                                 </Row>
                             </Col>
@@ -200,6 +228,140 @@ class ProductDetail extends Component {
                             <hr className="mt-0" />
                         </div>
                     </section>
+                    {/* <this.renderRequestForm /> */}
+                    <Modal size="md" isOpen={this.state.modal} toggle={this.toggleModal} >
+                        <Form onSubmit={(e) => { this.handleRequestSubmit(e); this.toggleModal(); }} >
+                            <ModalBody className="p-0">
+
+                                <Col lg="" className="p-0" >
+                                    <Card className="bg-gradient-secondary shadow">
+                                        <CardBody className="p-lg-5">
+                                            <h4 className="mb-1">Want to know more about the {this.state.product.name}</h4>
+                                            <p className="mt-0">
+                                                Let us know your questions ...
+                                        </p>
+                                            <FormGroup
+                                                className={classnames("mt-5", {
+                                                    focused: this.state.nameFocused
+                                                })}
+                                            >
+                                                <InputGroup className="input-group-alternative">
+                                                    <InputGroupAddon addonType="prepend">
+                                                        <InputGroupText>
+                                                            <i className="ni ni-user-run" />
+                                                        </InputGroupText>
+                                                    </InputGroupAddon>
+                                                    <Input
+                                                        placeholder="Enter Your name"
+                                                        type="text"
+                                                        name="name"
+                                                        onFocus={e => this.setState({ nameFocused: true })}
+                                                        onBlur={e => this.setState({ nameFocused: false })}
+                                                    />
+                                                </InputGroup>
+                                            </FormGroup>
+                                            <FormGroup
+                                                className={classnames({
+                                                    focused: this.state.addressFocused
+                                                })}
+                                            >
+                                                <InputGroup className="input-group-alternative">
+                                                    <InputGroupAddon addonType="prepend">
+                                                        <InputGroupText>
+                                                            <i className="ni ni-pin-3" />
+                                                        </InputGroupText>
+                                                    </InputGroupAddon>
+                                                    <Input
+                                                        placeholder="Enter your address"
+                                                        name="address"
+                                                        onFocus={e => this.setState({ addressFocused: true })}
+                                                        onBlur={e => this.setState({ addressFocused: false })}
+                                                    />
+                                                </InputGroup>
+                                            </FormGroup>
+                                            <Row>
+                                                <Col>
+                                                    <FormGroup
+                                                        className={classnames({
+                                                            focused: this.state.emailFocused
+                                                        })}
+                                                    >
+                                                        <InputGroup className="input-group-alternative">
+                                                            <InputGroupAddon addonType="prepend">
+                                                                <InputGroupText>
+                                                                    <i className="ni ni-email-83" />
+                                                                </InputGroupText>
+                                                            </InputGroupAddon>
+                                                            <Input
+                                                                placeholder="Enter your email"
+                                                                name="email"
+                                                                onFocus={e => this.setState({ emailFocused: true })}
+                                                                onBlur={e => this.setState({ emailFocused: false })}
+                                                            />
+                                                        </InputGroup>
+                                                    </FormGroup>
+                                                </Col>
+                                                <Col>
+                                                    <FormGroup
+                                                        className={classnames({
+                                                            focused: this.state.phoneFocused
+                                                        })}
+                                                    >
+                                                        <InputGroup className="input-group-alternative">
+                                                            <InputGroupAddon addonType="prepend">
+                                                                <InputGroupText>
+                                                                    <i className="ni ni-mobile-button" />
+                                                                </InputGroupText>
+                                                            </InputGroupAddon>
+                                                            <Input
+                                                                placeholder="Enter your phone"
+                                                                name="phone"
+                                                                onFocus={e => this.setState({ phoneFocused: true })}
+                                                                onBlur={e => this.setState({ phoneFocused: false })}
+                                                            />
+                                                        </InputGroup>
+                                                    </FormGroup>
+                                                </Col>
+
+                                            </Row>
+
+                                            <FormGroup className="mb-4">
+                                                <Input
+                                                    className="form-control-alternative"
+                                                    cols="80"
+                                                    name="message"
+                                                    placeholder="Type a message (tell us more about your needs)..."
+                                                    rows="4"
+                                                    type="textarea"
+                                                />
+                                            </FormGroup>
+                                            <FormGroup className="mb-4">
+                                                <h6>Quality</h6>
+                                                <Input
+                                                    type="number"
+                                                    name="quantity"
+                                                    id="exampleSelect"
+                                                    placeholder="12"
+                                                />
+                                            </FormGroup>
+                                            <div>
+                                                <Button
+                                                    block
+                                                    className="btn-round"
+                                                    color="default"
+                                                    size="lg"
+                                                    type="submit"
+                                                >
+                                                    Send Message
+                                            </Button>
+                                            </div>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                            </ModalBody>
+                        </Form>
+
+                    </Modal>
                 </div>
             </>
         );

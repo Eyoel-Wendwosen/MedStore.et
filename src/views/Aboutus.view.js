@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, } from 'reactstrap';
-
+import Team from 'views/Team.view'
 
 class AboutUs extends React.Component {
     constructor(props) {
@@ -47,6 +47,9 @@ class AboutUs extends React.Component {
 
                             </p>
                             </div>
+                            <section className="m-5 ">
+                                <Team />
+                            </section>
                         </Row>
                     </Container>
                 </div>

@@ -92,14 +92,14 @@ class Services extends React.Component {
                                                                 Renovate
                                                             </Badge>
                                                         </div>
-                                                        <Button
+                                                        {/* <Button
                                                             className="mt-4"
                                                             color="primary"
                                                             href="#pablo"
                                                             onClick={e => e.preventDefault()}
                                                         >
                                                             Learn more
-                                                        </Button>
+                                                        </Button> */}
                                                     </CardBody>
                                                 </Card>
                                             </Col>
@@ -128,14 +128,14 @@ class Services extends React.Component {
                                                                 market
                                                             </Badge>
                                                         </div>
-                                                        <Button
+                                                        {/* <Button
                                                             className="mt-4"
                                                             color="info"
                                                             href="#pablo"
                                                             onClick={e => e.preventDefault()}
                                                         >
                                                             Learn more
-                                                        </Button>
+                                                        </Button> */}
                                                     </CardBody>
                                                 </Card>
                                             </Col>
@@ -164,14 +164,14 @@ class Services extends React.Component {
                                                                 service
                                                             </Badge>
                                                         </div>
-                                                        <Button
+                                                        {/* <Button
                                                             className="mt-4"
                                                             color="success"
                                                             href="#pablo"
                                                             onClick={e => e.preventDefault()}
                                                         >
                                                             Learn more
-                                                        </Button>
+                                                        </Button> */}
                                                     </CardBody>
                                                 </Card>
                                             </Col>
@@ -408,7 +408,7 @@ class Services extends React.Component {
                                     </Col>
                                 </Row>
                             </Container>
-                            <div className="separator separator-bottom zindex-100">
+                            {/* <div className="separator separator-top zindex-100">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     preserveAspectRatio="none"
@@ -422,7 +422,7 @@ class Services extends React.Component {
                                         points="0 0 0 75 2560 75"
                                     />
                                 </svg>
-                            </div>
+                            </div> */}
                         </section>
 
 

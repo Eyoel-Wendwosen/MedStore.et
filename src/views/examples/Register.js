@@ -16,21 +16,54 @@ import {
   Row,
   Col
 } from "reactstrap";
-
-// core components
-import DemoNavbar from "components/Navbars/DemoNavbar.js";
-import SimpleFooter from "components/Footers/SimpleFooter.js";
+import { Link, useHistory } from 'react-router-dom';
+import { LOCAL_BASE_URL, API_URL } from 'constatns';
+import axios from 'axios';
+import formSerializer from 'form-serialize';
+import history from 'history-master';
 
 class Register extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+    this.handleRegister = this.handleRegister.bind(this);
+  }
+
   componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.main.scrollTop = 0;
   }
+
+  handleRegister(e) {
+    e.preventDefault();
+
+    let formValues = formSerializer(e.target, { hash: true });
+    console.log(formValues);
+    let url = `${LOCAL_BASE_URL}${API_URL}/user/signup`;
+    let requestBody = {
+      user: {
+        name: formValues.name,
+        phone: formValues.phone,
+        email: formValues.email,
+        password: formValues.password,
+        passwordConfirm: formValues.passwordConfirm
+      }
+    };
+    axios.post(url, requestBody, {}).then(res => {
+      if (res.data.status == "success") {
+        localStorage.setItem('token', res.data.token);
+        history.push('/');
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+  }
   render() {
     return (
       <>
-        <DemoNavbar />
         <main ref="main">
           <section className="section section-shaped section-lg">
             <div className="shape shape-style-1 bg-gradient-default">
@@ -45,58 +78,46 @@ class Register extends React.Component {
             </div>
             <Container className="pt-lg-7">
               <Row className="justify-content-center">
-                <Col lg="5">
+                <Col lg="6">
                   <Card className="bg-secondary shadow border-0">
-                    <CardHeader className="bg-white pb-5">
-                      <div className="text-muted text-center mb-3">
-                        <small>Sign up with</small>
-                      </div>
-                      <div className="text-center">
-                        <Button
-                          className="btn-neutral btn-icon mr-4"
-                          color="default"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <span className="btn-inner--icon mr-1">
-                            <img
-                              alt="..."
-                              src={require("assets/img/icons/common/github.svg")}
-                            />
-                          </span>
-                          <span className="btn-inner--text">Github</span>
-                        </Button>
-                        <Button
-                          className="btn-neutral btn-icon ml-1"
-                          color="default"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <span className="btn-inner--icon mr-1">
-                            <img
-                              alt="..."
-                              src={require("assets/img/icons/common/google.svg")}
-                            />
-                          </span>
-                          <span className="btn-inner--text">Google</span>
-                        </Button>
+                    <CardHeader className="bg-white py-5">
+                      <div className="text-muted text-center mb-0">
+                        <medium>Welcome To MedStore.et</medium>
                       </div>
                     </CardHeader>
                     <CardBody className="px-lg-5 py-lg-5">
                       <div className="text-center text-muted mb-4">
-                        <small>Or sign up with credentials</small>
+                        <small>Sing up with credentials</small>
                       </div>
-                      <Form role="form">
-                        <FormGroup>
-                          <InputGroup className="input-group-alternative mb-3">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-hat-3" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input placeholder="Name" type="text" />
-                          </InputGroup>
-                        </FormGroup>
+                      <Form onSubmit={e => this.handleRegister(e)} role="form">
+                        <Row>
+
+                          <Col>
+                            <FormGroup>
+                              <InputGroup className="input-group-alternative mb-3">
+                                <InputGroupAddon addonType="prepend">
+                                  <InputGroupText>
+                                    <i className="ni ni-hat-3" />
+                                  </InputGroupText>
+                                </InputGroupAddon>
+                                <Input placeholder="Name" type="text" name="name" />
+                              </InputGroup>
+                            </FormGroup>
+                          </Col>
+                          <Col>
+                            <FormGroup>
+                              <InputGroup className="input-group-alternative mb-3">
+                                <InputGroupAddon addonType="prepend">
+                                  <InputGroupText>
+                                    <i className="ni ni-mobile-button" />
+                                  </InputGroupText>
+                                </InputGroupAddon>
+                                <Input placeholder="Phone" type="text" name="phone" />
+                              </InputGroup>
+                            </FormGroup>
+                          </Col>
+                        </Row>
+
                         <FormGroup>
                           <InputGroup className="input-group-alternative mb-3">
                             <InputGroupAddon addonType="prepend">
@@ -104,31 +125,66 @@ class Register extends React.Component {
                                 <i className="ni ni-email-83" />
                               </InputGroupText>
                             </InputGroupAddon>
-                            <Input placeholder="Email" type="email" />
+                            <Input placeholder="Email" type="email" name="email" />
                           </InputGroup>
                         </FormGroup>
-                        <FormGroup>
-                          <InputGroup className="input-group-alternative">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-lock-circle-open" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                              placeholder="Password"
-                              type="password"
-                              autoComplete="off"
-                            />
-                          </InputGroup>
-                        </FormGroup>
-                        <div className="text-muted font-italic">
-                          <small>
-                            password strength:{" "}
-                            <span className="text-success font-weight-700">
-                              strong
-                            </span>
-                          </small>
-                        </div>
+                        <Row>
+                          <Col>
+                            <InputGroup className="input-group-alternative mb-3">
+                              <Input placeholder="City" type="text" name="city" />
+                            </InputGroup>
+                          </Col>
+                          <Col>
+                            <InputGroup className="input-group-alternative mb-3">
+                              <Input placeholder="Region" type="text" name="region" />
+                            </InputGroup>
+                          </Col>
+                          <Col>
+                            <InputGroup className="input-group-alternative mb-3">
+                              <Input placeholder="Country" type="text" name="country" />
+                            </InputGroup>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col>
+                            <FormGroup>
+                              <InputGroup className="input-group-alternative">
+                                <InputGroupAddon addonType="prepend">
+                                  <InputGroupText>
+                                    <i className="ni ni-lock-circle-open" />
+                                  </InputGroupText>
+                                </InputGroupAddon>
+                                <Input
+                                  placeholder="Password"
+                                  type="password"
+                                  autoComplete="off"
+                                  name="password"
+                                />
+                              </InputGroup>
+                            </FormGroup>
+                          </Col>
+                          <Col>
+                            <FormGroup>
+                              <InputGroup className="input-group-alternative">
+                                <InputGroupAddon addonType="prepend">
+                                  <InputGroupText>
+                                    <i className="ni ni-lock-circle-open" />
+                                  </InputGroupText>
+                                </InputGroupAddon>
+                                <Input
+                                  placeholder="Confirm Passowrd"
+                                  type="password"
+                                  autoComplete="off"
+                                  name="passwordConfirm"
+
+                                />
+                              </InputGroup>
+                            </FormGroup>
+                          </Col>
+                        </Row>
+
+
+
                         <Row className="my-4">
                           <Col xs="12">
                             <div className="custom-control custom-control-alternative custom-checkbox">
@@ -158,7 +214,7 @@ class Register extends React.Component {
                           <Button
                             className="mt-4"
                             color="primary"
-                            type="button"
+                            type="submit"
                           >
                             Create account
                           </Button>
@@ -168,10 +224,20 @@ class Register extends React.Component {
                   </Card>
                 </Col>
               </Row>
+              <Row>
+                <Col className="text-right" xs="9">
+                  <Link
+                    className="text-light"
+                    to="/log-in"
+
+                  >
+                    <small>Already have an account login</small>
+                  </Link>
+                </Col>
+              </Row>
             </Container>
           </section>
         </main>
-        <SimpleFooter />
       </>
     );
   }

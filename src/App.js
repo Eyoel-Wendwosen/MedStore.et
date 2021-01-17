@@ -12,15 +12,17 @@ import ContactUs from './components/ContactUs';
 import NavBar from 'components/Navbars/Navbar.component';
 import Footer from 'components/Footers/SimpleFooter.component';
 import Home from 'views/Home.view';
-
+import LogIn from 'views/examples/Login';
+import Register from 'views/examples/Register';
 import './App.css';
+import history from 'history-master';
 
 
 function App() {
 
   return (
     <>
-      <Router>
+      <Router history={history}>
         <NavBar />
         <Switch>
           <Route
@@ -35,6 +37,12 @@ function App() {
           <Route
             path="/about-us"
             component={AboutUs} />
+          <Route
+            path="/log-in"
+            component={LogIn} />
+          <Route
+            path="/register"
+            component={Register} />
           <Route
             path="/"
             component={Home} />

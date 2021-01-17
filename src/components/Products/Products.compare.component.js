@@ -321,7 +321,7 @@ class CompareProduct extends Component {
                                         <td>
                                             <img
                                                 alt={`${c.name} Product`}
-                                                // src={c.img_urls[0].src}
+                                                src={c.photo_urls[0]}
                                                 height="120vh" />
                                             <h6>{c.name}</h6>
                                         </td>

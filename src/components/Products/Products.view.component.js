@@ -9,7 +9,7 @@ import {
     CardLink
 } from 'reactstrap';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { LOCAL_BASE_URL, API_URL } from 'constatns';
 
 class ProductsView extends Component {
     constructor(props) {
@@ -22,8 +22,9 @@ class ProductsView extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:8080/api/v1/product/category/${this.props.category.name}`)
+        axios.get(`${LOCAL_BASE_URL}${API_URL}/category/${this.props.category._id}/product`)
             .then(res => {
+                console.log(res.data.datat);
                 let products = res.data.data;
                 this.setState({ products });
             });
@@ -41,17 +42,17 @@ class ProductsView extends Component {
                 key={product}
                 className="mt-4" xl="2" lg="5" md="4" sm="6" >
                 <Card
-                    onClick={() => onProductSelect(product)}
                     className="card-lift shadow border-3">
                     <CardImg
                         className="p-1"
                         alt="Image not found"
                         // height="100vh"
                         // src={"http://localhost:8080/avatars/temini.jpg"}
-                        src={`http://localhost:8080/${product.photo_urls[0]}`}
-                        />
+                        src={`${LOCAL_BASE_URL}/${product.photo_urls[0]}`}
+                        onClick={() => onProductSelect(product)}
+                    />
                     <CardBody
-                        
+                        onClick={() => onProductSelect(product)}
                         className="py-1 px-3">
                         <CardTitle
                             tag="h4"
@@ -104,6 +105,6 @@ class ProductsView extends Component {
             </section>
         );
     }
-}
+};
 
 export default ProductsView;
