@@ -31,7 +31,7 @@ class Categories extends Component {
                     <li
                         key={category.name} id={`Category_${category.name.split(" ")[0]}`}
                         className="list-group-item">
-                        {category.sub_categories.length !== 0 ?
+                        {category.subCategories.length !== 0 ?
                             <span>
                                 {category.name}
                             </span> :
@@ -40,16 +40,16 @@ class Categories extends Component {
                                 {category.name}
                             </span>
                         }
-                        {category.sub_categories.length !== 0 && (
+                        {category.subCategories.length !== 0 && (
                             <span class="material-icons ml-lg-auto">
                                 expand_more
                             </span>
                         )}
-                        {category.sub_categories.length !== 0 &&
+                        {category.subCategories.length !== 0 &&
                             (
                                 <UncontrolledCollapse toggler={`#Category_${category.name.split(" ")[0]}`}>
                                     <ul className="list-group">
-                                        {category.sub_categories.map(sub_cat => (
+                                        {category.subCategories.map(sub_cat => (
                                             <li onClick={() => onCategorySelect(sub_cat)} key={sub_cat.name} className="list-group-item">
                                                 <span className="text-decoration-none">{sub_cat.name}</span>
                                             </li>

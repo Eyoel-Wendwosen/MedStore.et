@@ -30,7 +30,9 @@ class ContactUs extends React.Component {
                             <Row>
                                 <Col>
                                     <h5>Email:</h5> <h6> <a href="mailto: info@medstore.et">info@medstore.et</a></h6>
-                                    <h5>Phone:</h5> <h6> <a href="#">+251912345678</a></h6>
+                                    <h5>Phone:</h5>
+                                    <h6 className="mb-100  font-weight-lighter">+251-919-38-1997</h6>
+                                    <h6 className="mb-100  font-weight-lighter">+251-911-89-1367</h6>
                                     <h5>Address:</h5> <h6> Haya-Hulet ABC Bld, <div>Addis Ababa Ethiopia</div></h6>
                                 </Col>
                                 <Col>

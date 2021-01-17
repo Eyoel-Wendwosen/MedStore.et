@@ -51,9 +51,9 @@ class SimpleFooter extends React.Component {
                   </NavItem> */}
                 </Nav>
               </Col>
-              <Col className='' lg="">
+              <Col className='mt-0' lg="">
                 <h5 className="text-white">Quick Links</h5>
-                <Nav className=" nav-footer flex-column justify-content-center">
+                <Nav className=" nav-footer flex-column ">
                   <NavItem>
                     <NavLink
                       href="#" className="py-1"><span className="text-white" >Used Products </span></NavLink>
@@ -62,11 +62,24 @@ class SimpleFooter extends React.Component {
                     <NavLink
                       href="#" className="py-1"><span className="text-white" >Accessories</span></NavLink>
                   </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="#" className="py-1"><span className="text-white" >Consultancy</span></NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="#" className="py-1"><span className="text-white" >Technical Support</span></NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      href="#" className="py-1"><span className="text-white" >Tender</span></NavLink>
+                  </NavItem>
                 </Nav>
               </Col>
-              <Col className="text-center" lg="">
+              <Col className="text-center mt-0" lg="">
                 <h5 className="text-white">Contact us</h5>
-                <h6 className="mb-100 text-white font-weight-lighter">+251-912-345678</h6>
+                <h6 className="mb-100 text-white font-weight-lighter">+251-919-38-1997</h6>
+                <h6 className="mb-100 text-white font-weight-lighter">+251-911-89-1367</h6>
                 <h6 className="mb-100 text-white font-weight-lighter"><a href="mailto: info@medstore.et">info@medstore.et</a></h6>
                 <Button
                   className="btn-icon-only rounded-circle"
@@ -85,7 +98,7 @@ class SimpleFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle ml-1"
                   color="facebook"
-                  href="https://www.facebook.com/"
+                  href="https://www.facebook.com/MedStoreet-103342841662384"
                   id="tooltip837440414"
                   target="_blank"
                 >
@@ -99,7 +112,7 @@ class SimpleFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle ml-1"
                   color="linkedin"
-                  href="https://linkedin.com/"
+                  href="https://www.linkedin.com/company/medstore-et/"
                   id="tooltip829810202"
                   target="_blank"
                 >
@@ -113,7 +126,7 @@ class SimpleFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle ml-1"
                   color="telegram"
-                  href="https://t.me//"
+                  href="https://t.me/medstoreet"
                   id="tooltip495507257"
                   target="_blank"
                 >

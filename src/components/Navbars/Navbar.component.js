@@ -62,8 +62,11 @@ class DemoNavbar extends React.Component {
                 <UncontrolledDropdown >
                   <DropdownToggle nav>
                     <i className="ni ni-satisfied d-lg-none" />
-                    <Link className="nav-link-inner--text nav-hover" to="/contact-us">
-                      <span className="h6 font-weight-normal text-white">LogIn</span>
+                    <Link className="nav-link-inner--text nav-hover" to="/log-in">
+                      <span class="material-icons text-white">
+                        account_circle
+                      </span>
+                      {/* <span className="h6 font-weight-normal text-white">LogIn</span> */}
                     </Link>
                   </DropdownToggle>
                 </UncontrolledDropdown>

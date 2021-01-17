@@ -16,10 +16,11 @@ import {
   Row,
   Col
 } from "reactstrap";
+import { Link } from 'react-router-dom';
 
 // core components
-import DemoNavbar from "components/Navbars/DemoNavbar.js";
-import SimpleFooter from "components/Footers/SimpleFooter.js";
+import DemoNavbar from "components/Navbars/Navbar.component.js";
+import SimpleFooter from "components/Footers/SimpleFooter.component.js";
 
 class Login extends React.Component {
   componentDidMount() {
@@ -33,7 +34,7 @@ class Login extends React.Component {
         <DemoNavbar />
         <main ref="main">
           <section className="section section-shaped section-lg">
-            <div className="shape shape-style-1 bg-gradient-default">
+            <div className="shape shape-style-1 bg-gradient-default ">
               <span />
               <span />
               <span />
@@ -47,44 +48,14 @@ class Login extends React.Component {
               <Row className="justify-content-center">
                 <Col lg="5">
                   <Card className="bg-secondary shadow border-0">
-                    <CardHeader className="bg-white pb-5">
-                      <div className="text-muted text-center mb-3">
-                        <small>Sign in with</small>
-                      </div>
-                      <div className="btn-wrapper text-center">
-                        <Button
-                          className="btn-neutral btn-icon"
-                          color="default"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <span className="btn-inner--icon mr-1">
-                            <img
-                              alt="..."
-                              src={require("assets/img/icons/common/github.svg")}
-                            />
-                          </span>
-                          <span className="btn-inner--text">Github</span>
-                        </Button>
-                        <Button
-                          className="btn-neutral btn-icon ml-1"
-                          color="default"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <span className="btn-inner--icon mr-1">
-                            <img
-                              alt="..."
-                              src={require("assets/img/icons/common/google.svg")}
-                            />
-                          </span>
-                          <span className="btn-inner--text">Google</span>
-                        </Button>
+                    <CardHeader className="bg-white py-5">
+                      <div className="text-muted text-center mb-0">
+                        <medium>Welcome To MedStore.et</medium>
                       </div>
                     </CardHeader>
-                    <CardBody className="px-lg-5 py-lg-5">
+                    <CardBody className="px-lg-5 py-lg-1">
                       <div className="text-center text-muted mb-4">
-                        <small>Or sign in with credentials</small>
+                        <small>Sign in with credentials</small>
                       </div>
                       <Form role="form">
                         <FormGroup className="mb-3">
@@ -147,13 +118,12 @@ class Login extends React.Component {
                       </a>
                     </Col>
                     <Col className="text-right" xs="6">
-                      <a
+                      <Link
                         className="text-light"
-                        href="#pablo"
-                        onClick={e => e.preventDefault()}
+                        to="/register"
                       >
                         <small>Create new account</small>
-                      </a>
+                      </Link>
                     </Col>
                   </Row>
                 </Col>
@@ -161,7 +131,6 @@ class Login extends React.Component {
             </Container>
           </section>
         </main>
-        <SimpleFooter />
       </>
     );
   }
