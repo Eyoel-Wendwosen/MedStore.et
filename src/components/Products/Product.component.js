@@ -17,7 +17,7 @@ class Product extends Component {
             selectedCategory: {},
             productsToCompare: [],
             selectedProduct: {},
-            categories: []
+            categories: [],
         };
         this.selectCategory = this.selectCategory.bind(this);
         this.selectProduct = this.selectProduct.bind(this);
@@ -25,16 +25,38 @@ class Product extends Component {
         this.CompareProductFooter = this.CompareProductFooter.bind(this);
     }
 
-    componentDidMount() {
-        axios.get(`http://localhost:8080/api/v1/category`)
-            .then(res => {
-                this.setState({
-                    categories: res.data.data
-                });
+    // componentDidMount() {
+    //     // get all list of categories
+    //     axios.get(`http://localhost:8080/api/v1/category`)
+    //         .then(res => {
+    //             console.log("categories from api")
+    //             console.log(res.data.data)
+    //             this.setState({
+    //                 categories: res.data.data
+    //             });
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         });
+    //     // get all list of subCategories
+    //     axios.get(`http://localhost:8080/api/v1/subCategory`)
+    // }
+
+    async componentDidMount(){
+        try {
+            let categories = (await axios.get(`http://localhost:8080/api/v1/category`)).data.data
+            let subCategories = (await axios.get(`http://localhost:8080/api/v1/subCategory`)).data.data
+            // adding new an array of subcategories for each categories
+            categories.forEach(category=>{
+                category.subCategories = subCategories.filter(subCategory=>subCategory.category==category._id)
             })
-            .catch(err => {
-                console.log(err);
-            });
+            // saving the new fetched categories to the state of the componenet
+            this.setState({
+                categories
+            })
+        } catch (error) {
+            
+        }
     }
 
     selectCategory(category) {

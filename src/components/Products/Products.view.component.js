@@ -22,9 +22,8 @@ class ProductsView extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${LOCAL_BASE_URL}${API_URL}/category/${this.props.category._id}/product`)
+        axios.get(`${LOCAL_BASE_URL}${API_URL}/subCategory/${this.props.category._id}/product`)
             .then(res => {
-                console.log(res.data.datat);
                 let products = res.data.data;
                 this.setState({ products });
             });
