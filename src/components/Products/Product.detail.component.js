@@ -23,7 +23,7 @@ import classnames from "classnames";
 
 import axios from 'axios';
 import Rating from '@material-ui/lab/Rating';
-import { LOCAL_BASE_URL, API_URL } from 'constatns';
+import CONSTANTS from 'constants';
 import SerializeForm from 'form-serialize';
 
 

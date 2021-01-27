@@ -38,6 +38,7 @@ class Product extends Component {
     }
 
     selectCategory(category) {
+        console.log(category);
         this.setState({ selectedCategory: category });
     }
 
@@ -46,6 +47,9 @@ class Product extends Component {
     }
 
     addProductToCompare(product) {
+        if (this.state.productsToCompare.length >= 10) {
+            return 1;
+        }
         this.setState((previousState) => ({
             productsToCompare: previousState.productsToCompare.concat([product])
         }));
@@ -57,7 +61,7 @@ class Product extends Component {
         const onDismiss = () => setVisible(false);
 
         return (
-            <Alert color="info" isOpen={visible} toggle={onDismiss}>
+            <Alert color="info" isOpen={this.state.visible} toggle={onDismiss}>
                 I am an alert and I can be dismissed!
             </Alert>
         );
@@ -66,6 +70,7 @@ class Product extends Component {
     CompareProductFooter() {
         return (
             <div className="content-center pt-4" style={{ display: "absolute", top: 0, right: 0 }}>
+                {this.state.productsToCompare.length >= 10 && this.productAddedForCompareAlert()}
                 <p>Compare {this.state.productsToCompare.length} / 10 products.</p><Link to={`${this.props.match.path}/compare`}><Button outline className="btn-outline-info">Compare</Button></Link>
             </div>
         );
@@ -103,32 +108,26 @@ class Product extends Component {
                     <hr />
                     {/* <Categories categories={this.state.categories} /> */}
                     <SearchBar />
+                    <Categories
+                        categories={this.state.categories}
+                        onCategorySelect={(category) => {
+                            this.selectCategory(category);
+                        }}
+                    //     history.push(`${this.props.match.path}/view`);
+                    // }} {...props} 
+                    />
                     <Switch>
-                        <Route
+                        {/* <Route
                             path={`${this.props.match.url}/`}
-                            exact
-                            render={({ props, history }) =>
-                                <Categories
-                                    categories={this.state.categories}
-                                    onCategorySelect={(category) => {
-                                        this.selectCategory(category);
-                                        history.push(`${this.props.match.path}/view`);
-                                    }} {...props} />
-                            } />
+                            exact >
+
+                        </Route> */}
+
                         <Route
-                            path={`${this.props.match.url}/view`}
-                            render={({ props, history }) =>
-                                <ProductsView
-                                    category={this.state.selectedCategory}
-                                    onAddToCompare={(product) => {
-                                        this.addProductToCompare(product);
-                                        // this.productAddedForCompareAlert();
-                                    }}
-                                    onProductSelect={(product) => {
-                                        this.selectProduct(product);
-                                        history.push(`${this.props.match.path}/detail`);
-                                    }} {...props} />}
-                        />
+                            path={`${this.props.match.url}/category/:categoryId`}
+                        >
+                            <ProductsView />
+                        </Route>
                         <Route
                             path={`${this.props.match.url}/detail`}
                             render={(props) => <ProductDetail
