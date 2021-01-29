@@ -84,7 +84,7 @@ class HowItWorks extends Component {
                         this.state.content.map((c, index) => (
                             <Row className="pt-5">
                                 <Col className={`content-center pr-md-5 order-md-${index % 2 ? 2 : 1}`} md="6">
-                                    <span class=" text-teal icon-l material-icons-outlined">
+                                    <span className=" text-teal icon-l material-icons-outlined">
                                         {c.icon}
                                     </span>
                                 </Col>

@@ -41,7 +41,7 @@ class Categories extends Component {
                             </span>
                         }
                         {category.subCategories.length !== 0 && (
-                            <span class="material-icons ml-lg-auto">
+                            <span className="material-icons ml-lg-auto">
                                 expand_more
                             </span>
                         )}

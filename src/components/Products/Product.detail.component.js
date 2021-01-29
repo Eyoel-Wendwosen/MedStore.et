@@ -86,7 +86,7 @@ class ProductDetail extends Component {
         }));
     }
     componentDidMount() {
-        const product = this.props.product;
+        // const product = this.props.product;
         // axios.get(`${LOCAL_BASE_URL}${API_URL}/product/${product._id}`)
         //     .then(res => {
         //         res.data.data.photo_urls.map(photo => `${LOCAL_BASE_URL}${API_URL}`.concat(photo));
@@ -133,7 +133,7 @@ class ProductDetail extends Component {
                                     </h1>
                                 </Row>
                                 <Row>
-                                    <span class="material-icons mt-1">local_offer</span>
+                                    <span className="material-icons mt-1">local_offer</span>
                                     {
                                         product ? (
                                             product.tags.map(tag => (
@@ -151,7 +151,7 @@ class ProductDetail extends Component {
                                         <h5 className="text-gray">Brand: </h5>
                                         <h4>
                                             {product ? product.brand : ""}
-                                            <span class="material-icons ml-5">location_on</span>
+                                            <span className="material-icons ml-5">location_on</span>
                                             <span className=" ml-2 font-weight-lighter">{product ? product.country : ""}</span>
                                         </h4>
                                     </Col>

@@ -8,6 +8,7 @@ import {
     ListGroupItemText
 } from 'reactstrap';
 import Rating from '@material-ui/lab/Rating';
+import { LOCAL_BASE_URL, API_URL } from 'constants.js';
 
 class CompareProduct extends Component {
     constructor(props) {
@@ -321,7 +322,7 @@ class CompareProduct extends Component {
                                         <td>
                                             <img
                                                 alt={`${c.name} Product`}
-                                                src={c.photo_urls[0]}
+                                                src={`${LOCAL_BASE_URL}/${c.photo_urls[0]}`}
                                                 height="120vh" />
                                             <h6>{c.name}</h6>
                                         </td>

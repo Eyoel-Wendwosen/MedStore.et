@@ -107,7 +107,7 @@ class Product extends Component {
 					/>
 					<Switch>
 						<Route
-							path={`${this.props.match.url}/category/:category`}
+							path={[`${this.props.match.url}/subCategory/:subCategory`, `${this.props.match.url}/category/:category`]}
 							render={props => (
 								<ProductsView
 									onAddToCompare={this.addProductToCompare}
@@ -116,8 +116,8 @@ class Product extends Component {
 								/>
 							)}
 						/>
-						<Route
-							path={`${this.props.match.url}/subCategory/:subCategory`}
+						{/* <Route
+							path={}
 							render={props => (
 								<ProductsView
 									onAddToCompare={this.addProductToCompare}
@@ -125,10 +125,10 @@ class Product extends Component {
 									{...props}
 								/>
 							)}
-						/>
+						/> */}
 						<Route
-							path={`${this.props.match.url}/detail`}
-							render={props => <ProductDetail product={this.state.selectedProduct} {...props} />}
+							path={[`${this.props.match.url}/subCategory/:subCategory/detail/`, `${this.props.match.url}/category/:category/detail/`]}
+							render={props => <ProductDetail {...props} />}
 						/>
 						<Route
 							path={`${this.props.match.url}/compare`}

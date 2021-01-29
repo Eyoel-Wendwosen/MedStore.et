@@ -46,7 +46,7 @@ class ContactUs extends React.Component {
                                                 lat={9.010005}
                                                 lng={38.787500}
                                             >
-                                                <span class="material-icons text-warning ml-lg-auto">
+                                                <span className="material-icons text-warning ml-lg-auto">
                                                     location_on
                                                 </span>
                                             </div>

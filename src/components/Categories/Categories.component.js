@@ -1,8 +1,8 @@
-import React, { Component, useState, useEffect } from 'react'
-import { Col, Container, Collapse, Row, UncontrolledCollapse } from 'reactstrap'
-import { Link, useRouteMatch } from 'react-router-dom'
-import axios from 'axios'
-import { LOCAL_BASE_URL, API_URL } from 'constants.js'
+import React, { Component, useState, useEffect } from 'react';
+import { Col, Container, Collapse, Row, UncontrolledCollapse } from 'reactstrap';
+import { Link, useRouteMatch } from 'react-router-dom';
+import axios from 'axios';
+import { LOCAL_BASE_URL, API_URL } from 'constants.js';
 
 const renderCategories = (categories, onCategorySelect, path) => {
 	return (
@@ -10,17 +10,17 @@ const renderCategories = (categories, onCategorySelect, path) => {
 			{categories.map(category => (
 				<li key={category.name} className="list-group-item">
 					{category.subCategories.length !== 0 ? (
-						<span>{category.name}</span>
+						<p className="m-0 p-0" id={`Category_${category.name.split(' ')[0]}`}>
+							<span>{category.name}</span>
+							<span className="material-icons rigth-align">
+								expand_more
+							</span>
+						</p>
 					) : (
-						<Link to={`${path}/category/${category._id}`}>
-							<span onClick={() => onCategorySelect(category)}>{category.name}</span>
-						</Link>
-					)}
-					{category.subCategories.length !== 0 && (
-						<span id={`Category_${category.name.split(' ')[0]}`} class="material-icons rigth-align">
-							expand_more
-						</span>
-					)}
+							<Link to={`${path}/category/${category._id}`}>
+								<span onClick={() => onCategorySelect(category)}>{category.name}</span>
+							</Link>
+						)}
 					{category.subCategories.length !== 0 && (
 						<UncontrolledCollapse toggler={`#Category_${category.name.split(' ')[0]}`}>
 							<ul className="list-group">
@@ -40,41 +40,42 @@ const renderCategories = (categories, onCategorySelect, path) => {
 				</li>
 			))}
 		</ul>
-	)
-}
+	);
+};
 
 const Categories = (props, match) => {
-	const [isOpen, setIsOpen] = useState(true)
-	const [categories, setcategories] = useState([])
+	const [isOpen, setIsOpen] = useState(true);
+	const [categories, setcategories] = useState([]);
 
-	useEffect(async () => {
-		try {
-			let categories = (await axios.get(`http://localhost:8080/api/v1/category`)).data.data
-			let subCategories = (await axios.get(`http://localhost:8080/api/v1/subCategory`)).data.data
+	useEffect(() => {
+		async function fetchData() {
+			let categories = (await axios.get(`${LOCAL_BASE_URL}${API_URL}/category`)).data.data;
+			let subCategories = (await axios.get(`${LOCAL_BASE_URL}${API_URL}/subCategory`)).data.data;
 			// adding new an array of subcategories for each categories
 			categories.forEach(category => {
 				category.subCategories = subCategories.filter(
 					subCategory => subCategory.category == category._id
-				)
-			})
-			// saving the new fetched categories to the state of the componenet
-			setcategories(categories)
-		} catch (error) {}
-	}, [])
+				);
+			});
+			setcategories(categories);
+		}
+		fetchData();
+		// saving the new fetched categories to the state of the componenet
+	}, []);
 
-	let { path, url } = useRouteMatch()
+	let { path, url } = useRouteMatch();
 
 	const collapseCategoriesView = () => {
-		setIsOpen(!isOpen)
-	}
+		setIsOpen(!isOpen);
+	};
 
-	const { onCategorySelect } = props
+	const { onCategorySelect } = props;
 
-	let col_1, col_2
+	let col_1, col_2;
 	if (categories.length !== 0) {
-		let center = Math.ceil(categories.length / 2)
-		col_1 = categories.slice(0, center)
-		col_2 = categories.slice(center)
+		let center = Math.ceil(categories.length / 2);
+		col_1 = categories.slice(0, center);
+		col_2 = categories.slice(center);
 	}
 
 	return (
@@ -91,19 +92,19 @@ const Categories = (props, match) => {
 					<Row className="bg-grey shadow mt-4 pb-2">
 						{col_1 && (
 							<Col lg="6" md="6" sm="6" className="pl-0">
-								{renderCategories(col_1, onCategorySelect, path)}
+								{renderCategories(col_1, onCategorySelect, url)}
 							</Col>
 						)}
 						{col_2 && (
 							<Col lg="6" md="6" sm="6" className="pr-0">
-								{renderCategories(col_2, onCategorySelect, path)}
+								{renderCategories(col_2, onCategorySelect, url)}
 							</Col>
 						)}
 					</Row>
 				</Collapse>
 			</div>
 		</>
-	)
-}
+	);
+};
 
-export default Categories
+export default Categories;
