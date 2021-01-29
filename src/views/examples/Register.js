@@ -16,8 +16,8 @@ import {
   Row,
   Col
 } from "reactstrap";
-import { Link, useHistory } from 'react-router-dom';
-import { LOCAL_BASE_URL, API_URL } from 'constatns';
+import { Link } from 'react-router-dom';
+import CONSTANTS from 'constants';
 import axios from 'axios';
 import formSerializer from 'form-serialize';
 import history from 'history-master';
@@ -42,7 +42,7 @@ class Register extends React.Component {
 
     let formValues = formSerializer(e.target, { hash: true });
     console.log(formValues);
-    let url = `${LOCAL_BASE_URL}${API_URL}/user/signup`;
+    let url = `${CONSTANTS.LOCAL_BASE_URL}${CONSTANTS.API_URL}/user/signup`;
     let requestBody = {
       user: {
         name: formValues.name,

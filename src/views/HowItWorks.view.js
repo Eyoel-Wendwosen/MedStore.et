@@ -42,7 +42,7 @@ class HowItWorks extends Component {
         return (
 
             <div className="position-relative">
-                <section className="section section-hero bg-gradient-teal section-shaped">
+                <section className="section bg-gradient-teal section-shaped">
                     {/* <div className="shape shape-style-1 ">
                                 <span className="span-150" />
                                 <span className="span-50" />
@@ -84,7 +84,7 @@ class HowItWorks extends Component {
                         this.state.content.map((c, index) => (
                             <Row className="pt-5">
                                 <Col className={`content-center pr-md-5 order-md-${index % 2 ? 2 : 1}`} md="6">
-                                    <span class=" text-teal icon-l material-icons-outlined">
+                                    <span className=" text-teal icon-l material-icons-outlined">
                                         {c.icon}
                                     </span>
                                 </Col>

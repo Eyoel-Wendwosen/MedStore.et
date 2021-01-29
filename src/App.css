@@ -203,11 +203,20 @@
 
 /* Search bar component style modification */
 
-.search-result {
+.search-bar-result {
   z-index: 100;
-  width: inherit;
+  width: 48%;
   position: absolute;
   margin-right: auto;
+}
+
+.search-result-item{
+  width: 100%;
+  
+}
+
+.search-bar-body{
+  width: auto;
 }
 
 .search-bar {
@@ -217,6 +226,10 @@
 
 .search-bar :focus {
   border: 1px solid #61dafb !important;
+}
+
+.rigth-align {
+  float: right;
 }
 
 /* Search bar component style modification */

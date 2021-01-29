@@ -17,7 +17,8 @@ class Headline extends Component {
                     <Row>
                         <Col lg="7">
                             <span>
-                                <h1 className="display-3">We Provide Consultancy, Tender &amp; Marketplace Services.</h1>
+                                <h1 className="display-3">Ethiopian Medical Equipment Marketplace &amp;
+                                 More</h1>
                             </span>
                         </Col>
                     </Row>
@@ -25,7 +26,7 @@ class Headline extends Component {
                         <Col className="header-description" xl="10" >
                             <span>
                                 <p className=" lead ">
-                                    <span className="font-weight-bold">MedStore.et</span> is an Ethiopian Medical Equipment market place/Webstore where you find a multiple-choice for your clinical needs and any medical purposes. All the thigs you find at <span className="font-weight-bold">MedStore.et</span> are dully authorized,  registered, and certified at eFDA for sales, and can be used for any clinical practices.
+                                    <span className="font-weight-bold">MedStore.et</span> is an Ethiopian medical equipment multi-service platform where you find multiple choice of products and aswell as services for your medical need.
                                 </p>
                             </span>
                         </Col>

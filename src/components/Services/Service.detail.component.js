@@ -2,8 +2,8 @@ import React from "react";
 import {
     Container,
     Row,
-    Col,
-    CardImg,
+    // Col,
+    // CardImg,
     Button
 } from 'reactstrap';
 import { Link } from 'react-router-dom';

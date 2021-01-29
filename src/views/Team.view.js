@@ -12,9 +12,10 @@ class Team extends React.Component {
                         Meet the  Team
                     </h4>
                     <p>
-                        We are a team of highly motivated young individuals with a vision to transform Ethiopias' medical equipment supply chain system. Our team consistis of individual from both thechnical background and business accumen as well.
+                        We are a team of highly motivated young individuals with a vision to transform Ethiopias' medical equipment Industry.
+                        Our team consistis of individual from both thechnical background and business expertise as well.
                     </p>
-                    
+
                 </Row>
                 <Row >
                     <Col className="mt-5 mb-5" lg="6" md="6">
@@ -101,7 +102,7 @@ class Team extends React.Component {
                             </div>
                         </div>
                     </Col>
-                   
+
                 </Row>
             </Container>
         );

@@ -1,111 +1,110 @@
-import React, { Component } from 'react';
-import {
-    Col,
-    Container,
-    Collapse,
-    Row,
-    UncontrolledCollapse
-} from 'reactstrap';
+import React, { Component, useState, useEffect } from 'react';
+import { Col, Container, Collapse, Row, UncontrolledCollapse } from 'reactstrap';
+import { Link, useRouteMatch } from 'react-router-dom';
+import axios from 'axios';
+import { LOCAL_BASE_URL, API_URL } from 'constants.js';
 
+const renderCategories = (categories, onCategorySelect, path, collapseCategoriesView) => {
+	return (
+		<ul className="list-group">
+			{categories.map(category => (
+				<li key={category.name} className="list-group-item">
+					{category.subCategories.length !== 0 ? (
+						<p className="m-0 p-0" id={`Category_${category.name.split(' ')[0]}`}>
+							<span>{category.name}</span>
+							<span className="material-icons rigth-align">
+								expand_more
+							</span>
+						</p>
+					) : (
+							<Link to={`${path}/category/${category._id}`}>
+								<span onClick={() => {onCategorySelect(category); collapseCategoriesView();}}>{category.name}</span>
+							</Link>
+						)}
+					{category.subCategories.length !== 0 && (
+						<UncontrolledCollapse toggler={`#Category_${category.name.split(' ')[0]}`}>
+							<ul className="list-group">
+								{category.subCategories.map(sub_cat => (
+									<Link to={`${path}/subCategory/${sub_cat._id}`}>
+										<li
+											onClick={() => {onCategorySelect(sub_cat); collapseCategoriesView();}}
+											key={sub_cat.name}
+											className="list-group-item">
+											<span className="text-decoration-none">{sub_cat.name}</span>
+										</li>
+									</Link>
+								))}
+							</ul>
+						</UncontrolledCollapse>
+					)}
+				</li>
+			))}
+		</ul>
+	);
+};
 
-class Categories extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isOpen: true,
-            categories: []
-        };
-    }
+const Categories = (props, match) => {
+	const [isOpen, setIsOpen] = useState(true);
+	const [categories, setcategories] = useState([]);
 
-    componentDidMount() {
-        // let { categories } = this.props;
-        // this.setState((state, props) => ({
-        //     categories: props.categories
-        // }));
-    }
+	useEffect(() => {
+		async function fetchData() {
+			let categories = (await axios.get(`${LOCAL_BASE_URL}${API_URL}/category`)).data.data;
+			let subCategories = (await axios.get(`${LOCAL_BASE_URL}${API_URL}/subCategory`)).data.data;
+			// adding new an array of subcategories for each categories
+			categories.forEach(category => {
+				category.subCategories = subCategories.filter(
+					subCategory => subCategory.category == category._id
+				);
+			});
+			setcategories(categories);
+		}
+		fetchData();
+		// saving the new fetched categories to the state of the componenet
+	}, []);
 
-    renderCategories(categories, onCategorySelect) {
-        return (
-            <ul className="list-group">
-                {categories.map((category) => (
-                    <li
-                        key={category.name} id={`Category_${category.name.split(" ")[0]}`}
-                        className="list-group-item">
-                        {category.subCategories.length !== 0 ?
-                            <span>
-                                {category.name}
-                            </span> :
-                            <span
-                                onClick={() => onCategorySelect(category)}>
-                                {category.name}
-                            </span>
-                        }
-                        {category.subCategories.length !== 0 && (
-                            <span class="material-icons ml-lg-auto">
-                                expand_more
-                            </span>
-                        )}
-                        {category.subCategories.length !== 0 &&
-                            (
-                                <UncontrolledCollapse toggler={`#Category_${category.name.split(" ")[0]}`}>
-                                    <ul className="list-group">
-                                        {category.subCategories.map(sub_cat => (
-                                            <li onClick={() => onCategorySelect(sub_cat)} key={sub_cat.name} className="list-group-item">
-                                                <span className="text-decoration-none">{sub_cat.name}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </UncontrolledCollapse>
-                            )
-                        }
-                    </li>
-                ))}
-            </ul>
-        );
-    }
+	let { path, url } = useRouteMatch();
 
-    collapseCategoriesView() {
-        this.setState(prevState => {
-            return { isOpen: !prevState.isOpen };
-        });
-    }
+	const collapseCategoriesView = () => {
+		setIsOpen(!isOpen);
+	};
 
-    render() {
-        const { categories, onCategorySelect } = this.props;
-        let col_1, col_2;
-        if (categories.length !== 0) {
-            let cent = Math.ceil(categories.length / 2);
-            col_1 = categories.slice(0, cent);
-            col_2 = categories.slice(cent);
-        }
+	const { onCategorySelect } = props;
 
+	let col_1, col_2;
+	if (categories.length !== 0) {
+		let center = Math.ceil(categories.length / 2);
+		col_1 = categories.slice(0, center);
+		col_2 = categories.slice(center);
+	}
 
-        return (
-            <>
-                <div>
-                    <h3 onClick={() => this.collapseCategoriesView()} className="display-4 d-inline text-dark p-3">
-                        Categories
-                    </h3>
-                    <span onClick={() => this.collapseCategoriesView()} className="display-4 pt-1 material-icons"> more_vert</span>
-                    <Collapse isOpen={this.state.isOpen} toggler="collapseCategories" >
-                        <Row className='bg-grey shadow mt-4 pb-2'>
-                            {col_1 && (
-                                <Col lg="6" md="6" sm="6" className="pl-0">
-                                    {this.renderCategories(col_1, onCategorySelect)}
-                                </Col>
-                            )}
-                            {col_2 && (
-                                <Col lg="6" md="6" sm="6" className="pr-0">
-                                    {this.renderCategories(col_2, onCategorySelect)}
-                                </Col>
-                            )}
-
-                        </Row>
-                    </Collapse>
-                </div>
-            </>
-        );
-    }
-}
+	return (
+		<>
+			<div>
+				<h3 onClick={() => collapseCategoriesView()} style={{ cursor: "pointer" }} className="display-4 d-inline text-dark p-3">
+					Categories {this}
+					<span onClick={() => collapseCategoriesView()} style={{ display: "initial" }} className="material-icons">
+						{' '}
+						{isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+					</span>
+				</h3>
+				<Collapse isOpen={isOpen} toggler="collapseCategories">
+					<Row className="bg-grey shadow mt-4 pb-2">
+						{col_1 && (
+							<Col lg="6" md="6" sm="6" className="pl-0">
+								{renderCategories(col_1, onCategorySelect, url, collapseCategoriesView)}
+							</Col>
+						)}
+						{col_2 && (
+							<Col lg="6" md="6" sm="6" className="pr-0">
+								{renderCategories(col_2, onCategorySelect, url, collapseCategoriesView)}
+							</Col>
+						)}
+					</Row>
+				</Collapse>
+			</div>
+		</>
+	);
+};
 
 export default Categories;

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Container, Row, } from 'reactstrap';
-import Team from 'views/Team.view'
+import Team from 'views/Team.view';
 
 class AboutUs extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             Bullets: [
-                "You can get wide range of brand New Medical Equipment. As well as you can buy and sell used medical equipment.",
-                "You can get consultancy service on purchase of Medical Equipment. And it is place where one advised how to acquire the Medical equipment according to specific need.",
-                "You can get a technical support for medical equipment which need service, including installation, maintenance, parts & accessories. ",
-                "You can get Tender Notification service, Medical equipment tenders only."
+                "You can get wide range of New as well as Used Medical Equipment. ",
+                "You can make  appointment for consultancy on ",
+                "You can get a technical support for medical equipment which need service, including installation, maintenance, parts & accessories.",
+                "You can get early breaking Tender Notification service, Medical equipment tenders only.",
             ]
         };
     }
@@ -26,10 +26,18 @@ class AboutUs extends React.Component {
                                 <h1 >
                                     About Us !
                             </h1>
-                                <p className=" col-9">
-                                    MedStore.et is a multiservice platform in Ethiopian Medical Equipment industry. Created by two young and energetic  Biomedical Engineers who saw the gap on the medical equipment supply chain, technical support and other Medical Equipment issues which finally inspired MedStore.et.
+                                <p className=" col-12">
+                                    MedStore Trading PLC is a Private limited Company  who stands to fill the gap  in Ethiopian Medical Equipment Industry by providing simple,efficient and targeted solutions on Sales,After Sales service and Utilization management of Medical Equipment. It is incorporated by two young and entrepreneurial Biomedical Engineers who are committed to leap the industry.
                             </p>
-                                <hr className="my-1" />
+
+                                <hr className="my-3" />
+                                <p>
+                                    MedStore Trading PLC owns the platform “MedStore.et” which the company uses it as a tool to deliver .
+                            </p>
+                                <p>
+                                    MedStore.et is Ethiopian Medical Equipment MultiService Platform where you find multiple choice of product and services for your Medical Needs.
+                            </p>
+                                <hr className="my-3" />
                                 <h3>
                                     MedStore.et is a place where
                             </h3>
