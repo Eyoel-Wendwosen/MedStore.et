@@ -21,24 +21,22 @@ const ProductsView = (props, match) => {
 
 	}, [categoryIdValue, categoryIdKey]);
 
-	// api/v1/category/60006761e31b22043098595f/product
 
 	const { onProductSelect, onAddToCompare } = props;
+	console.log(props.match)
 
 	return (
 		<section>
-			{/* <Row >
-		            <Col> */}
+
 			<Row>{renderProducts(products, onProductSelect, onAddToCompare, props.match.url)}</Row>
-			{/* </Col>
-		        </Row> */}
+
 			<hr className="" />
-			{/* <h3 className="pl-4">
-		            Similar Products
+			<h3 className="pl-4">
+				Similar Products
 		            </h3>
-		            <Row>
-		            {this.renderProducts(10)}
-		        </Row> */}
+			<Row>
+				{renderProducts(products, onProductSelect, onAddToCompare, props.match.url)}
+			</Row>
 		</section>
 	);
 };
@@ -57,15 +55,15 @@ const renderProducts = (products, onProductSelect, onAddToCompare, url) => {
 			md="4"
 			sm="6">
 			<Card className="card-lift shadow border-3">
-				<Link
-					to={`${url}/detail`}
+				<Link 
+					className="h-75"
+					to={`${url}/detail/${product._id}`}
 				>
 					<CardBody onClick={() => onProductSelect(product)} className="py-1 px-3">
 						<CardImg
+							width="10px"
 							className="p-1"
 							alt="Image not found"
-							// height="100vh"
-							// src={"http://localhost:8080/avatars/temini.jpg"}
 							src={`${LOCAL_BASE_URL}/${product.photo_urls[0]}`}
 							onClick={() => onProductSelect(product)}
 						/>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Container, Row, Col, Card, CardBody, Badge, CardImg } from 'reactstrap';
+import { Container, Row, Col, Card, CardBody, Badge, CardImg } from 'reactstrap';
 
 class Services extends React.Component {
     render() {
@@ -27,9 +27,12 @@ class Services extends React.Component {
                                     <Row className="content-center">
                                         <Col lg="8">
                                             <span>
-                                                <h2 className="display-3 text-white">We provide various kind of Services just for you ...</h2>
-                                                <p xl="12" className="text-white">
-                                                    <span className="font-weight-bold">MedStore.et</span> is a place where you can buy and sell medical equipment (brand new and used),  get technical support for your defective medical equipment, get a consultation to buy and manage medical equipment lifetime. In addition, <span className="font-weight-bold">MedStore.et</span> is your early home to get breaking notification service for medical tender through subscription.
+                                                <h2 className="display-3 text-white">Services We Offer</h2>
+                                                <p xl="12" style={{ textAlign: "left" }} className="text-white">
+                                                    Buy and Sell: Market place of Medical Equipment <br />
+                                                    Buy and Sell New as well as Used Medical Equipments from stock and order.<br />
+                                                    Each Equipment at Medstore.et is fully authorized, registered, and certified at eFDA-Ethiopian Food and Drug Administration.<br />
+
                                                 </p>
                                             </span>
                                         </Col>
@@ -83,13 +86,13 @@ class Services extends React.Component {
                                                         </p>
                                                         <div>
                                                             <Badge color="primary" pill className="mr-1">
-                                                                inspect
+                                                                installation
                                                             </Badge>
                                                             <Badge color="primary" pill className="mr-1">
                                                                 Repair
                                                             </Badge>
                                                             <Badge color="primary" pill className="mr-1">
-                                                                Renovate
+                                                                relocation
                                                             </Badge>
                                                         </div>
                                                         {/* <Button
@@ -200,7 +203,7 @@ class Services extends React.Component {
                                             Technical Support
                                             </h3>
                                         <p>
-                                            <span className="font-weight-bold">MedStore.et</span> is home to experienced biomedical engineers where you can get technical support for your entire medical facility or down to specific medical equipment. With quality maintenance service at its core <span className="font-weight-bold">MedStore.et</span> provides reliable spare parts supply.
+                                            <span className="font-weight-bold">MedStore.et</span> is home to experienced biomedical engineers where you can get technical support  for your medical equipment. The service includes new installation, relocation, performance and verification, Maintenance and more of medical equipment.
                                             </p>
                                         <ul className="list-unstyled mt-5">
                                             <li className="py-2">
@@ -276,8 +279,8 @@ class Services extends React.Component {
                                             Consultancy
                                         </h3>
                                         <p>
-                                            <span className="font-weight-bold">MedStore.et</span> supports and advises you while you make a medical equipment purchase, floating tender, bidding tenders, and advice on managing medical equipment on health facilities.
-                                            </p>
+                                            <span className="font-weight-bold">MedStore.et</span> is again a place where you can get early notification. Every Medical Equipment Tender in Ethiopia through subscription. You get detailed information about the tender..
+                                        </p>
                                         <ul className="list-unstyled mt-5">
                                             <li className="py-2">
                                                 <div className="d-flex align-items-center">
@@ -291,7 +294,7 @@ class Services extends React.Component {
                                                     </div>
                                                     <div>
                                                         <h6 className="mb-0">
-                                                            Carefully crafted effort
+                                                            Customer focused
                             </h6>
                                                     </div>
                                                 </div>
@@ -307,7 +310,7 @@ class Services extends React.Component {
                                                         </Badge>
                                                     </div>
                                                     <div>
-                                                        <h6 className="mb-0">Top industry experts</h6>
+                                                        <h6 className="mb-0">Towards Goal</h6>
                                                     </div>
                                                 </div>
                                             </li>
@@ -323,7 +326,7 @@ class Services extends React.Component {
                                                     </div>
                                                     <div>
                                                         <h6 className="mb-0">
-                                                            Super friendly support team
+                                                            Quality oriented
                             </h6>
                                                     </div>
                                                 </div>

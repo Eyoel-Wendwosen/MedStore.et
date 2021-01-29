@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Services from 'views/Service.view';
-import Team from 'views/Team.view';
 import Headline from 'views/Headline.view';
 import HowItWorks from 'views/HowItWorks.view';
 

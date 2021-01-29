@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import {
     Button,
     Row,
@@ -23,106 +23,65 @@ import classnames from "classnames";
 
 import axios from 'axios';
 import Rating from '@material-ui/lab/Rating';
-import CONSTANTS from 'constants';
+import { LOCAL_BASE_URL, API_URL } from 'constants.js';
 import SerializeForm from 'form-serialize';
 
 
-class ProductDetail extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            product: {
-                name: "Blood Pressure Scanner",
-                brand: "WAGGA",
-                country: "Germany",
-                rating: 5,
-                photo_urls: [
-                    {
-                        src: require("assets/img/theme/img-1-1200x1000.jpg"),
-                        altText: "",
-                        caption: "",
-                        header: ""
-                    },
-                    {
-                        src: require("assets/img/theme/img-2-1200x1000.jpg"),
-                        altText: "",
-                        caption: "",
-                        header: ""
-                    },
-                    {
-                        src: require("assets/img/theme/img-1-1200x1000.jpg"),
-                        altText: "",
-                        caption: "",
-                        header: ""
-                    },
-                    {
-                        src: require("assets/img/theme/img-2-1200x1000.jpg"),
-                        altText: "",
-                        caption: "",
-                        header: ""
-                    }
-                ],
-                tags: ["eye", "oct", "ophtalmology"],
-                description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                characteristics: [
-                    {
-                        name: "battery life",
-                        value: "5 hrs"
-                    },
-                    {
-                        name: "battery life",
-                        value: "5 hrs"
-                    }
-                ]
-            },
-            modal: false
-        };
-        this.handleRequestSubmit = this.handleRequestSubmit.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);
-    }
-    toggleModal() {
-        this.setState((prevState) => ({
-            modal: !prevState.modal
-        }));
-    }
-    componentDidMount() {
-        // const product = this.props.product;
-        // axios.get(`${LOCAL_BASE_URL}${API_URL}/product/${product._id}`)
-        //     .then(res => {
-        //         res.data.data.photo_urls.map(photo => `${LOCAL_BASE_URL}${API_URL}`.concat(photo));
-        //         this.setState({
-        //             product: res.data.data
-        //         });
-        //     });
-    }
+const ProductDetail = (props) => {
 
-    handleRequestSubmit(e) {
+    let [product, setProduct] = useState();
+
+    let [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
+
+    let productId = props.match.params.productId;
+
+    useEffect(() => {
+
+        async function fetchData() {
+            let product = (await axios.get(`${LOCAL_BASE_URL}${API_URL}/product/${productId}`)).data.data;
+            setProduct(product);
+        };
+        fetchData();
+
+    }, [productId]);
+
+    const toggleRequestModal = () => {
+        setIsRequestModalOpen(!isRequestModalOpen);
+    };
+
+    const handleRequestSubmit = (e) => {
         e.preventDefault();
         let formValues = SerializeForm(e.target, { hash: true });
-        console.log(formValues);
+        console.log({...formValues});
         let request = {
-            quantity: formValues.quantity
-        }
+            product: product._id,
+            quantity: formValues.quantity,
+            phone: formValues.phone
+        };
 
-    }
+        axios.post(`${LOCAL_BASE_URL}${API_URL}/request`, request).then(res => {
+            console.log(
+                res.data
+            );
+        });
 
-    render() {
-        const product = this.props.product;
+    };
 
-        return (
-            <>
+    return (
+        <> {
+            product ?
                 <div>
                     <section>
                         <Row className="product-detail pl-lg-9 p-4 pt-5 mt-5 mb-3 bg-grey">
                             <Col lg="4" className="mb-lg-auto">
                                 <div className="rounded shadow-lg overflow-hidden ">
-                                    <UncontrolledCarousel autoPlay={false} controls={true} indicators={true} items={this.state.product ? this.state.product.photo_urls : ""} />
+                                    {/* <UncontrolledCarousel autoPlay={false} controls={true} indicators={true} items={this.state.product ? this.state.product.photo_urls : ""} /> */}
                                     <CardImg
                                         className="p-1"
                                         alt="Image not found"
-                                    // height="100vh"
-                                    // src={"http://localhost:8080/avatars/temini.jpg"}
-                                    // src={`${LOCAL_BASE_URL}/${product.photo_urls[0]}`}
+                                        // height="100vh"
+                                        // src={"http://localhost:8080/avatars/temini.jpg"}
+                                        src={`${LOCAL_BASE_URL}/${product.photo_urls[0]}`}
                                     />
                                 </div>
                             </Col>
@@ -164,7 +123,7 @@ class ProductDetail extends Component {
                                             color="info"
                                             type="button"
                                             outline
-                                            onClick={this.toggleModal}
+                                            onClick={toggleRequestModal}
                                         >
                                             <span className="btn-inner--text">Request Information</span>
                                             <span className="btn-inner--icon mr-1">
@@ -194,12 +153,12 @@ class ProductDetail extends Component {
                                         <Row className="ml-2">
                                             <Col sm="4">
                                                 <small className="text-capitalize  font-weight-bold">
-                                                    {char.name}:
+                                                    {char[0]}:
                                             </small>
                                             </Col>
                                             <Col sm="8">
                                                 <p>
-                                                    {char.value}
+                                                    {char[1]}
                                                 </p>
                                             </Col>
                                         </Row>
@@ -229,22 +188,18 @@ class ProductDetail extends Component {
                         </div>
                     </section>
                     {/* <this.renderRequestForm /> */}
-                    <Modal size="md" isOpen={this.state.modal} toggle={this.toggleModal} >
-                        <Form onSubmit={(e) => { this.handleRequestSubmit(e); this.toggleModal(); }} >
+                    <Modal size="md" isOpen={isRequestModalOpen} toggle={toggleRequestModal} >
+                        <Form onSubmit={(e) => { handleRequestSubmit(e); toggleRequestModal(); }} >
                             <ModalBody className="p-0">
 
                                 <Col lg="" className="p-0" >
                                     <Card className="bg-gradient-secondary shadow">
                                         <CardBody className="p-lg-5">
-                                            <h4 className="mb-1">Want to know more about the {this.state.product.name}</h4>
+                                            <h4 className="mb-1">Want to know more about the {product.name}</h4>
                                             <p className="mt-0">
                                                 Let us know your questions ...
                                         </p>
-                                            <FormGroup
-                                                className={classnames("mt-5", {
-                                                    focused: this.state.nameFocused
-                                                })}
-                                            >
+                                            <FormGroup>
                                                 <InputGroup className="input-group-alternative">
                                                     <InputGroupAddon addonType="prepend">
                                                         <InputGroupText>
@@ -252,19 +207,14 @@ class ProductDetail extends Component {
                                                         </InputGroupText>
                                                     </InputGroupAddon>
                                                     <Input
+                                                        required
                                                         placeholder="Enter Your name"
                                                         type="text"
                                                         name="name"
-                                                        onFocus={e => this.setState({ nameFocused: true })}
-                                                        onBlur={e => this.setState({ nameFocused: false })}
                                                     />
                                                 </InputGroup>
                                             </FormGroup>
-                                            <FormGroup
-                                                className={classnames({
-                                                    focused: this.state.addressFocused
-                                                })}
-                                            >
+                                            <FormGroup>
                                                 <InputGroup className="input-group-alternative">
                                                     <InputGroupAddon addonType="prepend">
                                                         <InputGroupText>
@@ -272,20 +222,15 @@ class ProductDetail extends Component {
                                                         </InputGroupText>
                                                     </InputGroupAddon>
                                                     <Input
+                                                        required
                                                         placeholder="Enter your address"
                                                         name="address"
-                                                        onFocus={e => this.setState({ addressFocused: true })}
-                                                        onBlur={e => this.setState({ addressFocused: false })}
                                                     />
                                                 </InputGroup>
                                             </FormGroup>
                                             <Row>
                                                 <Col>
-                                                    <FormGroup
-                                                        className={classnames({
-                                                            focused: this.state.emailFocused
-                                                        })}
-                                                    >
+                                                    <FormGroup>
                                                         <InputGroup className="input-group-alternative">
                                                             <InputGroupAddon addonType="prepend">
                                                                 <InputGroupText>
@@ -295,18 +240,13 @@ class ProductDetail extends Component {
                                                             <Input
                                                                 placeholder="Enter your email"
                                                                 name="email"
-                                                                onFocus={e => this.setState({ emailFocused: true })}
-                                                                onBlur={e => this.setState({ emailFocused: false })}
+                                                                type="email"
                                                             />
                                                         </InputGroup>
                                                     </FormGroup>
                                                 </Col>
                                                 <Col>
-                                                    <FormGroup
-                                                        className={classnames({
-                                                            focused: this.state.phoneFocused
-                                                        })}
-                                                    >
+                                                    <FormGroup>
                                                         <InputGroup className="input-group-alternative">
                                                             <InputGroupAddon addonType="prepend">
                                                                 <InputGroupText>
@@ -315,9 +255,9 @@ class ProductDetail extends Component {
                                                             </InputGroupAddon>
                                                             <Input
                                                                 placeholder="Enter your phone"
+                                                                required
                                                                 name="phone"
-                                                                onFocus={e => this.setState({ phoneFocused: true })}
-                                                                onBlur={e => this.setState({ phoneFocused: false })}
+                                                                type="phone"
                                                             />
                                                         </InputGroup>
                                                     </FormGroup>
@@ -330,7 +270,7 @@ class ProductDetail extends Component {
                                                     className="form-control-alternative"
                                                     cols="80"
                                                     name="message"
-                                                    placeholder="Type a message (tell us more about your needs)..."
+                                                    placeholder="Do you have specific requirements (tell us more about your needs)..."
                                                     rows="4"
                                                     type="textarea"
                                                 />
@@ -363,9 +303,10 @@ class ProductDetail extends Component {
 
                     </Modal>
                 </div>
-            </>
-        );
-    }
-}
+                : "Loading..."}
+
+        </>
+    );
+};
 
 export default ProductDetail;

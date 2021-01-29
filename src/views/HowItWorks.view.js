@@ -42,7 +42,7 @@ class HowItWorks extends Component {
         return (
 
             <div className="position-relative">
-                <section className="section section-hero bg-gradient-teal section-shaped">
+                <section className="section bg-gradient-teal section-shaped">
                     {/* <div className="shape shape-style-1 ">
                                 <span className="span-150" />
                                 <span className="span-50" />

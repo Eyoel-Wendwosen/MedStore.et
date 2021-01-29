@@ -7,6 +7,7 @@ import {
     ListGroupItemHeading,
     ListGroupItemText
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
 import { LOCAL_BASE_URL, API_URL } from 'constants.js';
 
@@ -309,6 +310,7 @@ class CompareProduct extends Component {
         });
     }
     render() {
+        console.log(this.props.match)
         const { products } = this.props;
         return (
             <>
@@ -365,11 +367,16 @@ class CompareProduct extends Component {
                                     <th scope="row"></th>
                                     {products.map(c => (
                                         <td>
-                                            <Button
-                                                className="font-weight-lighter"
-                                                color="info"
-                                                type="button"
-                                                outline> View Product</Button>
+                                            <Link
+                                                to={`${this.props.match.url}/detail/${c._id}`}
+                                            >
+                                                <Button
+                                                    className="font-weight-lighter"
+                                                    color="info"
+                                                    type="button"
+                                                    outline> View Product</Button>
+                                            </Link>
+
                                         </td>
                                     ))}
                                 </tr>

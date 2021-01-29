@@ -4,7 +4,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
 import { LOCAL_BASE_URL, API_URL } from 'constants.js';
 
-const renderCategories = (categories, onCategorySelect, path) => {
+const renderCategories = (categories, onCategorySelect, path, collapseCategoriesView) => {
 	return (
 		<ul className="list-group">
 			{categories.map(category => (
@@ -18,7 +18,7 @@ const renderCategories = (categories, onCategorySelect, path) => {
 						</p>
 					) : (
 							<Link to={`${path}/category/${category._id}`}>
-								<span onClick={() => onCategorySelect(category)}>{category.name}</span>
+								<span onClick={() => {onCategorySelect(category); collapseCategoriesView();}}>{category.name}</span>
 							</Link>
 						)}
 					{category.subCategories.length !== 0 && (
@@ -27,7 +27,7 @@ const renderCategories = (categories, onCategorySelect, path) => {
 								{category.subCategories.map(sub_cat => (
 									<Link to={`${path}/subCategory/${sub_cat._id}`}>
 										<li
-											onClick={() => onCategorySelect(sub_cat)}
+											onClick={() => {onCategorySelect(sub_cat); collapseCategoriesView();}}
 											key={sub_cat.name}
 											className="list-group-item">
 											<span className="text-decoration-none">{sub_cat.name}</span>
@@ -81,23 +81,23 @@ const Categories = (props, match) => {
 	return (
 		<>
 			<div>
-				<h3 onClick={() => collapseCategoriesView()} className="display-4 d-inline text-dark p-3">
+				<h3 onClick={() => collapseCategoriesView()} style={{ cursor: "pointer" }} className="display-4 d-inline text-dark p-3">
 					Categories {this}
+					<span onClick={() => collapseCategoriesView()} style={{ display: "initial" }} className="material-icons">
+						{' '}
+						{isOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+					</span>
 				</h3>
-				<span onClick={() => collapseCategoriesView()} className="display-4 pt-1 material-icons">
-					{' '}
-					more_vert
-				</span>
 				<Collapse isOpen={isOpen} toggler="collapseCategories">
 					<Row className="bg-grey shadow mt-4 pb-2">
 						{col_1 && (
 							<Col lg="6" md="6" sm="6" className="pl-0">
-								{renderCategories(col_1, onCategorySelect, url)}
+								{renderCategories(col_1, onCategorySelect, url, collapseCategoriesView)}
 							</Col>
 						)}
 						{col_2 && (
 							<Col lg="6" md="6" sm="6" className="pr-0">
-								{renderCategories(col_2, onCategorySelect, url)}
+								{renderCategories(col_2, onCategorySelect, url, collapseCategoriesView)}
 							</Col>
 						)}
 					</Row>

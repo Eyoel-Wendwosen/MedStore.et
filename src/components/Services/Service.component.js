@@ -5,7 +5,7 @@ import {
     CardBody,
     Button,
     Row,
-    CardImg
+    // CardImg
 } from "reactstrap";
 import { Link, Route } from 'react-router-dom';
 
