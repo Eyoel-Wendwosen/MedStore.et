@@ -1,45 +1,70 @@
-import React, { Component, useEffect, useState } from 'react';
-import { Row, Col, Card, CardBody, CardImg, CardTitle, CardLink } from 'reactstrap';
-import axios from 'axios';
-import { LOCAL_BASE_URL, API_URL } from 'constants.js';
-import { useParams, Link } from 'react-router-dom';
+import React, { Component, useEffect, useState } from 'react'
+import { Row, Col, Card, CardBody, CardImg, CardTitle, CardLink } from 'reactstrap'
+import axios from 'axios'
+import { LOCAL_BASE_URL, API_URL } from 'constants.js'
+import { useParams, Link } from 'react-router-dom'
 
 const ProductsView = (props, match) => {
-	const [products, setProducts] = useState([]);
-	const categoryIdKey = Object.keys(props.match.params)[0];
-	const categoryIdValue = Object.values(props.match.params)[0];
+	const [products, setProducts] = useState([])
+	let isAllProduct = props.match.path.includes('usedProducts') // used to check if all product is required
+	let isAccesories = props.match.path.includes('accessories') // used to check if all product is required
+	const categoryIdKey = Object.keys(props.match.params)[0]
+	const categoryIdValue = Object.values(props.match.params)[0]
 
 	useEffect(() => {
-		let ignore = false;
+		let ignore = false
 		async function fetchData() {
-			const result = await axios(`${LOCAL_BASE_URL}${API_URL}/${categoryIdKey}/${categoryIdValue}/product`);
-			if (!ignore) setProducts(result.data.data);
+			const result = await axios(
+				`${LOCAL_BASE_URL}${API_URL}/${categoryIdKey}/${categoryIdValue}/product`
+			)
+			if (!ignore) setProducts(result.data.data)
+		}
+		async function fetchUsedProducts() {
+			console.log('Fetching usedProducts')
+			const result = await axios(`${LOCAL_BASE_URL}${API_URL}/product?condition=used`)
+			if (!ignore) setProducts(result.data.data)
+		}
+		async function fetchaccessories() {
+			console.log('Fetching accessories')
+			// getting accessories category id
+			const accesoryCategory = (
+				await axios(
+					`${LOCAL_BASE_URL}${API_URL}/category?name=accessory&name=Accessory&name=accessories&name=Accessories`
+				)
+			).data.data
+			console.log(accesoryCategory)
+
+			if (accesoryCategory.length !== 0) {
+				const accesoryCategoryID = accesoryCategory[0]._id
+				const result = await axios(
+					`${LOCAL_BASE_URL}${API_URL}/category/${accesoryCategoryID}/product`
+				)
+				if (!ignore) setProducts(result.data.data)
+			}
 		}
 
-		fetchData();
-		return () => { ignore = true; };
+		if (isAllProduct) fetchUsedProducts()
+		else if (isAccesories) fetchaccessories()
+		else fetchData()
 
-	}, [categoryIdValue, categoryIdKey]);
+		return () => {
+			ignore = true
+		}
+	}, [categoryIdValue, categoryIdKey])
 
-
-	const { onProductSelect, onAddToCompare } = props;
+	const { onProductSelect, onAddToCompare } = props
 	console.log(props.match)
 
 	return (
 		<section>
-
 			<Row>{renderProducts(products, onProductSelect, onAddToCompare, props.match.url)}</Row>
 
 			<hr className="" />
-			<h3 className="pl-4">
-				Similar Products
-		            </h3>
-			<Row>
-				{renderProducts(products, onProductSelect, onAddToCompare, props.match.url)}
-			</Row>
+			<h3 className="pl-4">Similar Products</h3>
+			<Row>{renderProducts(products, onProductSelect, onAddToCompare, props.match.url)}</Row>
 		</section>
-	);
-};
+	)
+}
 const renderProducts = (products, onProductSelect, onAddToCompare, url) => {
 	let productRender = products.map(product => (
 		<Col
@@ -55,13 +80,11 @@ const renderProducts = (products, onProductSelect, onAddToCompare, url) => {
 			md="4"
 			sm="6">
 			<Card className="card-lift shadow border-3">
-				<Link 
-					className="h-75"
-					to={`${url}/detail/${product._id}`}
-				>
+				<Link className="h-75" to={`${url}/detail/${product._id}`}>
 					<CardBody onClick={() => onProductSelect(product)} className="py-1 px-3">
 						<CardImg
-							width="10px"
+							width="250px"
+							height="250px"
 							className="p-1"
 							alt="Image not found"
 							src={`${LOCAL_BASE_URL}/${product.photo_urls[0]}`}
@@ -70,7 +93,7 @@ const renderProducts = (products, onProductSelect, onAddToCompare, url) => {
 						<CardTitle tag="h4" className="ml-1 my-0 mt-2 bg-grey">
 							{product.name}
 						</CardTitle>
-						<p className="font-weight-lighter text-dark">{/* {product.description} */}</p>
+						<p className="font-weight-lighter text-dark">{product.description}</p>
 						<p>{product.brand}.</p>
 					</CardBody>
 				</Link>
@@ -78,7 +101,7 @@ const renderProducts = (products, onProductSelect, onAddToCompare, url) => {
 					<CardLink
 						style={{ cursor: 'pointer' }}
 						onClick={() => {
-							onAddToCompare(product);
+							onAddToCompare(product)
 						}}>
 						<span className="material-icons">compare_arrows</span>
 					</CardLink>
@@ -88,7 +111,7 @@ const renderProducts = (products, onProductSelect, onAddToCompare, url) => {
                         </CardLink> */}
 			</Card>
 		</Col>
-	));
-	return productRender;
-};
-export default ProductsView;
+	))
+	return productRender
+}
+export default ProductsView
