@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, InputGroup, Input } from 'reactstrap'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { API_URL, LOCAL_BASE_URL } from '../../constants'
 
 class SearchBar extends Component {
 	constructor(props) {
@@ -33,15 +34,13 @@ class SearchBar extends Component {
 			})
 		}
 		let query = { keys: [term] }
-		axios
-			.post(`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_URL}/search`, query)
-			.then(res => {
-				let matches = res.data.data
-				console.log(matches)
-				this.setState({
-					result: res.data.data,
-				})
+		axios.post(`${LOCAL_BASE_URL}${API_URL}/search`, query).then(res => {
+			let matches = res.data.data
+			console.log(matches)
+			this.setState({
+				result: res.data.data,
 			})
+		})
 	}
 
 	handelClick() {

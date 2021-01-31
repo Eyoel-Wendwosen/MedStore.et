@@ -1,6 +1,7 @@
 import React from 'react'
 // reactstrap components
 import { Button, NavItem, NavLink, Nav, Container, Row, Col, UncontrolledTooltip } from 'reactstrap'
+import { API_URL, LOCAL_BASE_URL } from '../../constants'
 
 class SimpleFooter extends React.Component {
 	render() {

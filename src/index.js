@@ -9,16 +9,6 @@ import './assets/vendor/font-awesome/css/font-awesome.min.css'
 import './assets/css/argon-design-system-react.css'
 import * as serviceWorker from './serviceWorker'
 
-console.log('REACT_APP_BASE_URL')
-console.log(process.env.REACT_APP_BASE_URL)
-console.log('BASE_URL')
-console.log(process.env.BASE_URL)
-
-console.log('REACT_APP_API_URL')
-console.log(process.env.REACT_APP_API_URL)
-console.log('API_URL')
-console.log(process.env.API_URL)
-
 ReactDOM.render(<App />, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change

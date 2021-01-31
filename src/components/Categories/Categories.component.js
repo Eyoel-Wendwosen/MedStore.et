@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react'
 import { Col, Container, Collapse, Row, UncontrolledCollapse } from 'reactstrap'
 import { Link, useRouteMatch } from 'react-router-dom'
 import axios from 'axios'
+import { LOCAL_BASE_URL, API_URL } from 'constants.js'
 
 const renderCategories = (categories, onCategorySelect, path, collapseCategoriesView) => {
 	return (
@@ -55,16 +56,8 @@ const Categories = (props, match) => {
 
 	useEffect(() => {
 		async function fetchData() {
-			let categories = (
-				await axios.get(
-					`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_URL}/category`
-				)
-			).data.data
-			let subCategories = (
-				await axios.get(
-					`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_URL}/subCategory`
-				)
-			).data.data
+			let categories = (await axios.get(`${LOCAL_BASE_URL}${API_URL}/category`)).data.data
+			let subCategories = (await axios.get(`${LOCAL_BASE_URL}${API_URL}/subCategory`)).data.data
 			// adding new an array of subcategories for each categories
 			categories.forEach(category => {
 				category.subCategories = subCategories.filter(

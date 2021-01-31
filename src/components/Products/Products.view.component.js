@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useState } from 'react'
 import { Row, Col, Card, CardBody, CardImg, CardTitle, CardLink } from 'reactstrap'
 import axios from 'axios'
+import { LOCAL_BASE_URL, API_URL } from 'constants.js'
 import { useParams, Link } from 'react-router-dom'
 
 const ProductsView = (props, match) => {
@@ -14,15 +15,13 @@ const ProductsView = (props, match) => {
 		let ignore = false
 		async function fetchData() {
 			const result = await axios(
-				`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_URL}/${categoryIdKey}/${categoryIdValue}/product`
+				`${LOCAL_BASE_URL}${API_URL}/${categoryIdKey}/${categoryIdValue}/product`
 			)
 			if (!ignore) setProducts(result.data.data)
 		}
 		async function fetchUsedProducts() {
 			console.log('Fetching usedProducts')
-			const result = await axios(
-				`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_URL}/product?condition=used`
-			)
+			const result = await axios(`${LOCAL_BASE_URL}${API_URL}/product?condition=used`)
 			if (!ignore) setProducts(result.data.data)
 		}
 		async function fetchaccessories() {
@@ -30,7 +29,7 @@ const ProductsView = (props, match) => {
 			// getting accessories category id
 			const accesoryCategory = (
 				await axios(
-					`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_URL}/category?name=accessory&name=Accessory&name=accessories&name=Accessories`
+					`${LOCAL_BASE_URL}${API_URL}/category?name=accessory&name=Accessory&name=accessories&name=Accessories`
 				)
 			).data.data
 			console.log(accesoryCategory)
@@ -38,7 +37,7 @@ const ProductsView = (props, match) => {
 			if (accesoryCategory.length !== 0) {
 				const accesoryCategoryID = accesoryCategory[0]._id
 				const result = await axios(
-					`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_URL}/category/${accesoryCategoryID}/product`
+					`${LOCAL_BASE_URL}${API_URL}/category/${accesoryCategoryID}/product`
 				)
 				if (!ignore) setProducts(result.data.data)
 			}
@@ -88,7 +87,7 @@ const renderProducts = (products, onProductSelect, onAddToCompare, url) => {
 							height="250px"
 							className="p-1"
 							alt="Image not found"
-							src={`${process.env.REACT_APP_BASE_URL}/${product.photo_urls[0]}`}
+							src={`${LOCAL_BASE_URL}/${product.photo_urls[0]}`}
 							onClick={() => onProductSelect(product)}
 						/>
 						<CardTitle tag="h4" className="ml-1 my-0 mt-2 bg-grey">
