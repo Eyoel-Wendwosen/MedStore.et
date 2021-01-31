@@ -23,7 +23,6 @@ import classnames from 'classnames'
 
 import axios from 'axios'
 import Rating from '@material-ui/lab/Rating'
-import { LOCAL_BASE_URL, API_URL } from 'constants.js'
 import SerializeForm from 'form-serialize'
 
 const ProductDetail = props => {
@@ -36,13 +35,17 @@ const ProductDetail = props => {
 
 	useEffect(() => {
 		async function fetchData() {
-			let product = (await axios.get(`${LOCAL_BASE_URL}${API_URL}/product/${productId}`)).data.data
+			let product = (
+				await axios.get(
+					`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_URL}/product/${productId}`
+				)
+			).data.data
 			setProduct(product)
 			console.log('product')
 			console.log(product)
 			slideItems = product.photo_urls.map(photo => {
 				return {
-					src: `${LOCAL_BASE_URL}/${photo}`,
+					src: `${process.env.REACT_APP_BASE_URL}/${photo}`,
 				}
 			})
 			setSlideItems(slideItems)
@@ -69,9 +72,11 @@ const ProductDetail = props => {
 			address: formValues.address,
 		}
 
-		axios.post(`${LOCAL_BASE_URL}${API_URL}/request`, request).then(res => {
-			console.log(res.data)
-		})
+		axios
+			.post(`${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_URL}/request`, request)
+			.then(res => {
+				console.log(res.data)
+			})
 	}
 
 	return (
