@@ -38,7 +38,6 @@ class Register extends React.Component {
 		e.preventDefault()
 
 		let formValues = formSerializer(e.target, { hash: true })
-		console.log(formValues)
 		let url = `${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_API_URL}/user/signup`
 		let requestBody = {
 			user: {

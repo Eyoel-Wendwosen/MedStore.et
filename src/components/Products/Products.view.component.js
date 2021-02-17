@@ -14,25 +14,23 @@ const ProductsView = (props, match) => {
 	useEffect(() => {
 		let ignore = false
 		async function fetchData() {
-			const result = await axios(
-				`${LOCAL_BASE_URL}${API_URL}/${categoryIdKey}/${categoryIdValue}/product`
-			)
-			if (!ignore) setProducts(result.data.data)
+			let products = (
+				await axios(`${LOCAL_BASE_URL}${API_URL}/${categoryIdKey}/${categoryIdValue}/product`)
+			).data.data
+			products.forEach(product => (product.photo_urls = product.photo_urls.split(';')))
+			if (!ignore) setProducts(products)
 		}
 		async function fetchUsedProducts() {
-			console.log('Fetching usedProducts')
 			const result = await axios(`${LOCAL_BASE_URL}${API_URL}/product?condition=used`)
 			if (!ignore) setProducts(result.data.data)
 		}
 		async function fetchaccessories() {
-			console.log('Fetching accessories')
 			// getting accessories category id
 			const accesoryCategory = (
 				await axios(
 					`${LOCAL_BASE_URL}${API_URL}/category?name=accessory&name=Accessory&name=accessories&name=Accessories`
 				)
 			).data.data
-			console.log(accesoryCategory)
 
 			if (accesoryCategory.length !== 0) {
 				const accesoryCategoryID = accesoryCategory[0]._id
@@ -53,7 +51,6 @@ const ProductsView = (props, match) => {
 	}, [categoryIdValue, categoryIdKey])
 
 	const { onProductSelect, onAddToCompare } = props
-	console.log(props.match)
 
 	return (
 		<section>
@@ -87,7 +84,7 @@ const renderProducts = (products, onProductSelect, onAddToCompare, url) => {
 							height="250px"
 							className="p-1"
 							alt="Image not found"
-							src={`${LOCAL_BASE_URL}/${product.photo_urls[0]}`}
+							src={`${LOCAL_BASE_URL}${API_URL}/${product.photo_urls[0]}`}
 							onClick={() => onProductSelect(product)}
 						/>
 						<CardTitle tag="h4" className="ml-1 my-0 mt-2 bg-grey">

@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react'
 import { Col, Container, Collapse, Row, UncontrolledCollapse } from 'reactstrap'
 import { Link, useRouteMatch } from 'react-router-dom'
 import axios from 'axios'
-import { LOCAL_BASE_URL, API_URL } from 'constants.js'
+import { LOCAL_BASE_URL, API_URL } from './../../constants'
 
 const renderCategories = (categories, onCategorySelect, path, collapseCategoriesView) => {
 	return (

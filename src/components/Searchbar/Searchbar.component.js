@@ -23,12 +23,11 @@ class SearchBar extends Component {
 	}
 
 	updateQuery(term) {
-		console.log(term)
 		// this.setState(prevState => ({
 		// 	query: term,
 		// 	result: prevState.result.concat([term]),
 		// }))
-		if (this.state.query === '') {
+		if (this.state.query.trim() === '') {
 			this.setState({
 				result: [],
 			})
@@ -36,7 +35,6 @@ class SearchBar extends Component {
 		let query = { keys: [term] }
 		axios.post(`${LOCAL_BASE_URL}${API_URL}/search`, query).then(res => {
 			let matches = res.data.data
-			console.log(matches)
 			this.setState({
 				result: res.data.data,
 			})

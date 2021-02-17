@@ -37,16 +37,18 @@ const ProductDetail = props => {
 	useEffect(() => {
 		async function fetchData() {
 			let product = (await axios.get(`${LOCAL_BASE_URL}${API_URL}/product/${productId}`)).data.data
-			setProduct(product)
-			console.log('product')
-			console.log(product)
+			product.characteristics
+				? (product.characteristics = product.characteristics.split(';'))
+				: (product.characteristics = [])
+
+			product.photo_urls = product.photo_urls.split(';')
 			slideItems = product.photo_urls.map(photo => {
 				return {
-					src: `${LOCAL_BASE_URL}/${photo}`,
+					src: `${LOCAL_BASE_URL}${API_URL}/${photo}`,
 				}
 			})
+			setProduct(product)
 			setSlideItems(slideItems)
-			console.log(slideItems)
 		}
 		fetchData()
 	}, [productId])
@@ -58,7 +60,6 @@ const ProductDetail = props => {
 	const handleRequestSubmit = e => {
 		e.preventDefault()
 		let formValues = SerializeForm(e.target, { hash: true })
-		console.log({ ...formValues })
 		let request = {
 			product: product._id,
 			name: formValues.name,
@@ -68,10 +69,8 @@ const ProductDetail = props => {
 			message: formValues.message,
 			address: formValues.address,
 		}
-
-		axios.post(`${LOCAL_BASE_URL}${API_URL}/request`, request).then(res => {
-			console.log(res.data)
-		})
+		console.log(request)
+		axios.post(`${LOCAL_BASE_URL}${API_URL}/request`, request).then(res => {})
 	}
 
 	return (
@@ -93,7 +92,7 @@ const ProductDetail = props => {
 								</Row>
 								<Row>
 									<span className="material-icons mt-1">local_offer</span>
-									{product ? product.tags.map(tag => <span className="pl-1">{tag} </span>) : ''}
+									{product ? <span className="pl-1">{product.tags} </span> : ''}
 								</Row>
 								<Col>
 									<Rating name="read-only" value={product ? product.rating : ''} readOnly />

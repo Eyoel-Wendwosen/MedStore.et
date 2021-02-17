@@ -317,7 +317,6 @@ class CompareProduct extends Component {
 		})
 	}
 	render() {
-		console.log(this.props.match)
 		const { products } = this.props
 		return (
 			<>
