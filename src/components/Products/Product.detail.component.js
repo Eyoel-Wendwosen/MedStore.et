@@ -18,6 +18,7 @@ import {
 	ModalFooter,
 	ModalHeader,
 	UncontrolledCarousel,
+	Badge,
 } from 'reactstrap'
 import classnames from 'classnames'
 
@@ -29,6 +30,8 @@ import SerializeForm from 'form-serialize'
 const ProductDetail = props => {
 	let [product, setProduct] = useState()
 	let [slideItems, setSlideItems] = useState([])
+	let [initializingRequest, setInitializingRequest] = useState(false)
+	let [requestCreated, setRequestCreated] = useState(false)
 
 	let [isRequestModalOpen, setIsRequestModalOpen] = useState(false)
 
@@ -59,6 +62,8 @@ const ProductDetail = props => {
 
 	const handleRequestSubmit = e => {
 		e.preventDefault()
+		setInitializingRequest(true)
+		setRequestCreated(false)
 		let formValues = SerializeForm(e.target, { hash: true })
 		let request = {
 			product: product._id,
@@ -69,8 +74,20 @@ const ProductDetail = props => {
 			message: formValues.message,
 			address: formValues.address,
 		}
-		console.log(request)
-		axios.post(`${LOCAL_BASE_URL}${API_URL}/request`, request).then(res => {})
+
+		axios
+			.post(`${LOCAL_BASE_URL}${API_URL}/request`, request)
+			.then(res => {
+				setRequestCreated(true)
+				setInitializingRequest(false)
+				setTimeout(() => {
+					toggleRequestModal()
+				}, 1500)
+			})
+			.catch(() => {
+				setRequestCreated(true)
+				setInitializingRequest(true)
+			})
 	}
 
 	return (
@@ -178,7 +195,6 @@ const ProductDetail = props => {
 						<Form
 							onSubmit={e => {
 								handleRequestSubmit(e)
-								toggleRequestModal()
 							}}>
 							<ModalBody className="p-0">
 								<Col lg="" className="p-0">
@@ -250,13 +266,22 @@ const ProductDetail = props => {
 											</FormGroup>
 											<FormGroup className="mb-4">
 												<h6>Quality</h6>
-												<Input type="number" name="quantity" id="exampleSelect" placeholder="12" />
+												<Input type="number" name="quantity" id="exampleSelect" placeholder="1" />
 											</FormGroup>
 											<div>
 												<Button block className="btn-round" color="default" size="lg" type="submit">
 													Send Message
 												</Button>
 											</div>
+											{initializingRequest && !requestCreated && (
+												<Badge color="danger">Requesting...</Badge>
+											)}
+											{!initializingRequest && requestCreated && (
+												<Badge color="primary">Request Sent</Badge>
+											)}
+											{initializingRequest && requestCreated && (
+												<Badge color="danger">Sending request failed try again</Badge>
+											)}
 										</CardBody>
 									</Card>
 								</Col>

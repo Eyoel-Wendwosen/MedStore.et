@@ -29,7 +29,8 @@ class Services extends React.Component {
 											<span>
 												<h2 className="display-3 text-white">Services We Offer</h2>
 												<p xl="12" style={{ textAlign: 'left' }} className="text-white">
-													Buy and Sell: Market place of Medical Equipment <br />
+													<span style={{ fontSize: 25 }}>Buy and Sell:</span> Market place of
+													Medical Equipment <br />
 													Buy and Sell New as well as Used Medical Equipments from stock and order.
 													<br />
 													Each Equipment at Medstore.et is fully authorized, registered, and
@@ -263,9 +264,9 @@ class Services extends React.Component {
 									<Col md="6">
 										<h3>Consultancy</h3>
 										<p>
-											<span className="font-weight-bold">MedStore.et</span> is again a place where
-											you can get early notification. Every Medical Equipment Tender in Ethiopia
-											through subscription. You get detailed information about the tender..
+											<span className="font-weight-bold">MedStore.et</span> supports and advises you
+											while you make a medical equipment purchase, floating tender, bidding tenders,
+											and advice on managing medical equipment on health facilities
 										</p>
 										<ul className="list-unstyled mt-5">
 											<li className="py-2">
@@ -328,7 +329,8 @@ class Services extends React.Component {
 											<h3 className="text-white">Tenders notification</h3>
 											<p className="text-white">
 												MedStore.et is again a place where you can get early notification on any
-												Medical Tender in Ethiopia through subscription.
+												Medical Tender in Ethiopia through subscription.You get detailed information
+												about the tender.
 											</p>
 											<ul className="list-unstyled mt-5 te">
 												<li className="py-2 te">

@@ -18,38 +18,55 @@ class Service extends Component {
 		this.state = {
 			services: [
 				{
-					title: 'E-commerce',
+					title_long: 'Buy and Sell Medical Equipment',
+					title: 'Buy and Sell',
 					description:
-						'Medstore.et is a place where you can find eFDA Registered medical equipment in Ethiopia both in stock and also a place where you can find used medical equipment.',
+						'Medstore.et is a place where you can find eFDA Registered medical equipment in Ethiopia both in stock and order. Also a place where you can find used medical equipment.',
 					bullets: [
-						'Various Type,Brand and price ,giving you the luxury of choice',
-						'Save energy and time searching for the right product as per requirement',
-						'Short delivery time',
+						'Buy with luxury :- wide range by type, category ,and Brand ',
+						'Save your time and energy :- search, refine, compare and contrast ,select ,then decide',
 					],
 
 					img_src: 'assets/img/theme/CT2.jpg',
 					link: '',
 				},
 				{
-					title: 'Technical Support',
+					title_long: 'Technical Suppport',
+					title: 'Technical Suppport',
 					description:
-						'MedStore.et is home to experienced biomedical engineers where you can get technical support for your entire medical facility',
-					bullets: ['', '', ''],
+						'MedStore.et is home to experience and licensed biomedical engineers where you can get technical support for your medical Equipment',
+					bullets: [
+						'New Installation of Medical Equipment',
+						'Relocation of Medical Equipment',
+						'Performance and verification of Medical Equipment',
+						'Calibration of Medical Equipment',
+						'Preventive and Curative  Maintenance',
+					],
 					img_src: 'assets/img/ill/Technical Suppot.png',
 					link: '',
 				},
 				{
+					title_long: 'Consultancy',
 					title: 'Consultancy',
 					description:
-						'MedStore.et supports and advises you while you make a medical equipment purchase, and advice on managing medical equipment on health facilities.',
-					bullets: ['Customer focused', 'Towards Goal', 'Quality oriented'],
+						'At MedStore.et you get consultation on different aspect of Medical Equipment Industry Depending on customer type medstore provides two catagory of consultancy.',
+					bullets: [
+						'Prepare need assessment',
+						'Advise on  Procurement process',
+						'Preparing specification  of Medical Equipment for bid document',
+						'Advise on proper utilization or management of Medical Equipment',
+						'Registering products at eFDA',
+						'Assist/advice on Bid preparation',
+						'Connect with potential manufacturers',
+					],
 					img_src: 'assets/img/ill/Consultancy.png',
 					link: '',
 				},
 				{
+					title_long: 'Tender',
 					title: 'Tender',
 					description:
-						'At MedStore.et searching for tender is easy, you can find floating tender, biding tenders, and hot deals through our MedStore.et premium subscription.',
+						'At MedStore.et subscribers get breaking Notification of Medical Equipment Tenders. Tenders floated by public as well as private institutions around the whole country. So that subscribers could act upon it swiftly.',
 					bullets: [
 						'Early Notification',
 						'Detailed content',

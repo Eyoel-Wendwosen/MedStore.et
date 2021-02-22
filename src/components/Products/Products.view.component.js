@@ -6,14 +6,15 @@ import { useParams, Link } from 'react-router-dom'
 
 const ProductsView = (props, match) => {
 	const [products, setProducts] = useState([])
-	let isAllProduct = props.match.path.includes('usedProducts') // used to check if all product is required
+	let isUsedProduct = props.match.path.includes('usedProducts') // used to check if all product is required
 	let isAccesories = props.match.path.includes('accessories') // used to check if all product is required
 	const categoryIdKey = Object.keys(props.match.params)[0]
 	const categoryIdValue = Object.values(props.match.params)[0]
-
+	console.log(categoryIdKey)
 	useEffect(() => {
 		let ignore = false
 		async function fetchData() {
+			console.log(`${LOCAL_BASE_URL}${API_URL}/${categoryIdKey}/${categoryIdValue}/product`)
 			let products = (
 				await axios(`${LOCAL_BASE_URL}${API_URL}/${categoryIdKey}/${categoryIdValue}/product`)
 			).data.data
@@ -41,7 +42,7 @@ const ProductsView = (props, match) => {
 			}
 		}
 
-		if (isAllProduct) fetchUsedProducts()
+		if (isUsedProduct) fetchUsedProducts()
 		else if (isAccesories) fetchaccessories()
 		else fetchData()
 
