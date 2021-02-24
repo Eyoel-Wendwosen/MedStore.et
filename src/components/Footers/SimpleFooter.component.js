@@ -52,12 +52,12 @@ class SimpleFooter extends React.Component {
 								<h5 className="text-white">Quick Links</h5>
 								<Nav className=" nav-footer flex-column ">
 									<NavItem>
-										<NavLink href="/product/usedProducts" className="py-1">
+										<NavLink href="/product/category/a3824cca-1b04-4f57-9892-1ffff5a5b233" className="py-1">
 											<span className="text-white">Used Products </span>
 										</NavLink>
 									</NavItem>
 									<NavItem>
-										<NavLink href="/product/accessories" className="py-1">
+										<NavLink href="/product/category/ca0fa3f9-e966-4ce4-8ebc-abf0033bcce5" className="py-1">
 											<span className="text-white">Accessories</span>
 										</NavLink>
 									</NavItem>
@@ -160,8 +160,8 @@ class SimpleFooter extends React.Component {
 										<NavLink href="/about-us">About Us</NavLink>
 									</NavItem>
 									<NavItem>
-										<NavLink href="https://github.com/creativetimofficial/argon-design-system-react/blob/master/LICENSE.md">
-											MIT License
+										<NavLink href="/contact-us">
+											Contact Us
 										</NavLink>
 									</NavItem>
 								</Nav>
